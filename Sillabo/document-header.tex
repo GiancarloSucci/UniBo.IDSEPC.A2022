@@ -1,0 +1,27 @@
+%---------------------------------------------------------------------
+%-- The following produces the document header including the title.  |
+%---------------------------------------------------------------------
+\begin{tabular}{p{30mm}|p{110mm}}
+\includegraphics[width=2.5cm,valign=T]{unibo-logo.png} & 
+\vspace{0pt} \textsc{\college} \newline
+\textsc{Dipartimento di Scienze Politiche e Sociali} \newline
+\textsc{Dipartimento di Informatica -- Scienza e Ingegneria} \\
+\end{tabular}
+\noindent % <-- need to have this first.
+\hfill	
+{
+%- Here we insert the course info: that is, the course number and title.    
+	\centering
+	\vspace{.2cm}
+	\customhrule{0.5pt}
+	{\scshape 
+		\Large \coursetitle {}
+		 \\
+		\small\textsc{\semester}\par}
+	\vspace{.3cm}
+		{\Large \textsc{\doctitle}\par}
+		
+    \vspace{.3cm}
+		{\textsc{Sito: } \sitoweb \par}
+}
+\vspace{0.9cm}

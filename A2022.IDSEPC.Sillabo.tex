@@ -1,0 +1,251 @@
+% !TeX encoding = UTF-8
+% !TeX spellcheck = en_US
+\documentclass[11pt, a4paper]{article}
+\usepackage{graphicx} 
+\usepackage[export]{adjustbox}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry} 
+\usepackage{array, booktabs, longtable}
+\usepackage{url}
+\usepackage{xparse}
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+% The title of the current document to be produced.
+\NewDocumentCommand{\doctitle}{}{Sillabo del Corso}
+\NewDocumentCommand{\materialedidattico}{o}{%
+    \IfNoValueTF{#1}
+        {\redtext{\textbf{Materiale didattico~}}}
+        {\redtext{\textbf{Materiale didattico:~} #1}}}
+\NewDocumentCommand{\argomento}{o}{%
+    \IfNoValueTF{#1}
+        {\bluetext{\textbf{Argomento~}}}
+        {\bluetext{\textbf{Argomento:~} #1}}}
+
+%
+\setlength{\unitlength}{1in}
+\renewcommand{\arraystretch}{2}
+
+%------------------------------------------------------------
+% Import commands for both teacher and course information.  | 
+% NOTE: Change your teacher and course info in these files. |
+%------>------>------>------>------>------>------>------>-->|
+\input{Sillabo/teacher-info}                              %|
+\input{Sillabo/course-info}                               %|   
+%
+%------------------------------------------------------------
+%-- Import packages and custom command definitons.          |
+%------>------>------>------>------>------>------>------>-->|
+\input{Sillabo/packages-imports}                          %|  
+\input{Sillabo/custom-commands}   
+%
+%---> Genereate & inject metadata                           |
+\input{Sillabo/hyperef.doc.info}                          %|
+%------------------------------------------------------------
+
+\topmargin -70pt
+\begin{document} 
+
+%-------------------------------------------------------------
+%-- Make the header of the document                          |
+%------>------>------>------>------>------>------>------>--> |
+\input{Sillabo/document-header}
+  
+%-------------------------------------------------------------
+%-- Insert the course & teacher info                         |
+%------>------>------>------>------>------>------>------>--> |
+\hrule     
+\vspace{.5cm}
+\begin{multicols}{1}
+    \begin{description}[labelindent=0.02in,leftmargin=1.25in,style=nextline]
+        %--> First column:         
+        \item[\textsc{Docente}:] \instructor
+        \item[\textsc{Telefono}:]\phone
+        \item[\textsc{E-mail}:] \email
+        \item[\textsc{Ricevimento}:] \hours
+        \item[\textsc{Studio}:]  {\color{darkred}\office}
+
+        \item[\textsc{Impegno}:] \raggedright\ponderation
+        \item[\textsc{Prerequisiti}:] \prerequisite
+        \item[\textsc{LM}:] \csection
+        %--> Second column:         
+        \item[] 
+    \end{description}
+\end{multicols}
+\hrule        
+\vspace{.2cm}
+
+ %--------  Course Description  ------------------------------
+\customsection{Descrizione del corso}  
+\noindent
+Il corso di pone l'obiettivo di fornire a studenti senza una precedente formazione informatica le basi relative alla scienza dei dati e al pensiero computazionale per le successive elaborazoni nel corso di laurea magistrale in Governance e politiche dell'innovazione digitale.
+
+Dapprima il corso presenta una carrellata dei principali componenti di sistemi digitali, con costante riferimento al pensiero computazionale. Quindi si occupa di definire come questi sistemi digitali possano essere costruiti ed elaborati utilizzando anche modelli di produzione lean, agili, e basati sui concetti di conoscenza distribuita. A questo punto il corso approfondisce le tematiche della scienza dei dati con una particolare attenzione alla analisi dei testi, come paradigma dell'estrazione di informazioni. Infine nel corso si utilizzer\`{a} uno strumento di produzione di documenti chiamato LaTeX che faciliter\`{a} l'apprendimento dei concetti menzionati.
+
+\customsection{Obiettivi formativi} 
+
+\begin{borderedsquare}
+     \setlength\itemsep{0.3em}        
+	\item Definire una base solida omogenea della struttura del processo computazionale.
+	\item Strutturare il concetto di programmazione e di linguaggio di programmazione.
+	\item Elaborare il concetto di trasformazione digitale.
+	\item Evidenziare il concetto di produzione del software,  da un punto di vista sia organizzativo che cognitivo.
+	\item Presentare come l'uso del pensiero computazionale e degli strumenti informatici possano risolvere problemi di organizzazione dei sistemi, di comprensione di strutture complesse e di previsione di eventi.
+	\item Fornire l'elaborazione del testo e la sua comprensione come paradigma interpretativo del processo di trasformazione digitale.
+\end{borderedsquare}
+        
+%\clearpage    
+
+\customsection{Prerequisiti}
+\noindent Il corso non richiede alcun prerequisito specifico, a parte la conoscenza dei fondamenti di logica e familiarit\`{a} con problemi che possono essere risolti in modo automatico.
+
+
+\customsection{Valutazione}    
+Lo studente pu\`{o} decidere la forma valutativa che preferisce tra le seguenti:
+\begin{itemize}
+    \item orale omnicomprensivo,
+    \item elaborazione di un testo su un ambito specifico del corso seguito da un orale focalizzato,
+    \item predisposizione di un elaborato sulla conoscenza distribuita che evidenzi la conoscenza del materiale presentato nel corso
+\end{itemize}
+
+\customsection{Testi}  
+%---------------------------------
+%--> List of recommended textbooks. 
+\begin{itemize}[itemsep=4pt,parsep=0pt,topsep=1pt,partopsep=1pt]
+	\item[\color{darkblue}\faNewspaperO] \textbf{\textsc{Risorse disponibili online:}}
+	Materiale presentato in classe, altri riferimenti comunicati dal docente durante le lezioni.  
+		
+	\item[\color{darkblue}\faBook] \textbf{\textsc{Libro di testo:}} Non c'\`{e} un libro di testo obbligatorio. Qui nel seguito si presenta una serie di lettura consigliate.
+\end{itemize}
+\vspace{.4cm}
+\hrule
+\vspace{.4cm}
+\begin{minipage}[b]{0.17\linewidth}          
+	\includegraphics[width=.95\linewidth]{Sillabo/images/TextAnalysisInPythonForSocialScientists.jpg}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.75\linewidth}          
+	\noindent \textbf{Titolo:} Text Analysis in Python for Social Scientists - Discovery and Exploration \\
+	\textbf{Autore:} Dirk Hovy \\
+	\textbf{Casa editrice:} Cambridge University Press, publication year: 2021  \\
+	\textbf{ISBN Online:} 9781108873352\\   
+	\vspace{1cm}
+	~
+\end{minipage}
+\vspace{.18cm}
+\hrule
+\vspace{.1cm}
+\begin{minipage}[b]{0.17\linewidth}          
+	\includegraphics[width=.95\linewidth]{Sillabo/images/AppliedComputationalThinkingWithPython.jpeg}
+\end{minipage}\hfill
+\begin{minipage}[b]{0.75\linewidth}          
+	\noindent \textbf{Titolo:} Applied Computational Thinking with Python \\
+	\textbf{Autore:} Sof\'{i}a De Jes\'{u}s , Dayrene Martinez \\
+	\textbf{Casa editrice:} Packt Publishing; publication year: 2020  \\
+	\textbf{ISBN-13:} 978-1839219436\\  
+	\vspace{1cm}
+	~
+\end{minipage}
+\\
+
+%--------  Required Software and Material ------------------------------
+\vspace{.4cm}
+
+\customsection{Strumenti software utilizzati }  
+\begin{itemize}[itemsep=2pt,parsep=0pt,topsep=2pt,partopsep=2pt]
+	%    \item[\color{darkblue}\faCoffee] Java 7 or 8 (32 or 64 bits)
+	\item[\color{darkblue}\faLaptopCode] \textbf{Sistemi operativi:} \faWindows {} Windows  10,  \faLinux {} Linux, \textcolor{vanierred}{\textbf{o}} \faApple {} macOS 
+	\item[\color{darkblue}\faCode] \textbf{IDE per Python:} \faUnity a scelta dello studente, da coordinare con il parallelo corso di laboratorio di programmazione
+	\item [{\color{darkblue}\faChrome}] \textbf{Web Browser:} Chrome, Safari o Firefox.   
+	\item[{\color{darkblue} \faWpforms}] LaTex per la produzione e l'analisi di documenti; all'uopo gli studenti sono incoraggiati a crearsi un account su \url{overleaf.com} e comunicarlo al docente
+\end{itemize}   
+
+\customsection{Regole di comportamento} 
+\begin{itemize}[itemsep=2.5pt,parsep=0pt,topsep=8pt,partopsep=4pt]
+	\item[{ \color{darkblue} \faLaptop \faMobile \faHeadphones}] In classe, l'uso di cellulari, di computer e di cuffie, quando non richiesto dal docente, \`{e}  \underline{vietato}. I cellulari vanno spenti e riposti in luogo sicuro non nei banchi.
+	
+	\item[{\color{darkblue} \faEdit}] Il docente si aspetta che gli studenti si presentino con carta e penna/matita e prendano attivamente appunti.
+	\item[{\color{darkblue} \faWechat}] Gli studenti sono ammessi alle lezioni solo all'inizio e durante le lezioni devono astenersi dal parlare tra loro, se non quando esplicitamente richiesto dal docente.
+	
+	\item[{\color{darkred} \faThumbsDown}] Il plagiarismo negli elaborati comporter\`{a} la bocciatura nell'esame e le ulteriori penalit\`{a} previste nei competenti regolamenti accademici.
+\end{itemize}
+
+
+
+\clearpage
+
+\customsection{Programma di massima delle lezioni}
+%TODO: split implementation into 3 builds.
+\renewcommand{\arraystretch}{1.5} % this reduces the vertical spacing between rows    
+\noindent\begin{longtable}{|C{1cm}|p{15cm}|}
+\toprule
+	\thead{\color{darkblue} Lezione} & \thead{\argomento \& \materialedidattico} \\ 
+	%---s Load the table body: dynamic table content. 
+\midrule
+    \endhead
+	\centering\textbf{1} &   \argomento[Presentazione del corso e introduzione alla natura del processo computazionale]  \\
+	& \materialedidattico[Lucidi presentati dal docente] \\
+	\hline    
+	\centering\textbf{2} &   \argomento[Struttura dei calcolatori]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{3} &   \argomento[Sistemi Operativi e Reti]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{4} &   \argomento[Linguaggi di Programmazione]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{5} &   \argomento[Processo di Produzione]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{6} &   \argomento[LaTex]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{7} &   \argomento[La scrittura di documenti in LaTex come paradigma della produzione digitale]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{8} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{9} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{10} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{11} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{12} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{13} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{14} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline   
+	\textbf{15} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{16} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{17} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{18} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{19} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{20} &   \argomento[Argomento]  \\
+	& \materialedidattico \\
+	\hline    
+
+\end{longtable}   
+
+\vspace{1cm}
+\noindent \textcolor{red}{\textbf{\underline{NOTA:}}} Il programma sopra specificato pu\`{o} essere modificato per esigenze organizzative e didattiche. 
+
+\end{document} 
