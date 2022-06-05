@@ -456,26 +456,24 @@ click here to see my solution}}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Typesetting Mathematics}
-\begin{frame}[fragile]{\insertsubsection{}: Dollar Signs}
+\begin{frame}[fragile]{\centerline{Formule matematiche -- Il \$}}
 \begin{itemize}
-\item Why are dollar signs \keystrokebftt{\$} special? We use them to mark mathematics in text.\\[1ex]
+\item Il simbolo di \keystrokebftt{\$} delimita testo da interpretare come formule matematiche.\\[1ex]
 \begin{exampletwouptiny}
-% not so good:
-Let a and b be distinct positive
-integers, and let c = a - b + 1.
+% non tanto bello:
+Siano a e b due numeri interi
+positivi, e sia c = a - b + 1.
 
-% much better:
-Let $a$ and $b$ be distinct positive
-integers, and let $c = a - b + 1$.
+% molto meglio:
+Siano $a$ e $b$ due numeri interi
+positivi, e sia $c = a - b + 1$.
 \end{exampletwouptiny}
-\item Always use dollar signs in pairs --- one to begin the mathematics, and one
-to end it.
-\item \LaTeX{} handles spacing automatically; it ignores your spaces.
+\item Il simbolo dollaro va usato sempre in coppia -- uno per iniziare e uno per concludere le formule matematiche
+\item \LaTeX{} gestisce autonomamente lo spazio; ignora gli spazi inseriti manualmente.
 \begin{exampletwouptiny}
-Let $y=mx+b$ be \ldots
+Sia $y=mx+b$  \ldots
 
-Let $y = m x + b$ be \ldots
+Sia $y = m x + b$  \ldots
 \end{exampletwouptiny}
 \end{itemize}
 \end{frame}
@@ -483,24 +481,23 @@ Let $y = m x + b$ be \ldots
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Notation}
+\begin{frame}[fragile]{\centerline{Apici e pedici}}
 \begin{itemize}
-\item Use caret \keystrokebftt{\^} for superscripts and underscore \keystrokebftt{\_} for subscripts.
+\item Usare la freccetta in alto \keystrokebftt{\^} per gli apici e la trattino basso  \keystrokebftt{\_} per i pedici.
 \begin{exampletwouptiny}
 $y = c_2 x^2 + c_1 x + c_0$
 \end{exampletwouptiny}
 \vskip 2ex
 
-\item Use curly braces \keystrokebftt{\{} \keystrokebftt{\}} to group
-superscripts and subscripts.
+\item Se pi\`{u} di un carattere \`{e} in apice o pedice, occorre delimitare la sequenza in apice/pedice con le parentesi graffe \keystrokebftt{\{} \keystrokebftt{\}} .
 \begin{exampletwouptiny}
-$F_n = F_n-1 + F_n-2$     % oops!
+$F_n = F_n-1 + F_n-2$     % attenzione!
 
-$F_n = F_{n-1} + F_{n-2}$ % ok!
+$F_n = F_{n-1} + F_{n-2}$ % va bene!
 \end{exampletwouptiny}
 \vskip 2ex
 
-\item There are commands for Greek letters and common notation.
+\item Ci sono sequenze particolari per le lettere greche.
 \begin{exampletwouptiny}
 $\mu = A e^{Q/RT}$
 
@@ -512,97 +509,112 @@ $\Omega = \sum_{k=1}^{n} \omega_k$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Displayed Equations}
+\begin{frame}[fragile]{\centerline{Formule}}
 \begin{itemize}
-\item If it's big and scary, \emph{display} it on its own line using
-\cmdbegin{equation} and \cmdend{equation}.\\[2ex]
+\item Se una formula \`{e} ampia, va presentata sulla una riga tutta per s\'{e} con la sequenza di comandi 
+\cmdbegin{equation} e \cmdend{equation}. Ricordarsi che in inglese la parola ``formula'' si traduce spesso con ``equation''.\\[2ex]
 \begin{exampletwouptiny}
-The roots of a quadratic equation
-are given by
+La formula per la soluzione dell'equazione
+di secondo grado \`{e} data da:
 \begin{equation}
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}
          {2a}
 \end{equation}
-where $a$, $b$ and $c$ are \ldots
+dove $a$, $b$ e $c$ sono \ldots
 \end{exampletwouptiny}
 \vskip 1em
-{\scriptsize Caution: \LaTeX{} mostly ignores your spaces in mathematics, but it
-can't handle blank lines in equations --- don't put blank lines in your
-mathematics.}
+{\scriptsize Attenzione: \LaTeX{} ignora gli spazi nelle formule matematiche ma non ignora le linee bianche, che \textbf{non} vanno inserite.}
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Interlude: Environments}
+\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (1/3)}}
 \begin{itemize}
-\item \bftt{equation} is an \emph{environment} --- a context.
-\item A command can produce different output in different contexts.
+\item Il termine \bftt{equation} messo come argomeno di una coppia \cmdbs{begin} e \cmdbs{end} definisce un ambiente, in inglese, un \emph{environment} --- uno spazio dove il comportamento di \LaTeX{} \`{e} particolare.
+\item Un comando pu\`{o} produrre risultati diversi in ambienti diversi.
 \begin{exampletwouptiny}
-We can write
+Si pu\`{o} scrivere
 $ \Omega = \sum_{k=1}^{n} \omega_k $
-in text, or we can write
+nel testo oppure:
 \begin{equation}
   \Omega = \sum_{k=1}^{n} \omega_k
 \end{equation}
-to display it.
+con risultati diversi.
 \end{exampletwouptiny}
 \vskip 2ex
-\item Note how the $\Sigma$ is bigger in the \bftt{equation} environment, and
-how the subscripts and superscripts change position, even though we used the
-same commands.
-\vskip 1em
-{\scriptsize In fact, we could have written \bftt{\$...\$} as
-\cmdbegin{math}\bftt{...}\cmdend{math}.}
+\item Si noti che $\Sigma$ \`{e} pi\`{u} grande nell'ambiente \bftt{equation} environment, e che apici e pedici cambiano posizione, anche se il comando usato \`{e} lo stesso.
+
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Interlude: Environments}
+\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (2/3)}}
 \begin{itemize}
-\item The \cmdbs{begin} and \cmdbs{end} commands are used to create many
-different environments.
+\item  In realt\`{a}, avremmo potuto scrivere invece di \bftt{\$...\$} come
+\cmdbegin{math}\bftt{...}\cmdend{math} ovvero \bftt{\$...\$} sono una scorciatoia per definire un ambiente \bftt{math}.
+\item La coppia \cmdbs{begin} e \cmdbs{end} \`{e} usata per creare qualsivoglia ambiente e ogni utente di \LaTeX{} pu\`{o} scrivere i propri ambienti per le proprie esigenze -- si veda ad esempio il sillabo del corso su \bftt{github}.
 \vskip 2ex
 
-\item The \bftt{itemize} and \bftt{enumerate} environments generate lists.
+\item Gli ambienti \bftt{itemize} e \bftt{enumerate} servono per definire lista.
 \begin{exampletwouptiny}
-\begin{itemize} % for bullet points
-\item Biscuits
-\item Tea
+\begin{itemize} % lista puntsata
+\item Cornetto
+\item Cappuccino
 \end{itemize}
 
-\begin{enumerate} % for numbers
-\item Biscuits
-\item Tea
+\begin{enumerate} % lista numerata
+\item Cornetto
+\item Cappuccino
 \end{enumerate}
 \end{exampletwouptiny}
 \end{itemize}
 \end{frame}
 
+\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (3/3)}}
+\begin{itemize}
+\item  Ops ... la lista numerata non funziona.
+\item Siamo in un ambiente particolare -- i lucidi, in cui il comportamento \`{e} ridefinito
+\item Il numero c'\`{e} ma \ldots non si vede!
+\item Per vederlo meglio occorre una ulteriore ridefinizione:
+\vskip 2ex
+\begin{exampletwouptiny}
+\setbeamercolor{item projected}{bg=magenta}
+\setbeamertemplate{enumerate items}[circle]
+\begin{enumerate}
+\item Cornetto
+\item Cappuccino
+\end{enumerate}
+\end{exampletwouptiny}
+
+\end{itemize}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Interlude: Packages}
+\begin{frame}[fragile]{\centerline{I package ovvero pacchetti}}
 
 \begin{itemize}
-\item All of the commands and environments we've used so far are built into
+\item Tutti i comandi che abbiamo visto finora sono presenti nella configurazione standard di 
 \LaTeX.
 
-\item \emph{Packages} are libraries of extra commands and environments. There
-are thousands of freely available packages.
+\item \emph{Packages} o pacchetti sono biblioteche (in inglese, libraries) contenenti ulteriori comandi e ambienti. Ci sono letterlamente migliaia di pacchetti liberamente disponibili con licenza gratuita.
 
-\item We have to load each of the packages we want to use with a
-\cmdbs{usepackage} command in the \emph{preamble}.
+\item Per evitare una ovvia confusione, occorre caricare ogni pacchetto che vogliamo usare con il comando 
+\cmdbs{usepackage} nel \emph{preambolo} del documento, in inglese \emph{preamble}, ovvero nella parte iniziale del file, prima dell'inizio del nostro testo.
 
-\item Example: \bftt{amsmath} from the American Mathematical Society.
+\item Esempio: \bftt{amsmath} della American Mathematical Society.
 \begin{minted}[fontsize=\small,frame=single]{latex}
 \documentclass{article}
-\usepackage{amsmath} % preamble
+\usepackage{amsmath} % preambolo/preamble
 \begin{document}
-% now we can use commands from amsmath here...
+% ora possiamo usare qui i
+% comandi di amsmath ...
 \end{document}
 \end{minted}
 \end{itemize}
@@ -611,26 +623,24 @@ are thousands of freely available packages.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Examples with \bftt{amsmath}}
+\begin{frame}[fragile]{\centerline{Esempi con \bftt{amsmath} (1/2)}}
 \begin{itemize}
-\item Use \bftt{equation*} (``equation-star'') for unnumbered equations.
+\item \bftt{equation*} (``equation-star'') va usata per formule senza numero.
 \begin{exampletwouptiny}
 \begin{equation*}
   \Omega = \sum_{k=1}^{n} \omega_k
 \end{equation*}
 \end{exampletwouptiny}
-\item \LaTeX{} treats adjacent letters as variables multiplied together, which
-is not always what you want. \bftt{amsmath} defines commands for many common
-mathematical operators.
+\item \LaTeX{} tratta lettere adiacenti l'una all'altra come variabili moltiplicate tra loro -- non sempre quello che si vuole.  \bftt{amsmath} definisce i comandi per molti operatori matematici.
 \begin{exampletwouptiny}
-\begin{equation*} % bad!
+\begin{equation*} % brutto!
  min_{x,y} (1-x)^2 + 100(y-x^2)^2
 \end{equation*}
-\begin{equation*} % good!
+\begin{equation*} % bello!
 \min_{x,y}{(1-x)^2 + 100(y-x^2)^2}
 \end{equation*}
 \end{exampletwouptiny}
-\item You can use \cmdbs{operatorname} for others.
+\item Si pu\`{o} anche usare \cmdbs{operatorname} per altri casi.
 \begin{exampletwouptiny}
 \begin{equation*}
 \beta_i =
@@ -644,7 +654,7 @@ mathematical operators.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{}: Examples with \bftt{amsmath}}
+\begin{frame}[fragile]{\centerline{Esempi con \bftt{amsmath} (2/2)}}
 \begin{itemize}{\small
 \item Align a sequence of equations at the equals sign
 \begin{align*}
