@@ -177,16 +177,19 @@
 % ==== Doc header and footer setup.               |
 %-------------------------------------------------- 
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
-\pagestyle{fancyplain}
 \fancyhf{}
 %- Disable the horizontal ruler in the header section.
 \renewcommand{\headrulewidth}{0pt}
+\rhead{\tiny{Docente: \instructor~(\email)}}
+\lhead{{\tiny{\college { } - { } \semester} }}
+\chead{}
 \rfoot{\fancyplain{}{pagina \thepage\ di \pageref{LastPage}}}
-\cfoot{{\tiny{\college { } - { } \semester} }}
+\cfoot{}
 \lfoot{{\tiny{ \coursetitle} }}
 %- TODO: move the header content here.
 \fancyfoot[RO, LE] {{\tiny{pagina \thepage\ di \pageref{LastPage} }}}
 \thispagestyle{plain}
+\pagestyle{fancy}
 %------------------------------------------------------------
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}

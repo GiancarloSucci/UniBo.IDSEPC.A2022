@@ -9,6 +9,7 @@
 \usepackage{xparse}
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{fp}
 
 
 % The title of the current document to be produced.
@@ -97,7 +98,7 @@ Dapprima il corso presenta una carrellata dei principali componenti di sistemi d
 %\clearpage    
 
 \customsection{Prerequisiti}
-\noindent Il corso non richiede alcun prerequisito specifico, a parte la conoscenza dei fondamenti di logica e familiarit\`{a} con problemi che possono essere risolti in modo automatico.
+\noindent Il corso non richiede alcun prerequisito specifico, a parte la conoscenza dei fondamenti di matematica (ad esempio come il risultato di una maturit\`{a} scientifica) logica e familiarit\`{a} con problemi che possono essere risolti in modo automatico.
 
 
 \customsection{Valutazione}    
@@ -171,9 +172,12 @@ Lo studente pu\`{o} decidere la forma valutativa che preferisce tra le seguenti:
 
 
 
-\clearpage
 
 \customsection{Programma di massima delle lezioni}
+\newcounter{lezione}
+\setcounter{lezione}{0}
+\addtocounter{lezione}{1}
+
 %TODO: split implementation into 3 builds.
 \renewcommand{\arraystretch}{1.5} % this reduces the vertical spacing between rows    
 \noindent\begin{longtable}{|C{1cm}|p{15cm}|}
@@ -182,64 +186,73 @@ Lo studente pu\`{o} decidere la forma valutativa che preferisce tra le seguenti:
 	%---s Load the table body: dynamic table content. 
 \midrule
     \endhead
-	\centering\textbf{1} &   \argomento[Presentazione del corso e introduzione alla natura del processo computazionale]  \\
+	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Presentazione del corso e introduzione agli strumenti di collaborazione]  \\
 	& \materialedidattico[Lucidi presentati dal docente] \\
 	\hline    
-	\centering\textbf{2} &   \argomento[Struttura dei calcolatori]  \\
+	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[La scrittura di documenti in LaTex come paradigma della produzione digitale (parte 1)]  \\
+	& \materialedidattico[Lucidi presentati dal docente] \\
+	\hline    
+	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[La scrittura di documenti in LaTex come paradigma della produzione digitale (parte 2)]  \\
+	& \materialedidattico[Lucidi presentati dal docente] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Struttura dei calcolatori]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{3} &   \argomento[Sistemi Operativi e Reti]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Sistemi operativi e reti]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{4} &   \argomento[Linguaggi di Programmazione]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Linguaggi di programmazione]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{5} &   \argomento[Processo di Produzione]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Processo di produzione]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{6} &   \argomento[LaTex]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Sperimentazione e deduzione; il modello GQM]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{7} &   \argomento[La scrittura di documenti in LaTex come paradigma della produzione digitale]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Progettazione degli esperimenti]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{8} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi dei dati provenienti dagli esperimenti]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{9} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Scale di dati]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{10} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Revisione dei fondamenti di statistica descrittiva (parte 1)]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{11} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica descrittiva in Python (parte 1)]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{12} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Revisione dei fondamenti di statistica descrittiva (parte 2)]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{13} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica descrittiva in Python (parte 2)]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{14} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- le basi]  \\
+	& \materialedidattico \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- regressione lineare]  \\
 	& \materialedidattico \\
 	\hline   
-	\textbf{15} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Regressione lineare in Python]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{16} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- correlazione parametrica]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{17} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Correlazione parametrica in Python]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{18} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Dalla statistica inferenziale all'apprendimento automatico; la regressione logistica]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{19} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Argomento]  \\
 	& \materialedidattico \\
 	\hline    
-	\textbf{20} &   \argomento[Argomento]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Argomento]  \\
 	& \materialedidattico \\
 	\hline    
 
