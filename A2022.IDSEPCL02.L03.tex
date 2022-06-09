@@ -447,10 +447,10 @@ Cliccare qui per aprire l'esercizio su \wllogo{}}}
 \end{center}
 
 \begin{itemize}
-\item Hint: watch out for characters with special meanings!
-\item Once you've tried,
+\item Suggerimento: controllare i caratteri con un significato particolare!
+\item Completato l'esercizio,
 \fbox{\href{\wlnewdoc{minimale-esercizio-1-soluzione.tex}}{%
-click here to see my solution}}.
+qui c'\`{e} una soluzione}}.
 \end{itemize}
 \end{frame}
 
@@ -701,9 +701,9 @@ Cliccare qui per aprire l'esercizio su \wllogo{}}}
 \end{center}
 \begin{itemize}
 \item Suggerimento: il comando $\infty$ \`{e} \cmdbs{infty}.
-\item Una volta completato l'esercizio,
+\item Completato l'esercizio,
 \fbox{\href{\wlnewdoc{minimale-esercizio-2-soluzione.tex}}{%
-cliccare qui per vedere la soluzione}}.
+ qui c\`{e} una soluzione}}.
 \end{itemize}
 \end{frame}
 
@@ -783,104 +783,88 @@ cliccare qui per vedere la soluzione}}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}[fragile]{\centerline{Esercizi sui documenti strutturati}}
+\begin{itemize}
+    \item 
+Scrivi questo articolo in \LaTeX:
+\footnote{Da \url{http://pdos.csail.mit.edu/scigen/}, un generatore randomico di testi, tradotto ed adattato dal docente.}
 
-\begin{block}{Typeset this short paper in \LaTeX:
-\footnote{From \url{http://pdos.csail.mit.edu/scigen/}, a random
-paper generator.}}
+\vskip 4ex
 \begin{center}
-\fbox{\href{\fileuri/structure-exercise-solution.pdf}{%
-Click to open the paper}}
+\fbox{\href{\fileuri/struttura-esercizio-soluzione.pdf}{%
+Cliccare qui per visualizzare l'articolo.}}
 \end{center}
-Make your paper look like this one. Use \cmdbs{ref} and \cmdbs{eqref} to avoid
-explicitly writing section and equation numbers into the text.
-\end{block}
+
+\vskip 4ex
+Formattare l'articolo come questo modello. Usare \cmdbs{ref} e \cmdbs{eqref} per evitare di scrivere in modo esplicito i numeri di sezione e di equazione.
+
+\vskip 4ex
+\begin{center}
+\fbox{\href{\wlnewdoc{struttura-esercizio.tex}}{%
+Cliccare qui per aprire l'esercizio in \wllogo{}}}
+\end{center}
+\end{itemize}
 \vskip 2ex
-\begin{center}
-\fbox{\href{\wlnewdoc{structure-exercise.tex}}{%
-Click to open this exercise in \wllogo{}}}
-\end{center}
-
 \begin{itemize}
-\item Once you've tried,
-\fbox{\href{\wlnewdoc{structure-exercise-solution.tex}}{%
-click here to see my solution}}.
+\item Completato l'esercizio,
+\fbox{\href{\wlnewdoc{struttura-esercizio-soluzione.tex}}{%
+qui c'\`{e} una soluzione}}.
 \end{itemize}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Figures and Tables}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
-\begin{multicols}{2}
-\tableofcontents[currentsection]
-\end{multicols}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Graphics}
-\begin{frame}[fragile]{\insertsubsection}
+\begin{frame}[fragile]{\centerline{La grafica}}
 \begin{itemize}
-\item Requires the \bftt{graphicx} package, which provides the
-\cmdbs{includegraphics} command.
-\item Supported graphics formats include JPEG, PNG and PDF (usually).
+\item È necessario caricare il pacchetto \bftt{graphicx}, in quanto fornize il comando
+\cmdbs{includegraphics}.
+\item I formati gestiti sono JPEG, PNG e PDF (di solito).
 \end{itemize}
+\vskip 4ex
 \begin{exampletwouptiny}
 \includegraphics[
-  width=0.5\textwidth]{gerbil}
+  width=0.5\textwidth]{A2022.IDSEPCLaTeX/gerbil}
 
 \includegraphics[
   width=0.3\textwidth,
   angle=270]{gerbil}
 \end{exampletwouptiny}
 
-\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
+\tiny{Licenza per l'immagine: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{Interlude: Optional Arguments}
+\begin{frame}[fragile]{Gli argomenti opzionali}
 \begin{itemize}
-\item We use square brackets \keystrokebftt{[} \keystrokebftt{]} for optional
-arguments, instead of braces \keystrokebftt{\{} \keystrokebftt{\}}.
-\item \cmdbs{includegraphics} accepts optional arguments that allow you to transform the
-image when it is included. For example, \bftt{width=0.3\cmdbs{textwidth}} makes
-the image take up 30\% of the width of the surrounding text (\cmdbs{textwidth}).
-\item \cmdbs{documentclass} accepts optional arguments, too. Example:
+\item Per gli argomenti opzionali usiamo le parentesi quadre \keystrokebftt{[} \keystrokebftt{]} invece delle parentesi graffe \keystrokebftt{\{} \keystrokebftt{\}}.
+\item \cmdbs{includegraphics} accetta argomenti opzionali che permettono di modificare l'immagine una volta che \`{e} stata inclusa.
+
+Per esempio, \bftt{width=0.5\cmdbs{textwidth}} fa in modo che la larghezza dell'immagine sia il 50\% della larghezza del testo  (\cmdbs{textwidth}).
+\item \cmdbs{documentclass} pure accetta argomenti opzioni:
 \mint{latex}|\documentclass[12pt,twocolumn]{article}|
-\vskip 3ex
-makes the text bigger (12pt) and puts it into two columns.
-\item Where do you find out about these? See the slides at the end of this
-presentation for links to more information.
+rende il carattere del testo pi\`{u} grande (12pt) and puts e dispone il testo su due colonne.
+\item Ulteriori informazioni su dove reperire queste informazioni sono provviste nel seguito.
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[fragile]{Floats}
-\begin{frame}{\insertsubsection}
+\begin{frame}{\centerline{Flottanti}}
 \begin{itemize}
-\item Allow \LaTeX{} to decide where the figure will go (it can ``float'').
-\item You can also give the figure a caption, which can be referenced with
+\item Quando si tratta di scegliere la posizione di una figura \~{e} meglio lasciare \LaTeX{} a decidere dove la posizione, cio\~{e} lasciarla ``flottante''.
+\item Si pu\`{o} aggiungere una didascalia (in inglese \bftt{caption}) alla figura, che poi pu\`{o} essere utilizzata per un riferimento con
 \cmdbs{ref}.
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {media-graphics.tex}
+  {A2022.IDSEPCLaTeX/inserimento-figura.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=2in 5in 3in 1in]{media-graphics.pdf}
+\includegraphics[width=\textwidth,clip,trim=2in 5in 3in 1in]{A2022.IDSEPCLaTeX/inserimento-figura.pdf}
 \end{minipage}
 
-\tiny{Image license: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
+\tiny{Licenza per l'immagine: \href{https://pixabay.com/en/animal-apple-attractive-beautiful-1239390/}{CC0}}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
