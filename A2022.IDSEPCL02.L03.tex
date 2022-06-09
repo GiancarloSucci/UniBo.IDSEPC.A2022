@@ -18,6 +18,7 @@
   \usepackage[export]{adjustbox}
   \tcbuselibrary{most}
   \usepackage{arydshln}
+  \usepackage{eurosym}
  %\usepackage{enumitem}
 %\usepackage{enumerate}
   %\usepackage[shortlabels]{enumitem}
@@ -675,7 +676,7 @@ si pu\`{o} usare l'ambiente \bftt{align*}.
 \end{minted}
 \item La e commerciale \keystrokebftt{\&} separa la parte sinistra (prima del simbolo
 $=$) dalla parte destra (dopo il $=$).
-\item La doppia barra inversa \keystrokebftt{\bs}\keystrokebftt{\bs} definisce un a capo:  
+\item La doppia barra inversa \keystrokebftt{\bs}\keystrokebftt{\bs} definisce un a capo.
 }\end{itemize}
 \end{frame}
 
@@ -703,7 +704,7 @@ Cliccare qui per aprire l'esercizio su \wllogo{}}}
 \item Suggerimento: il comando $\infty$ \`{e} \cmdbs{infty}.
 \item Completato l'esercizio,
 \fbox{\href{\wlnewdoc{minimale-esercizio-2-soluzione.tex}}{%
- qui c\`{e} una soluzione}}.
+ qui c'\`{e} una soluzione}}.
 \end{itemize}
 \end{frame}
 
@@ -870,95 +871,92 @@ rende il carattere del testo pi\`{u} grande (12pt) and puts e dispone il testo s
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Tables}
-\begin{frame}[fragile]{\insertsubsection}
+\begin{frame}[fragile]{\centerline{Tabelle (1/2)}}
 \begin{itemize}
-\item Tables in \LaTeX{} take some getting used to.
-\item Use the \bftt{tabular} environment from the \bftt{tabularx} package.
-\item The argument specifies column alignment --- \textbf{l}eft, \textbf{r}ight, \textbf{r}ight.
+\item Le tabelle \LaTeX{} non sono semplicissime; chi ha usato HTML o (t/n)roff \`{e} indubbiamente facilitato.
+\item Si usa l'ambiente \bftt{tabular} che viene ulteriormente specificato nel pacchetto \bftt{tabularx}.
+\item L'argomento specifica l'allineamento --- \textbf{l}eft, \textbf{c}enter, \textbf{r}ight.
+\vskip 4ex
 \begin{exampletwouptiny}
 \begin{tabular}{lrr}
-Item   & Qty & Unit \$ \\
-Widget & 1   & 199.99  \\
-Gadget & 2   & 399.99  \\
-Cable  & 3   & 19.99   \\
+Tipo   & Numero &  \euro \\
+Maniglia & 1   & 49  \\
+Porta & 2   & 99  \\
+Cavo  & 3   & 19   \\
 \end{tabular}
 \end{exampletwouptiny}
-\item It also specifies vertical lines; use \cmdbs{hline} for horizontal lines.
+\item Si usa la ``e commerciale'' \keystrokebftt{\&} per separare le colonne e la doppia barra inversa \keystrokebftt{\bs}\keystrokebftt{\bs} per un a capo, esattamente come nell'ambiente \bftt{align*}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{\centerline{Tabelle (2/2)}}
+\begin{itemize}
+\item Per specificare linee orizzontali occorre usare \cmdbs{hline}.
+\item Le linee verticali sono specificati con una barretta \keystrokebftt{\textbar} tra le definizioni delle colonne del \bftt{tabular}.
+\vskip 4ex
+
 \begin{exampletwouptiny}
 \begin{tabular}{|l|r|r|} \hline
-Item   & Qty & Unit \$ \\\hline
-Widget & 1   & 199.99  \\
-Gadget & 2   & 399.99  \\
-Cable  & 3   & 19.99   \\\hline
+Elemento   & Quantit\`{a} & \euro \\\hline
+Widget & 1   & 49  \\
+Gadget & 2   & 99  \\
+Cable  & 3   & 19   \\\hline
 \end{tabular}
 \end{exampletwouptiny}
-\item Use an ampersand \keystrokebftt{\&} to separate columns and a double backslash \keystrokebftt{\bs}\keystrokebftt{\bs} to start a new row (like in the \bftt{align*} environment that we saw in part 1).
+\item Si noti che
+\begin{itemize}
+\item il simbolo di euro pu\`{o} essere realizzato con il comando \cmdbs{euro} e l'uso del pacchetto  \bftt{eurosym}.
+\item la barretta verticale pu\`{o} essere realizzata con il comando \cmdbs{textbar}.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}[fragile]{\centerline{bib\TeX (1/3)}}
+\begin{itemize}
+\item I riferimenti bibliografici possono essere gestiti in modo efficace con il sistema bib\TeX.
+\item Occorre mettere i riferimenti in un file \bftt{.bib} in formato `bibtex':
+\inputminted[fontsize=\scriptsize,frame=single]{latex}{A2022.IDSEPCLaTeX/bib-esempio.bib}
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addtocontents{toc}{\newpage}
-%\section{Bibliographies}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
-\begin{multicols}{2}
-\tableofcontents[currentsection]
-\end{multicols}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{bib\TeX}
-\begin{frame}[fragile]{\insertsubsection{} 1}
+\begin{frame}[fragile]{\centerline{bib\TeX (2/3)}}
 \begin{itemize}
-\item Put your references in a \bftt{.bib} file in `bibtex' database format:
-\inputminted[fontsize=\scriptsize,frame=single]{latex}{bib-example.bib}
-\item Most reference managers can export to bibtex format.
-\end{itemize}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{} 2}
-\begin{itemize}
-\item Each entry in the \bftt{.bib} file has a \emph{key} that you can use to
-reference it in the document. For example, \bftt{Jacobson1999Towards} is the key for this article:
+\item La maggior parte dei sistemi di gestione delle bibliografie possono esportare in formato bibtex.
+\item Ogni elemento nel file \bftt{.bib} ha una \emph{chiave} per far riferimento ad esso nel testo. Per esempio, \bftt{Jacobson1999Towards} \`{e} la chiave per l'articolo:
 \begin{minted}[fontsize=\small,frame=single]{latex}
 @Article{Jacobson1999Towards,
   author = {Van Jacobson},
   ...
 }
 \end{minted}
-\item It's a good idea to use a key based on the name, year and title.
-\item \LaTeX{} can automatically format your in-text citations and generate a
-list of references; it knows most standard styles, and you can design your own.
+\item \`{E} una buona idea usare una chiave legata a nome, titolo e anno.
+\item \LaTeX{} formatta automaticamente la citazione e genera la bibliografia; conosce la maggior parte degli standard bibliografici e comunque pu\`{o} essere customizzato.
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\insertsubsection{} 3}
+\begin{frame}[fragile]{\centerline{bib\TeX (3/3)}}
 \begin{itemize}
-\item Use the \bftt{natbib} package\footnote{There is a new package with more
-  features named \bftt{biblatex} but most of the articles templates still use
-  \bftt{natbib}.} with \cmdbs{citet} and \cmdbs{citep}.
-\item Reference \cmdbs{bibliography} at the end, and specify a \cmdbs{bibliographystyle}.
+\item \`{E} conveniente usare il pacchetto \bftt{natbib} \footnote{C'\`{e} un nuovo pacchetto con funzionalit\`{a} aggiuntive chiamato \bftt{biblatex} ma la maggior parte degli articoli usano ancora
+  \bftt{natbib}.} con \cmdbs{citet} e \cmdbs{citep}.
+\item Utilizzare \cmdbs{bibliography} alla fine e specificare un \cmdbs{bibliographystyle}.
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {bib-example.tex}
+  {bib-esempio.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{bib-example.pdf}
+\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{bib-esempio.pdf}
 \end{minipage}
 \end{frame}
 
