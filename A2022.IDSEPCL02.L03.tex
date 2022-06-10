@@ -529,10 +529,27 @@ dove $a$, $b$ e $c$ sono \ldots
 \end{itemize}
 \end{frame}
 
+\begin{frame}{\centerline{Riassunto di caratteri particolari}}
+\begin{tabular}{lll}
+& Nome in inglese & uso \ldots \\\hline
+\bftt{\bs} & backslash                 & comando, tabelle (doppio)\\
+\bftt{\{}  & open brace                & comando \\
+\bftt{\}}  & close brace               & comando \\
+\bftt{\%}  & percent sign              & comando \\
+\bftt{\#}  & hash (pound / sharp) sign & comando \\
+\bftt{\$}  & dollar sign               & equazioni \\
+\bftt{\_}  & underscore                & equazioni (pedici) \\
+\bftt{\^}  & caret                     & equazioni (apici) \\
+\bftt{\&}  & ampersand                 & tabelle \\
+\bftt{\~}  & tilde                     & spazi \\
+\end{tabular}
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (1/3)}}
+\begin{frame}[fragile]{\centerline{Environment ovvero ambiente (1/3)}}
 \begin{itemize}
 \item Il termine \bftt{equation} messo come argomeno di una coppia \cmdbs{begin} e \cmdbs{end} definisce un ambiente, in inglese, un \emph{environment} --- uno spazio dove il comportamento di \LaTeX{} \`{e} particolare.
 \item Un comando pu\`{o} produrre risultati diversi in ambienti diversi.
@@ -554,7 +571,7 @@ con risultati diversi.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (2/3)}}
+\begin{frame}[fragile]{\centerline{Environment ovvero ambiente (2/3)}}
 \begin{itemize}
 \item  In realt\`{a}, avremmo potuto scrivere invece di \bftt{\$...\$} come
 \cmdbegin{math}\bftt{...}\cmdend{math} ovvero \bftt{\$...\$} sono una scorciatoia per definire un ambiente \bftt{math}.
@@ -576,7 +593,7 @@ con risultati diversi.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{\centerline{Environment ovvero Ambiente (3/3)}}
+\begin{frame}[fragile]{\centerline{Environment ovvero ambiente (3/3)}}
 \begin{itemize}
 \item  Ops ... la lista numerata non funziona.
 \item Siamo in un ambiente particolare -- i lucidi, in cui il comportamento \`{e} ridefinito
@@ -953,64 +970,51 @@ Cable  & 3   & 19   \\\hline
 \end{itemize}
 \begin{minipage}{0.55\linewidth}
 \inputminted[fontsize=\scriptsize,frame=single,resetmargins]{latex}%
-  {bib-esempio.tex}
+  {A2022.IDSEPCLaTeX/bib-esempio.tex}
 \end{minipage}
 \begin{minipage}{0.35\linewidth}
-\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{bib-esempio.pdf}
+\includegraphics[width=\textwidth,clip,trim=1.8in 5in 1.8in 1in]{A2022.IDSEPCLaTeX/bib-esempio.pdf}
 \end{minipage}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Exercise}
-\begin{frame}[fragile]{Exercise: Putting it All Together}
+\begin{frame}[fragile]{\centerline{Esercizio riassuntivo}}
 
-Add an image and a bibliography to the paper from the previous exercise.
+Aggiungere una immagine e la bibliografia all'esercizio precedente.
+
 
 \begin{enumerate}
-\item Download these example files to your computer.
+\item Scaricare questi file di esempio sul proprio computer.
+\vskip 4ex
 
 \begin{center}
-\fbox{\href{\fileuri/gerbil.jpg?dl=1}{Click to download example image}}
+\fbox{\href{\fileuri/gerbil.jpg?dl=1}{Cliccare per scaricare l'immagine di esempio}}
+\vskip 4ex
 
-\fbox{\href{\fileuri/bib-exercise.bib?dl=1}{Click to download example bib file}}
+\fbox{\href{\fileuri/bib-esercizio.bib?dl=1}{Cliccare per scaricare il file bib di esempio}}
 \end{center}
+\vskip 4ex
 
-\item Upload them to Overleaf (use the project menu).
+\item Caricare i file su \wllogo.
 
 \end{enumerate}
 \end{frame}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{What's Next?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}{Outline}
-\begin{multicols}{2}
-\tableofcontents[currentsection]
-\end{multicols}
-\end{frame}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{More Neat Things}
+\subsection{\centerline{Alcuni comandi interessanti}}
 \begin{frame}[fragile]{\insertsubsection}
 \begin{itemize}
-\item Add the \cmdbs{tableofcontents} command to generate a table of contents
-from the \cmdbs{section} commands.
+\item Con \cmdbs{tableofcontents} si genera un indice (in inglese ``Table of Content''
+dai comandi di sezione \cmdbs{section}.
 
-\item Change the \cmdbs{documentclass} to
+\item Si pu\`{o} radicalmente cambiare la formattazione cambiando argomento di \cmdbs{documentclass} ad esempio in
 \mint{latex}!\documentclass{scrartcl}!
-or
+o in
 \mint{latex}!\documentclass[12pt]{IEEEtran}!
 
-\item Define your own command for a complicated equation:
+\item Si possono definire i propri comandi per formule complesse, semplificando la scrittura:
 \begin{exampletwouptiny}
 \newcommand{\rperf}{%
   \rho_{\text{perf}}}
@@ -1024,227 +1028,54 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{More Neat Packages}
-\begin{frame}{\insertsubsection}
+\begin{frame}{\centerline{Alcuni pacchetti utili}}
 \begin{itemize}
-\item \bftt{beamer}: for presentations (like this one!)
-\item \bftt{todonotes}: comments and TODO management
-\item \bftt{tikz}: make amazing graphics
-\item \bftt{pgfplots}: create graphs in \LaTeX
-\item \bftt{listings}: source code printer for \LaTeX
-\item \bftt{spreadtab}: create spreadsheets in \LaTeX
-\item \bftt{gchords}, \bftt{guitar}: guitar chords and tabulature
-\item \bftt{cwpuzzle}: crossword puzzles
+\item \bftt{beamer}: presentazioni (come questa!)
+\item \bftt{todonotes}: gestione di commenti e TODO
+\item \bftt{tikz}: grafica
+\item \bftt{pgfplots}: creare grafici
+\item \bftt{listings}: codice
+\item \bftt{spreadtab}: fogli elettronici
+\item \bftt{gchords}, \bftt{guitar}: chitarra
+\item \bftt{cwpuzzle}: parole incrociate
 \end{itemize}
-See \url{https://www.overleaf.com/latex/examples} and \url{http://texample.net}
-for examples of (most of) these packages.
+Si trovano esempi di questi pacchetti ai siti \url{https://www.overleaf.com/latex/examples} e \url{http://texample.net}.
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Installing \LaTeX{}}
-\begin{frame}{\insertsubsection}
+\begin{frame}{\centerline{Installazione \LaTeX{}}}
 \begin{itemize}
-\item To run \LaTeX{} on your own computer, you'll want to use a \LaTeX{}
-\emph{distribution}. A distribution includes a \bftt{latex} program
-and (typically) several thousand packages.
+\item Si pu\`{o} usare \LaTeX{} online su \wllogo, ma \ldots se non si \`{e} online?
+\item Se volete avere \LaTeX{} sempre a disposizione sul vostro computer occorre scaricare una 
+\emph{distribuzione}. Una distribuzione include il programma \bftt{latex} e, di solito, qualche migliaia di pacchetti.
 \begin{itemize}
-\item On Windows: \href{http://miktex.org/}{Mik\TeX} or \href{http://tug.org/texlive/}{\TeX Live}
-\item On Linux: \href{http://tug.org/texlive/}{\TeX Live}
-\item On Mac: \href{http://tug.org/mactex/}{Mac\TeX}
+\item Per Windows: \href{http://miktex.org/}{Mik\TeX} o \href{http://tug.org/texlive/}{\TeX Live}
+\item Per Linux: \href{http://tug.org/texlive/}{\TeX Live}
+\item Per MacOS: \href{http://tug.org/mactex/}{Mac\TeX}
 \end{itemize}
-\item You'll also want a text editor with \LaTeX{} support. See \url{http://en.wikipedia.org/wiki/Comparison_of_TeX_editors} for a list of (many) options.
-\item You'll also have to know more about how \bftt{latex} and its related tools
-work --- see the resources on the next slide.
+\item C'\`{e} anche bisogno di un editor di testi con supporto per \LaTeX{}. Un confronto tra possibili opzioni si trova alla pagina: \url{http://en.wikipedia.org/wiki/Comparison_of_TeX_editors}.
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Online Resources}
-\begin{frame}{\insertsubsection}
+\begin{frame}{\centerline{Risorse disponibili online}}
 \begin{itemize}
-\item \href{https://www.overleaf.com/learn}{The Overleaf Learn Wiki} ---
-hosts these slides, more tutorials and reference material
+\item \href{https://www.overleaf.com/learn}{Il Wiki per imparare Overleaf} ---
+Presentazioni, tutorial, e manuali aggiuntivi
 \item \href{http://en.wikibooks.org/wiki/LaTeX}{The \LaTeX{} Wikibook} ---
-excellent tutorials and reference material.
-\item \href{http://tex.stackexchange.com/}{\TeX{} Stack Exchange} --- ask
-questions and get excellent answers incredibly quickly
-\item \href{http://www.latex-community.org/}{\LaTeX{} Community} --- a large
-online forum
-\item \href{http://ctan.org/}{Comprehensive \TeX{} Archive Network (CTAN)} ---
-over four thousand packages plus documentation
-\item Google will usually get you to one of the above.
+Una collezione di tutorial e materiale di riferimento.
+\item \href{http://tex.stackexchange.com/}{\TeX{} Stack Exchange} --- Domande e risposte tipiche, ma anche la possibilit\`{a} di fare domande ed avere risposte in tempi brevi, se si \`{e} fortunati
+\item \href{http://www.latex-community.org/}{\LaTeX{} Community} --- un grande forum online
+\item \href{http://ctan.org/}{Comprehensive \TeX{} Archive Network (CTAN)} --- La complete rete di archivi di \TeX{}. pi\`{u} di quattromila pacchetti e documentazoini
+\item Google !
 \end{itemize}
 \end{frame}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{frame}
-\begin{center}
-Thanks, and happy \TeX{}ing!
-\end{center}
-\end{frame}
+
+
 
 \end{document}
 
-% -- latex understands words, sentences and paragraphs
-
-Words are separated by one or more spaces.  Paragraphs are separated by
-one or more blank lines.  The output is not affected by adding extra
-spaces or extra blank lines to the input file.
-
-Double quotes are typed like this: ``quoted text''.
-Single quotes are typed like this: `single-quoted text'.
-
-Emphasized text is typed like this: \emph{this is emphasized}.
-Bold       text is typed like this: \textbf{this is bold}.
-
--- Adding structure to your document
-
-\section{Hello}
-
-\subsection{World}
-
-\subsection{Foo}
-
-\subsubsection*{Stuff} % star form
-
-\subsubsection*{Results}
-
--- Labels and cross-references
-
-\label{sec:intro}
-\label{sec:method}
-\ref{sec:method}
-
---> maybe introduce the prettyref package here.
-
--- Mathematics
-
-Inline mathematics: $x + y < 7$.
-
-'Displayed' mathematics:
-\begin{equation}
-\end{equation}
-
-\begin{equation*}
-\end{equation*}
-
-\begin{align}
-\end{align}
-
--- Figures
-
-- Need the graphicx package.
-
-- here we can start introducing options
-
-\includegraphics[width=\textwidth]{}
-
-- where do you find out about these options? --> link to the Wikibook
-
--- Floating Figures
-
-\begin{figure}
-\includegraphics{...}
-\caption{\label{}Here is a caption.}
-\end{figure}
-
--- Tables
-
-- not the nicest part of LaTeX
-
-\usepackage{tabularx}
-
-\begin{tabular}{llr}
-Item & Quantity & Price (\$) & Amount
-Widget & 1 &
-\end{tabular}
-
-Bonus points: check out the fp package and the spreadtab package.
-
--- Document Classes
-
-a .cls file
-
-article
-
-some journal templates come with one
-
--- Bibliographies
-
-
-
--- For Typesetting Geeks
-
-- dashes: -, --, ---
-
-- ellipsis.
-
-- controlling spaces: ~, \ , \,, \@
-
-- spacing after periods (et al., etc.)
-
-- Nested quotation marks: ``\,`
-\vskip 2ex
-\item Use the \emph{star form} to display an equation without a number.
-\begin{exampletwouptiny}
-\begin{equation*}
-F(x) = \int_{a}^{x}{f(t) dt}
-\end{equation*}
-\end{exampletwouptiny}
-
-\begin{itemize}
-\item \bftt{equation} and \bftt{equation*} are called \emph{environments}.
-\begin{itemize}
-  \item The \cmdbs{begin} and \cmdbs{end} commands define the environment.
-  \item The \cmd{\$} also starts and ends an environment.
-  \item Some commands are defined only within certain environments.
-  \item Some commands behave differently in different environments.
-\end{itemize}
-\end{itemize}
-\end{block}
-\begin{center}
-\fbox{\href{http://ctan.org/}{The Comprehensive \TeX Archive Network (CTAN)}}
-\end{center}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Typography tweaks}
-\begin{frame}{\insertsubsection}
-\begin{tabular}{lll}
-& character name & used mainly for \ldots \\\hline
-\bftt{\bs} & backslash                 & commands, tables \\
-\bftt{\{}  & open brace                & commands \\
-\bftt{\}}  & close brace               & commands \\
-\bftt{\%}  & percent sign              & comments \\
-\bftt{\#}  & hash (pound / sharp) sign & custom commands \\
-\bftt{\$}  & dollar sign               & equations \\
-\bftt{\_}  & underscore                & equations (subscripts) \\
-\bftt{\^}  & caret                     & equations (superscripts) \\
-\bftt{\&}  & ampersand                 & tables \\
-\bftt{\~}  & tilde                     & spacing \\
-\end{tabular}
-\end{frame}
-
-%\item We've used several environments:
-%\vskip 1ex
-%{\scriptsize
-%\begin{tabular}{ll}
-%\cmdbs{begin}\bftt{\{document\}}\ldots\cmdbs{end}\bftt{\{document\}} &
-%  document environment \\
-%\cmdbs{begin}\bftt{\{itemize\}}\ldots\cmdbs{end}\bftt{\{itemize\}} &
-%  itemized list environment \\
-%\bftt{\$\ldots\$}     & \emph{in-text} math environment \\
-%\bftt{\$\$\ldots\$\$} & \emph{displayed} math environment \\
-%\cmdbs{begin}\bftt{\{equation\}}\ldots\cmdbs{end}\bftt{\{equation\}} &
-%  displayed math environment w/ number
-%\end{tabular}
-%}
-
-\end{document}
