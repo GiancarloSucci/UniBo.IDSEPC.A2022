@@ -42,6 +42,10 @@
 
 \setbeamertemplate{navigation symbols}{}
 
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\large}
+
+
 \defbeamertemplate*{headline}{mytheme}
 {%
   \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{section in head/foot}
@@ -143,17 +147,6 @@ Lezione 1: Introduzione al corso; il concetto di software} % The short title app
 \end{textblock*}}
 
 %=============================================
-\begin{frame}
-{\centerline{Fonti}}
-\begin{itemize}
-    \item These slides have been adapted from the original slides of the adopted book: 
-    \begin{itemize}
-    \item Tanenbaum \& Bos, Modern  Operating Systems: 4th edition, 2013 Prentice-Hall, Inc.
-    \end{itemize}
-    and customised for the needs of this course.
-    \item Additional input for the slides are detailed later
-\end{itemize}
-\end{frame}
 
 \begin{frame}
 {\centerline{Piano della lezione}}
@@ -162,6 +155,14 @@ Lezione 1: Introduzione al corso; il concetto di software} % The short title app
     \item Il concetto di software
 \end{itemize} 
 \end{frame}
+
+\begin{frame}
+{\centerline{Struttura del corso}}
+\begin{itemize}
+    \item Si veda il sillabo alla pagina \url{https://github.com/GiancarloSucci/UniBo.IDSEPC.A2022/blob/main/A2022.IDSEPC.Sillabo.pdf}
+\end{itemize} 
+\end{frame}
+
 
 \begin{frame}
 {\centerline{Il concetto di software}}
@@ -233,6 +234,124 @@ Lezione 1: Introduzione al corso; il concetto di software} % The short title app
 
 \end{frame}
 
+\begin{frame}
+{\centerline{Esempio di segmenti di mercato}}
+
+\begin{itemize}
+    \item Questi dati sono molto vecchi, ma il succo non cambia:
+\end{itemize}
+
+\begin{center}
+    
+\resizebox{0.9\textwidth}{!}{%
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  \textbf{Prodotto} & \textbf{Professional} & \textbf{Educational} & \textbf{E/P} \\
+  \hline
+    Office 97 & \$ 779 & \$ 215.45 & 27.6\% \\ \hline
+    Corel WP Suite 98 & \$ 449 & \$ 71.55 & 15.9\% \\
+  \hline
+  \end{tabular}
+} % end of scope of "\resizebox"  directive
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Altro esempio di segmentazione (16/09/2022)}}
+\begin{center}
+    \includegraphics[width=0.8\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/SegmentationBundlingAdobe.jpg}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Bundling (16/09/2022)}}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingAdobe.jpg}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Bundling in altri settori ``creativi'' (1/2)}}
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingMarvel.pdf}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Bundling in altri settori ``creativi'' (2/2)}}
+\begin{center}
+    \includegraphics[width=0.45\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingAD.pdf}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Esternalit\`{a} di rete}}
+
+\begin{itemize}
+\item Si hanno \textcolor{blue}{economie di rete} per un prodotto quando un utente lo valuta  diversamente se ci sono utenti di tale prodotto o di prodotti \textit{compatibili}.
+
+\item Quando il valore di un prodotto aumenta quanti pi\`{u} ci sono utenti di tale prodotto o di prodotti compatibili si dice che ci sono \textcolor{red}{esternalit\`{a} di rete}, o, semplicemente \textcolor{red}{esternalit\`{a}}.
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Esempi di esternalit\`{a} di rete}}
+
+\begin{itemize}
+\item Il mercato delle telecomunicazioni \`{e} un chiaro esempio di esternalit\`{a} di rete: 
+\begin{itemize}
+\item il valore di un telefono dipende da quanti utenti lo usano. Se nessuno lo usasse, sarebbe inutile!
+\end{itemize}
+\item Anche il mercato delle figurine Panini \`{e} un chiaro esempio di esternalit\`{a} di rete!
+
+\item Non tutti i mercati hanno esternalit\`{a} di rete: quello delle automobili di lusso, sicuramente no:
+\begin{itemize}
+\item chi compera un'auto di lusso spera probilmente di essere l'unico nel suo circolo ad averla.
+\end{itemize}
+\item La stessa situazione si ha con i vestiti di lusso.
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Esternalit\`{a} di rete nel software}}
+
+\begin{itemize}
+\item L'industria software ha forti esternalit\`{a} di rete.
+\item Ci sono due chiari esempi di tali esternalit\`{a}:
+\begin{itemize}
+\item lo scambio di informazioni, ad esempio via posta elettronica o tramite la condivisione di formati di file (ad esempio .docx o .odt)
+\item l'usabilit\`{a} dei sistemi software, per cui se si conosce la modalit\`{a} di uso di un sistema, si tende ad usare sistemi con le stesse modalit\`{a}, ad esempio, con le stesse scorciatoie
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Ulteriori effetti delle esternalit\`{a} di rete}}
+
+\begin{itemize}
+\item L'industria software ha forti esternalit\`{a} di rete.
+\item Ci sono due chiari esempi di tali esternalit\`{a}:
+\begin{itemize}
+\item lo scambio di informazioni, ad esempio via posta elettronica o tramite la condivisione di formati di file (ad esempio .docx o .odt)
+\item l'usabilit\`{a} dei sistemi software, per cui se si conosce la modalit\`{a} di uso di un sistema, si tende ad usare sistemi con le stesse modalit\`{a}, ad esempio, con le stesse scorciatoie
+\end{itemize}
+
+\end{itemize}
+
+\end{frame}
 
 
 \begin{frame}
