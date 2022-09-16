@@ -1,0 +1,21 @@
+\begin{tikzpicture}[scale=0.9]
+\begin{axis}[
+axis x line=center,
+axis y line=center,
+xmin = -0.95,
+xmax = 9.95,
+ymin = -0.95,
+ymax = 11,
+title={Costo marginale per unit\`{a}},
+xlabel = {Numero di unit\`{a} prodotte},
+yticklabels={,,},
+extra x ticks = {0},
+extra x tick label = {$\hspace{-0.6cm}0$},
+]
+\addplot[very thick,domain=0.01:0.94,samples=100,red] {0.040*x/(ln(x)^2)};
+\addplot[very thick,domain=0.94:1.06,samples=10,red] {0.040*0.94/(ln(0.94)^2)};
+\addplot[very thick,domain=1.06:10,samples=100,red] {0.032*x/(ln(x)^2});
+\addplot[very thick,dotted] coordinates {(1,0) (1,10)};
+\addplot[thick,dashed,green] coordinates {(0,10) (10,10)};
+\end{axis}
+\end{tikzpicture}

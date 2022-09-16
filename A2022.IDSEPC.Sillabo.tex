@@ -10,6 +10,8 @@
 \usepackage{array}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \usepackage{fp}
+\usepackage[usenames,dvipsnames]{xcolor}
+
 
 
 % The title of the current document to be produced.
@@ -22,6 +24,10 @@
     \IfNoValueTF{#1}
         {\bluetext{\textbf{Argomento~}}}
         {\bluetext{\textbf{Argomento:~} #1}}}
+\NewDocumentCommand{\dataeora}{o}{%
+    \IfNoValueTF{#1}
+        {\textcolor{ForestGreen}{\textbf{Data e ora~}}}
+        {\textcolor{ForestGreen}{\textbf{Data e ora:~} #1}}}
 
 %
 \setlength{\unitlength}{1in}
@@ -198,91 +204,99 @@ Lo studente pu\`{o} decidere la forma valutativa che preferisce tra le seguenti:
 \renewcommand{\arraystretch}{1.5} % this reduces the vertical spacing between rows    
 \noindent\begin{longtable}{|C{1cm}|p{15cm}|}
 \toprule
-	\thead{\color{darkblue} Lezione} & \thead{\argomento \& \materialedidattico} \\ 
+	\thead{\color{darkblue} Lezione} & \thead{\argomento, \materialedidattico \& \dataeora} \\ 
 	%---s Load the table body: dynamic table content. 
 \midrule
     \endhead
 	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Presentazione del corso e natura del concetto di dato]  \\
 	& \materialedidattico[Lucidi presentati dal docente] \\
+	& \dataeora[20 settembre 2022, 18-20] \\
 	\hline    
 	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[La produzione del dato nel lavoro (condiviso); gitHub]  \\
 	& \materialedidattico[Lucidi presentati dal docente] \\
+	& \dataeora[21 settembre 2022, 16-18] \\
 	\hline    
 	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Il dato come documento; La scrittura di documenti in LaTex come paradigma della produzione digitale (parte 1)]  \\
 	& \materialedidattico[Lucidi presentati dal docente] \\
+	& \dataeora[21 settembre 2022, 18-20] \\
 	\hline    
 	\centering\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[La scrittura di documenti in LaTex come paradigma della produzione digitale (parte 2)]  \\
 	& \materialedidattico[Lucidi presentati dal docente] \\
+	& \dataeora[5 ottobre 2022, 16-18] \\
 	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Struttura dei calcolatori]  \\
+%	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Struttura dei calcolatori]  \\
+%	& \materialedidattico \\
+%	\hline    
+%	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Sistemi operativi e reti]  \\
+%	& \materialedidattico \\
+%	\hline    
+%	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Linguaggi di programmazione]  \\
+%	& \materialedidattico \\
+%	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Processo di produzione del software]  \\
 	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Sistemi operativi e reti]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Linguaggi di programmazione]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Processo di produzione]  \\
-	& \materialedidattico \\
+	& \dataeora[5 ottobre 2022, 18-20] \\
 	\hline    
 	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Sperimentazione e deduzione; il modello GQM]  \\
 	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Progettazione degli esperimenti]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi dei dati provenienti dagli esperimenti]  \\
-	& \materialedidattico \\
+	& \dataeora[11 ottobre 2022, 18-20, 18-20] \\
 	\hline    
 	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Scale di dati]  \\
 	& \materialedidattico \\
+	& \dataeora[12 ottobre 2022, 16-18] \\
 	\hline    
 	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Revisione dei fondamenti di statistica descrittiva (parte 1)]  \\
 	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica descrittiva in Python (parte 1)]  \\
-	& \materialedidattico \\
+	& \dataeora[12 ottobre 2022, 18-20] \\
 	\hline    
 	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Revisione dei fondamenti di statistica descrittiva (parte 2)]  \\
 	& \materialedidattico \\
+	& \dataeora[18 ottobre 2022, 18-20] \\
 	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica descrittiva in Python (parte 2)]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Progettazione degli esperimenti]  \\
 	& \materialedidattico \\
+	& \dataeora[19 ottobre 2022, 16-18] \\
 	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- le basi]  \\
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- le basi e principi di regressione lineare]  \\
 	& \materialedidattico \\
-	\hline    
+	& \dataeora[19 ottobre 2022, 18-20] \\
+	\hline
 	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- regressione lineare]  \\
-	& \materialedidattico \\
-	\hline   
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Regressione lineare in Python]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- correlazione parametrica]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Correlazione parametrica in Python]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Dalla statistica inferenziale all'apprendimento automatico; la regressione logistica]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Regressione logistica in Python]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Principi di reti neurali]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Semplici reti neurali in Python]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi automatica di testi -- parte 1]  \\
-	& \materialedidattico \\
-	\hline    
-	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi automatica di testi -- parte 2]  \\
-	& \materialedidattico \\
+& \materialedidattico \\
+	& \dataeora[8 novembre 2022, 18-20] \\
+	\hline
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Statistica inferenziale -- la correlazione parametrica]  \\
+& \materialedidattico \\
+	& \dataeora[9 novembre 2022, 16-18] \\
+	\hline
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Dalla statistica inferenziale all’apprendimento automatico; la regressione logistica]  \\
 
+   & \materialedidattico \\
+	& \dataeora[9 novembre 2022, 18-20] \\
+	\hline    
+   \textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Principi di reti neurali (parte 1)]  \\
+	& \materialedidattico \\
+	& \dataeora[15 novembre 2022, 18-20] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Principi di reti neurali (parte 2)]  \\
+	& \materialedidattico \\
+	& \dataeora[16 novembre 2022, 16-18] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Principi di reti neurali (parte 3)]  \\
+	& \materialedidattico \\
+	& \dataeora[16 novembre 2022, 18-20] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi automatica di testi (parte 1)]  \\
+	& \materialedidattico \\
+	& \dataeora[23 novembre 2022, 18-20] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi automatica di testi (parte 2)]  \\
+	& \materialedidattico \\
+	& \dataeora[29 novembre 2022, 18-20] \\
+	\hline    
+	\textbf{\thelezione \addtocounter{lezione}{1}} &   \argomento[Analisi automatica di testi (parte 3)]  \\
+	& \materialedidattico \\
+	& \dataeora[30 novembre 2022, 18-20] \\
 	\hline    
 
 \end{longtable}   
