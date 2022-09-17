@@ -19,9 +19,11 @@
   \usepackage{tikz}
   \usetikzlibrary{plotmarks}
   \usepackage{pgfplots}
- %\usepackage{enumitem}
-%\usepackage{enumerate}
-  %\usepackage[shortlabels]{enumitem}
+  \newcommand{\Ivec}[1]{\mbox{\boldmath $#1$}}
+    \usepackage[normalem]{ulem}
+    % \usepackage{tipa}
+    \newcommand{\git}{\texttt{\textbf{git}}\xspace}
+    \usepackage{listings}
 } 
 
 
@@ -134,6 +136,7 @@ Lezione 2: La produzione del software nel lavoro (condiviso); gitHub} % The shor
                 \tableofcontents[currentsection]
         \end{frame}
 }
+
 \begin{document}
 \begin{frame}
 \titlepage % Print the title page as the first slide
@@ -153,383 +156,908 @@ Lezione 2: La produzione del software nel lavoro (condiviso); gitHub} % The shor
 {\centerline{Piano della lezione}}
 \begin{itemize}
     \item La produzione del software
-    \item Git
+    \item \git
 \end{itemize} 
 \end{frame}
 
 \begin{frame}
 {\centerline{Crediti per il materiale didattico}}
 \begin{itemize}
-    \item Il materiale didattico relativo a \textcolor{red}{Git} \`{e} basato sull'introduzione a Git del \textcolor{blue}{dott. Emanuele Olivetti}, che ha gentilmente concesso il suo uso
+    \item Il materiale didattico relativo a \textcolor{red}{\git} \`{e} basato sull'introduzione a \git ~ del \textcolor{blue}{dott. Emanuele Olivetti}, che ha gentilmente concesso il suo uso
     \item La localizzazione dell'originale \`{e} \url{https://github.com/emanuele/introduction_to_Git}
 \end{itemize} 
 \end{frame}
 
 
 \begin{frame}
-{\centerline{Struttura del corso}}
+{\centerline{La produzione del software}}
 \begin{itemize}
-    \item Si veda il sillabo alla pagina \url{https://github.com/GiancarloSucci/UniBo.IDSEPC.A2022/blob/main/A2022.IDSEPC.Sillabo.pdf}
+    \item Il software \`{e} un bene immateriale
+    \item \`{E} un po' come la musica
+    \item Produrlo insieme ad altre persone apparirebbe essere pi\`{u} semplice
+    \begin{itemize}
+    \item in modo ingenuo si potrebbe pensare che basterebbe scambiarsi il codice
+    \item per questo in ogni caso il lavoro remoto e lo sviluppo distribuito su scala planetaria sono pratiche non solo comune, ma, alle volte, molto profittevoli
+    \item vi sono persino ditte virtuali di grande successo
+\end{itemize} 
+\item Allo stesso modo i musicisti potrebbero scambiarsi gli spartiti online
 \end{itemize} 
 \end{frame}
 
-
 \begin{frame}
-{\centerline{Il concetto di software}}
+{\centerline{Il problema nella produzione del software (1/2)}}
 \begin{itemize}
-    \item La natura del software
-    \item La funzione di costo
-    \item Il software come economia di rete 
-    \item Competizione nel mercato software
+    \item Avete mai provato a scambiarvi una traduzione di latino online o per telefono?
+    \item Che cosa succede spesso?
+    \begin{itemize}
+    \item Non ci si ricorda qual \`{e} la copia giusta
+    \item Se ci sono errori, spesso non si capisce chi lo ha commesso
+    \item Ci sono difficolt\`{a} a dare credito a chi ha fatto la mole principale di lavoro
+\end{itemize} 
+
 \end{itemize} 
 \end{frame}
 
 \begin{frame}
-{\centerline{La natura del software (1/3)}}
+{\centerline{Il problema nella produzione del software (2/2)}}
 \begin{itemize}
-    \item Il software \`{e} il risultato di un atto creativo della mente umana
+    \item Tutto questo, e ancora molto di pi\`{u} succede nel software
+    \item E per noi per ora il testo dei lucidi \`{e} il software
+    \item E vedete come \`{e} difficile recuperare la versione pi\`{u} recente e corretta, e qual \`{e} il rischio di sbagliare date, aula, indirizzi email, ecc
 \end{itemize} 
-\vspace{0.8cm}
-\begin{center}
-    \includegraphics[width=\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/SoftwareAttoCreativoEEG.png}
-\end{center}
-
 \end{frame}
 
 \begin{frame}
-{\centerline{La natura del software (2/3)}}
+{\centerline{\git}}
 \begin{itemize}
-    \item Il software \`{e} simile ad altri risultati di creazioni umane
+    \item Per questo si usano sistemi di sincronizzazione del lavoro condiviso, detti ``sistemi di gestione delle versioni''
+    \item Essi \textcolor{red}{\textbf{NON}} risolvono il problema di come sviluppare il software da soli o con altri
+    \item Per\`{o} danno un contributo \textcolor{orange}{\textbf{ESSENZIALE}} al lavoro
+    \item Per questo il loro uso sar\`{a} un aspetto centrale del corso
 \end{itemize} 
+\end{frame}
+
+\begin{frame}{\centerline{Outline}}
+  \begin{itemize}
+  \item Version Control: \git.
+  \item Scenario 1: \textbf{singolo} sviluppatore, 
+    repository \textbf{locale}.
+  \item Scenario 2: \textbf{Team} di sviluppatori, repository \textbf{centralizzato e remoto}. Minimalistico.
+  \item Branching.
+  \item Scenario 3: Contribuire a un progetto software localizzato su
+    \textbf{GitHub}.
+  \item Extra: come organizzare un repository centralizzato e pi\`{u}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\centerline{Version Control: Nomi \& Significato}}
+  \begin{block}{Da Wikipedia in inglese}
+    ``\emph{Il sistema di gestione delle revisioni}, anche conosciuto come \emph{version control},
+    \emph{source control} o, in parte, \emph{software configuration management}
+    (SCM), \`{e} \alert{la modalit\`{a} di gestione dei cambi a documenti, programmi e altre informazioni salvate come file su computer}.''
+  \end{block}
+  Acronimi in uso:
+  \begin{itemize}
+  \item VC
+  \item SCM
+  \end{itemize}
+  Errori di denominazione:
+  \begin{itemize}
+  \item \sout{Versioning}
+  \end{itemize}
+  \textbf{D:} Avete mai usato un sistema di VC?
+\end{frame}
+
+\begin{frame}{\centerline{VC: Locale, Centralizzato, Distribuito}}
 \begin{center}
-    \includegraphics[width=\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/SoftwareAttoCreativoLeonardo.jpg}
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{La natura del software (3/3)}}
-\begin{itemize}
-    \item Il software \`{e} protetto dal diritto d'autore (anche se la questione \`{e} sempre aperta)
-\begin{itemize}
-    \item I diritti degli sviluppatori sono divisi in diritti morali (non alienabili) e diritti economici (alienabili)
-    \item I diritti dei creatori sono protetti anche se non registrano un brevetto 
-    \item I diritti durano molto pi\`{u} a lungo di quelli di un brevetto -- 50 anni dopo la morte del creatore invece che 20 anni dopo la registrazione del brevetto 
-    \item Il software \`{e} dato in licenza e non venduto
-\end{itemize} 
-\end{itemize} 
-
-\end{frame}
-
-\begin{frame}
-{\centerline{La funzione di costo}}
-\begin{center}
-    \include{A2022.IDSEPC.ConcettoDiSoftware/SoftwareAttoCreativo.FunzioneDiCosto}
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Trovare altri settori in cui si notano funzioni di costo simili.}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-{\centerline{La segmentazione del mercato nel software}}
-\begin{itemize}
-\item Nel software non ci sono limiti fisici alla segmentazione
-\item Inoltre:
-\begin{itemize}
-\item il software \`{e} protetto dal copyright
-\item la funzione di costo ha una struttura a ``L''
-\end{itemize}
-\item Si pu\`{o} quindi operare un segmentazione aggressiva
-\item Si possono operare strategie di ``bundling'' per promuovere nuovi prodotti
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esempio di segmenti di mercato}}
-
-\begin{itemize}
-    \item Questi dati sono molto vecchi, ma il succo non cambia:
-\end{itemize}
-
-\begin{center}
-    
-\resizebox{0.9\textwidth}{!}{%
-  \begin{tabular}{|c|c|c|c|}
-  \hline
-  \textbf{Prodotto} & \textbf{Professional} & \textbf{Educational} & \textbf{E/P} \\
-  \hline
-    Office 97 & \$ 779 & \$ 215.45 & 27.6\% \\ \hline
-    Corel WP Suite 98 & \$ 449 & \$ 71.55 & 15.9\% \\
-  \hline
-  \end{tabular}
-
-} % end of scope of "\resizebox"  directive
+  \includegraphics[width=0.8\linewidth]{UniBo.IDSEPC.A2022.LavoroCondiviso/vc_paradigms}
+\\
+\small
+Da \emph{Pro Git}, S.Chacon 2009, CC 3.0 license.
 \end{center}
 \end{frame}
 
-\begin{frame}
-{\centerline{Altro esempio di segmentazione (16/09/2022)}}
+
+
+\begin{frame}{\centerline{Sondaggio: \git}}
+  \begin{itemize}\setlength{\itemsep}{+3mm}
+  \item D1: Avete mai sentito parlare di \git?
+  \item D2: Usate \git?
+  \item D3: Da dove viene il nome ``\git''? (dalla FAQ di \git)
+    \begin{enumerate}\setlength{\itemsep}{+2mm}
+    \item Una combinazione di tre lettere a caso che \`{e} pronunciabile.
+    \item Acronimo (global information tracker).
+    \item Ironia.
+    \end{enumerate}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\centerline{\git? Perch\'{e} ``\git''?}}
+  \begin{columns}
+    \begin{column}{5cm}
+      \textbf{Linus Torvalds}: 
+        \emph{``Io assegno nomi a tutti i miei progetti da me, prima Linux e ora
+        \git.}''
+      \begin{figure}
+        \centering
+        \includegraphics[width=4cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/Linus_Torval';.ds}
+      \end{figure}
+    \end{column}
+    \begin{column}{7cm}
+      \begin{figure}
+        \url{http://www.merriam-webster.com/dictionary/git}
+        \centering
+        \includegraphics[width=5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-merriam}
+      \end{figure}
+    \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{\centerline{\git (1/2)}}
+  \begin{center}
+  Dalla pagina del manuale (in inglese):
+  \item \texttt{\textbf{git}}
+  \end{center}
+\begin{verbatim}
+usage: git [OPTIONS] COMMAND [ARGS]
+
+The most commonly used git commands are:
+   add        Add file contents to the index
+   commit     Record changes to the repository
+   diff       Show changes between commits, commit and working tree, etc
+   ...
+\end{verbatim}
+  \begin{center}
+    \texttt{\textbf{git help <command>}}
+  \end{center}
+  \begin{center}
+    \texttt{\textbf{git status}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{\git (2/2)}}
+  Presentatevi a \git:
+  \begin{center}
+    \small
+    \texttt{\textbf{git config -{}-global user.name "Emanuele Olivetti"}}
+  \end{center}
+  \vspace{0.2cm}
+  \begin{center}
+    \small
+    \texttt{\textbf{git config -{}-global user.email "olivetti@fbk.eu"}}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{\git -- Singolo sviluppatore + repository locale}}
+  \begin{figure}
+    \centering
+    Scenario 1: singolo sviluppatore + repository locale
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Motivazioni}}
+  \begin{itemize}\setlength{\itemsep}{+3mm}
+  \item Per caso usate un VC per il vostro repository locale?
+  \item Perch\'{e} usare un VC per un singolo sviluppatore con un repository locale?
+    \begin{itemize}\setlength{\itemsep}{+2mm}
+    \item Primo passo per un progetto condiviso.
+    \item Backup.
+    \item Per tracciare il proprio lavoro.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Init}}
+  \begin{center}
+    \texttt{\textbf{git init}}
+  \end{center}
+  \begin{itemize}
+  \item Crea un repository \git ~ vuoto.
+  \item Crea una directory \git: ~ \texttt{.git/}
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-init}
+  \end{figure}
+  Nota: \`{e} una azione \textcolor{red}{sicura}. Non cambia i file esistenti.
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Il flusso dei dati}}
+  \begin{center}
+    \texttt{\textbf{git add <filename>}}
+  \end{center}
+  \begin{figure}
+    \centering
+    \includegraphics[width=5.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/staging}
+  \end{figure}
+  \begin{center}
+    \texttt{\textbf{git commit -m "Let us begin."}}
+  \end{center}
+
+  \begin{block}{Wikipedia (tradotto dall'inglese)}
+    ``La \emph{staging area} \`{e} il luogo dove organismi, persone, veicoli, equipaggiamenti o materiali sono messi insieme prima dell'uso''.
+  \end{block}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Add}}
+  \begin{center}
+    \texttt{\textbf{git add file1 [file2 ...]}}
+  \end{center}
+  \begin{itemize}
+  \item Aggiunge nuovi file per il successivo \texttt{commit}.
+  \item Aggiunge contenuto dalla directory di lavoro alla staging area per il successivo commit, in pratica indicizza
+  \item Non aggiunge informazioni sui permessi dei file
+  \item Di per s\'{e} non crea directory
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=7cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-add}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Commit (1/2)}}
+  \begin{center}
+    \texttt{\textbf{git commit [-m "Commit message."]}}
+  \end{center}
+  Trascrive tutti i cambiamenti dalla staging area al master.
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-commit}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Commit (2/2)}}
+  \begin{center}
+    \texttt{\textbf{git commit file1 file2}}
+  \end{center}
+  Trascrive i cambiamenti dalla directory di lavoro e dalla staging area al master per \texttt{\textbf{file1}},
+  \texttt{\textbf{file2}} 
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-commit-filename}
+  \end{figure}
+  \begin{center}
+    \texttt{\textbf{git commit -a}}
+  \end{center}
+  \textcolor{red}{Attenzione! } Trascrive tutti i cambiamenti nella directory di lavoro e nella staging area
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Diff }}
+  \begin{center}
+    \texttt{\textbf{git diff}}
+  \end{center}
+  Presenta quali cambiamenti siano present tra la \emph{directory di lavoro} e la
+  \emph{staging area}; lavora sugli indici
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-diff}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Logs (1/2)}}
+  \begin{center}
+    \texttt{\textbf{git log}}
+  \end{center}
+  Presenta i dettagli dei commit; ecco perch\'{e} servono i messaggi
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-log}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{ \git ~ -- Singolo+Locale -- Logs (2/2) }}
+  \begin{center}
+    \texttt{\textbf{gitk}}
+  \end{center}
+  Interfaccia grafica per navigare in un repository \git:
+  \begin{figure}
+    \centering
+    \includegraphics[width=9.4cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/gitk_cropped}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso (1/3)}}
+  \begin{figure}
+    \centering
+    Scenario 2: \textbf{Team} di sviluppatori, repository \textbf{centralizzato e remoto}. Minimalistico.
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso (2/3)}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=10cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/workflow-a}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso (3/3)}}
+  \begin{figure}
+    \centering
+    \includegraphics[width=11cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote}
+  \end{figure}  
+\end{frame}
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Passi}}
+  \begin{center}
+    \texttt{\textbf{git clone <URL>}}
+  \end{center}
+  \uncover<2->{Crea \alert{\emph{due}} copie locali di
+    \alert{tutto} il repository remoto.}
+  \begin{figure}
+    \begin{center}
+      \includegraphics<1>[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-before-clone}
+      \includegraphics<2>[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-clone2}
+    \end{center}
+  \end{figure}
+  \uncover<2->{Protocolli di trasmissione dati disponibili:
+  \begin{itemize}
+  \item \texttt{\textbf{ssh://}}, \texttt{\textbf{git://}},
+    \texttt{\textbf{http://}}, \texttt{\textbf{https://}},
+    \texttt{\textbf{file://}}
+  \end{itemize}
+  Es.: \small{\texttt{\textbf{git clone https://github.com/ASPP/pelita.git}}}
+  \begin{center}
+    \texttt{\textbf{git remote -v}}
+  \end{center}
+  mostra \textbf{nome} e \texttt{\textbf{URL}} del repository remoto.}
+\end{frame}
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Fetch}}
+  \begin{center}
+    \texttt{\textbf{git fetch}}
+  \end{center}
+  \begin{itemize}
+  \item Scarica gli aggiornamenti dal master remoto al master locale.
+  \item Il master locale, la staging area e la directory di lavoro non cambiano.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=9.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-fetch}
+  \end{figure}
+\end{frame}
+
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Merge}}
+  \begin{center}
+    \texttt{\textbf{git merge}}
+  \end{center}
+  \begin{itemize}
+  \item Permette di riunire flussi di sviluppo diversi.
+  \item \alert{Attenzione}: pu\`{o} generare \emph{conflitti}!
+  \item \textcolor{orange}{Nota}: La riunione (merge) avviene solo quando i cambiamenti sono stati sottoposti a commit.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=9.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-merge}
+  \end{figure}
+  \begin{center}
+    \texttt{\textbf{git fetch}} + \texttt{\textbf{git merge}} = \texttt{\textbf{git pull}}
+  \end{center}
+\end{frame}
+
+\begin{frame}[containsverbatim]{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Conflitti (1/2)}}
+  \begin{center}
+    \alert{Conflitti!}
+  \end{center}
+\begin{verbatim}
+  ...
+  <<<<<<< yours:sample.txt
+  Conflict resolution is hard;
+  let's go shopping.
+  =======
+  Git makes conflict resolution easy.
+  >>>>>>> theirs:sample.txt
+  ...
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Conflitti (2/2)}}
+Risoluzione dei conflitti
+\begin{enumerate}
+\item Bisogna innanzitutto vedere dove sono i conflitti:
+  \begin{center}
+  \texttt{\textbf{git diff}}
+  \end{center}
+\item Poi occorre modificare le linee che provocano conflitto.
+\item Quindi si aggiungono le modifiche alla staging area:
+  \begin{center}
+    \texttt{\textbf{git add file1 [...]}}
+  \end{center}
+\item E quindi si ripete un commit:
+  \begin{center}
+    \texttt{\textbf{git commit -m "Conflicts solved."}}
+  \end{center}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{\centerline{\git ~ -- Team+Remoto/Condiviso  -- Push}}
+  \begin{center}
+    \texttt{\textbf{git push}}
+  \end{center}
+  \begin{itemize}
+  \item Modifica i \emph{remote masters} (sia locale che remoto).
+  \item Occorre prima di tutto fare un \texttt{\textbf{fetch}}+\texttt{\textbf{merge}}
+  \item Solo dopo si pu\`{o} fare un push.
+  \end{itemize}
+  \begin{figure}
+    \centering
+    \includegraphics[width=9.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-push}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{Branching}}
+  \begin{figure}
+    \centering
+    I fondamenti del branching, ovvero la suddivisione del prodotto per gestire configurazioni diverse
+  \end{figure}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- partenza}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=6cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0310-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.4\linewidth}
+      \begin{center}
+        \texttt{\textbf{git commit (C0)}}\\
+        \texttt{\textbf{git commit (C1)}}\\
+        \texttt{\textbf{git commit (C2)}}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \vspace{1em}
+  \begin{center}
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/local-remote-clone}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- evoluzione (1/3)}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=4cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0311-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+        \texttt{\textbf{git branch iss53}}\\
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=8cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-branch}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- evoluzione (2/3)}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=4cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0311-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+        \texttt{\textbf{git branch iss53}}\\
+        \texttt{\textbf{git checkout iss53}}\\
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=8cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-checkout}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{\centerline{Dinamica del branching -- evoluzione (3/3)}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=4cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0311-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+        \texttt{\textbf{git branch iss53}}\\
+        \texttt{\textbf{git checkout iss53}}\\
+        \texttt{\textbf{git checkout master}}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=8cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-branch}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- nuovo commit}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=6cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0312-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.4\linewidth}
+      \begin{center}
+        \texttt{\textbf{git checkout iss53}}\\
+        \texttt{\textbf{git commit (C3)}}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=7cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-checkout}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- fix (1/2)}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0313b-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \begin{center}
+        \texttt{\textbf{git branch hotfix}}\\
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=7cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-branch2}
+  \end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Dinamica del branching -- fix (2/2)}}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0313-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \begin{center}
+        \uncover\texttt{\textbf{git checkout hotfix}}\\
+        \uncover\texttt{\textbf{git commit (C4)}}\\
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=7cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-checkout2}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Branching.}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=6.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0314c-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \begin{center}
+        \texttt{\textbf{git checkout master}}\\
+        \texttt{\textbf{git merge hotfix}}\\
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-branch2}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Branching.}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=6cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0315-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.4\linewidth}
+      \begin{center}
+        \texttt{\textbf{git checkout iss53}}\\
+        \texttt{\textbf{git commit (C5)}}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-checkout}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Branching.}
+  \begin{columns}
+    \begin{column}{0.6\linewidth}
+      \begin{center}
+        \includegraphics[width=6cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/18333fig0317-tn}
+      \end{center}
+    \end{column}
+    \begin{column}{0.45\linewidth}
+      \begin{center}
+        \texttt{\textbf{git checkout master}}\\
+        \texttt{\textbf{git merge iss53}}
+      \end{center}
+    \end{column}
+  \end{columns}
+  \begin{center}
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/git-branch2}
+  \end{center}
+\end{frame}
+
+
+\begin{frame}{Contributing through GitHub}
+  \begin{figure}
+    \centering
+    Scenario 3: contributing to a software project hosted on GitHub.
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Contributing through GitHub}
+  \textbf{Q:} Have you ever heard of GitHub?
+  \includegraphics[width=11cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/github}
+  \begin{block}{What is GitHub?}
+    \begin{itemize}
+    \item Wikipedia: \emph{``GitHub is a web-based hosting service for
+        software development projects that use \git''}.
+      % remember to mention that now it is not just for git, but also
+      % svn and mercurial (thanks Zbyszek).
+    \item 5 millions repositories (Jan 2013).
+    \item Commercial...
+    \item ...but friendly to Free / Open Source software projects.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Contributing through GitHub}
+  \begin{block}{Assumptions}
+    \begin{itemize}
+    \item You use a software and feel ready to contribute to it.
+    \item The software project is hosted on \url{http://github.com}
+    \end{itemize}
+  \end{block}
+  \begin{block}{Intuitive Idea}
+    \begin{itemize}
+    \item You \textbf{do not push} your changes to the main
+      repository.
+    \item Instead you create a public copy (\textbf{fork}) of the main
+      repository...
+    \item ...and then push your changes to that.
+    \item Then you ask the owners of the main repository if they like
+      your changes and want to merge them (\textbf{pull request}).
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Contributing through GitHub. Not for everyone ;-)}
+\includegraphics[width=8cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/linus-on-pull-requests}
 \begin{center}
-    \includegraphics[width=0.8\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/SegmentationBundlingAdobe.jpg}
+  \url{https://github.com/torvalds/linux/pull/17}
 \end{center}
-
 \end{frame}
 
-\begin{frame}
-{\centerline{Bundling (16/09/2022)}}
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingAdobe.jpg}
+\begin{frame}{Contributing through GitHub: Recipe I}
+  \begin{enumerate}
+  \item \textbf{Register} on \url{http://github.com}
+  \item \textbf{Visit} the GitHub page of the software project and
+    \textbf{Fork} it:
+    \hbox{\hspace{-1cm}\includegraphics[width=11cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/github-fork}}
+  \item \textbf{Clone your copy} of the project on your computer.
+    \begin{center}
+      \begin{footnotesize}
+        \texttt{\textbf{git clone git@github.com:<login>/<project>.git}}
+      \end{footnotesize}
+    \end{center}
+  \item Create a \textbf{branch} to host your improvements.
+    \begin{itemize}
+    \item \texttt{\textbf{git branch <new-feature>}} \includegraphics[height=0.55cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/github-branch}
+    \item \texttt{\textbf{git checkout <new-feature>}}
+    \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Contributing through GitHub: Recipe II}
+  \begin{enumerate}
+    \setcounter{enumi}{4}
+  \item Add your improvements.
+    \begin{itemize}
+    \item \texttt{\textbf{git add <new-file>}}
+    \item \texttt{\textbf{git commit -m ...}}
+    \end{itemize}    
+  \item \textbf{Push} your improvements.
+    \begin{center}
+      \texttt{\textbf{git push origin <new-feature>}}
+    \end{center}
+  \item Send a \textbf{pull request}.
+    \includegraphics[height=0.55cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/github-compare-and-pull-request}
+    \begin{center}
+      \hbox{\hspace{-0cm}\includegraphics[width=11cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/github-pull-request}}
+    \end{center}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Contributing through GitHub}
+  \begin{center}
+    Detailed Explanation
 \end{center}
-
 \end{frame}
 
-\begin{frame}
-{\centerline{Bundling in altri settori ``creativi'' (1/2)}}
-\begin{center}
-    \includegraphics[width=0.4\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingMarvel.pdf}
-\end{center}
-
+\begin{frame}{Contributing through GitHub: Detailed Explanation}
+  \includegraphics<1>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request-0}
+  \includegraphics<2>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request3-1}
+  \includegraphics<3>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request3-2}
+  \includegraphics<4>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request3-3}
+  \includegraphics<5>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request3-4}
+  \includegraphics<6>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request3-5}
+  \includegraphics<7>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request-4}
+  \includegraphics<8>[width=11.5cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/pull-request-5}
+  \begin{center}
+    \only<1>{There is a software project hosted on remote GitHub
+      repository (\textbf{upstream}). You want to improve it.}
+    \only<2>{So you \textbf{fork} it by creating a (remote) copy of
+      it:\\
+        \textcolor{grey}{\texttt{\textbf{git clone -{}-bare
+            <UPSTREAM\_URL>}}}}
+    \only<3>{Now you clone your copy on your local computer:\\
+      \texttt{\textbf{git clone <ORIGIN\_URL>}}}
+    \only<4>{\texttt{\textbf{git remote add upstream
+          <UPSTREAM\_URL>}}\\
+    \texttt{\textbf{git fetch upstream}}}
+    \only<5>{\texttt{\textbf{git branch new-feature upstream/master}}\\
+      \texttt{\textbf{git checkout new-feature}}}
+    \only<6>{\texttt{\textbf{git add ... \\git commit ...}}}
+    \only<7>{publish your new feature:\\
+      \texttt{\textbf{git push origin new-feature}}} 
+    \only<8>{Notify the owners of the main repository about
+      \texttt{\textbf{new-feature}}\\
+      they: \texttt{\textbf{git fetch}} + (eventually)
+      \texttt{\textbf{git merge}}}
+  \end{center}
 \end{frame}
 
-\begin{frame}
-{\centerline{Bundling in altri settori ``creativi'' (2/2)}}
-\begin{center}
-    \includegraphics[width=0.45\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/BundlingAD.pdf}
-\end{center}
+% \begin{frame}{Contributing through GitHub. Demo.}
+%   \begin{center}
+%     Demo: Live.
+%   \end{center}
+% \end{frame}
 
+% \begin{frame}{Extras. \alert{OPTIONAL}}
+%   \begin{itemize}
+%   \item Local branching + demo.
+%   \item Setting up a remote shared repository + demo.
+%   \end{itemize}
+% \end{frame}
+
+\begin{frame}{Setting up a remote+shared repository. \alert{OPTIONAL}}
+  \begin{center}
+    GOAL: I want to share my local repository so others can \texttt{\textbf{push}}.
+  \end{center}
+  ``Why can't I just \emph{extend permissions} in my \textbf{local} repo?''
+  \begin{itemize}
+  \item Yes you can...
+  \item ...but your colleagues will not push (\alert{read-only}).
+  \end{itemize}
+  \begin{center}
+    To have it \alert{read-write}: set up a \textbf{remote}
+    \emph{shared} repository.
+  \end{center}
+  \begin{figure}
+    \centering
+    \includegraphics[width=9cm]{UniBo.IDSEPC.A2022.LavoroCondiviso/workflow-a}
+  \end{figure}
 \end{frame}
 
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Presentare esempi di bundling sperimentati di persona.}
-\end{center}
-
-\end{frame}
-
-
-
-\begin{frame}
-{\centerline{Esternalit\`{a} di rete}}
-
-\begin{itemize}
-\item Si hanno \textcolor{blue}{economie di rete} per un prodotto quando un utente lo valuta  diversamente se ci sono utenti di tale prodotto o di prodotti \textit{compatibili}.
-
-\item Quando il valore di un prodotto aumenta quanti pi\`{u} ci sono utenti di tale prodotto o di prodotti compatibili si dice che ci sono \textcolor{red}{esternalit\`{a} di rete}, o, semplicemente \textcolor{red}{esternalit\`{a}}.
-
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esempi di esternalit\`{a} di rete}}
-
-\begin{itemize}
-\item Il mercato delle telecomunicazioni \`{e} un chiaro esempio di esternalit\`{a} di rete: 
-\begin{itemize}
-\item il valore di un telefono dipende da quanti utenti lo usano. Se nessuno lo usasse, sarebbe inutile!
-\end{itemize}
-\item Anche il mercato delle figurine Panini \`{e} un chiaro esempio di esternalit\`{a} di rete!
-
-\item Non tutti i mercati hanno esternalit\`{a} di rete: quello delle automobili di lusso, sicuramente no:
-\begin{itemize}
-\item chi compera un'auto di lusso spera probilmente di essere l'unico nel suo circolo ad averla.
-\end{itemize}
-\item La stessa situazione si ha con i vestiti di lusso.
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esternalit\`{a} di rete nel software}}
-
-\begin{itemize}
-\item L'industria software ha forti esternalit\`{a} di rete.
-\item Ci sono due chiari esempi di tali esternalit\`{a}:
-\begin{itemize}
-\item lo scambio di informazioni, ad esempio via posta elettronica o tramite la condivisione di formati di file (ad esempio .docx o .odt)
-\item l'usabilit\`{a} dei sistemi software, per cui se si conosce la modalit\`{a} di uso di un sistema, si tende ad usare sistemi con le stesse modalit\`{a}, ad esempio, con le stesse scorciatoie
-\end{itemize}
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Identificare casi di esternalit\`{a} di rete presenti nella vita di ogni giorno.}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-{\centerline{Effetti delle esternalit\`{a} di rete (1/3)}}
-
-\begin{itemize}
-\item I mercati con forti esternalit\`{a} di rete stimolano le aziende a saltare sul carro di nuove tecnologie, anche se tali tecnologie devono ancora provare la loro efficacia;
-\begin{itemize}
-\item questo fenomeno viene chiamato \textcolor{red}{insufficient friction} (frizione insufficiente) oppure \textcolor{blue}{excess bandwagon} (carrozzone eccessivo).
-\end{itemize}
-
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Effetti delle esternalit\`{a} di rete (2/3)}}
-
-\begin{itemize}
-\item Le esternalit\`{a} possono produrre effetti di riduzione della fluidit\`{a} degli uteni su prodotti
-\begin{itemize}
-\item ci\`{o} viene chiamato \textcolor{red}{lock-in} (chiusura) e si manifesta con la presenza di \textcolor{blue}{barriere di ingresso}, ovvero la necessit\`{a} di costi aggiuntivi per passare ad altri prodotti equivalenti o equivalenti a prodotti compatibili
-\end{itemize}
-\item Un tipico esempio di questo è stato il formato Betamax \url{https://it.wikipedia.org/wiki/Betamax}
-
-\end{itemize}
-
+\begin{frame}{Setting up a remote+shared repository. \alert{OPTIONAL}}
+  You have a local repository and want to share it
+  (\texttt{\textbf{ssh}}) from a remote server on which your
+  colleagues already have access.
+  \begin{block}{On \emph{remote} server create
+      \textbf{bare}+\textbf{shared} repository:}
+    \begin{itemize}
+    \item \texttt{\textbf{mkdir newproject}}
+    \item set up proper \emph{group} permissions: \texttt{\textbf{chmod g+rws newproject}}
+    \item \texttt{\textbf{cd newproject}}
+    \item \texttt{\textbf{git \alert{-{}-bare} init \alert{-{}-shared=group}}}
+    \end{itemize}
+  \end{block}
+  \begin{block}{On \emph{local} machine push your repository to remote:}
+    \begin{itemize}
+    \item \texttt{\textbf{git remote add origin }}
+          \begin{center}
+            \texttt{\textbf{ssh://remote.com/path/newproject}}
+      \end{center}
+    \item \texttt{\textbf{git push \alert{-u} origin master}}
+    \end{itemize}
+  \end{block}
+  Everybody clones the shared repository:
+  \begin{center}
+    \texttt{\textbf{git clone ssh://remote.com/path/newproject}}
+  \end{center}
 \end{frame}
 
 
-\begin{frame}
-{\centerline{Effetti delle esternalit\`{a} di rete (3/3)}}
-
-\begin{itemize}
-
-\item La presenza di un monopolista in un mercato ad alta tecnologia con esternalit\`{a} di rete pu\`{o} incutere paura a possibili compratori timorosi di affidarsi ad un singolo venditore in quanto:
-\begin{itemize}
-\item agli occhi dei potenziali compratori il mercato pu\`{o} essere considerato ancora troppo immaturo,
-\item i potenziali compratori possono aver paura che il monopolista collassi o aumenti arbitrariamente i prezzi dei prodotti.
-\end{itemize}
-
-\end{itemize}
-
+\begin{frame}{Setting up a remote+shared repository. \alert{OPTIONAL}}
+  \begin{center}
+    Demo: \texttt{\textbf{demo\_git\_setup\_remote.txt}}.
+  \end{center}
 \end{frame}
 
-
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Trovare effetti delle tre esternalit\`{a} di rete nella propria esperienza.}
-\end{center}
-
+\begin{frame}{Credits}
+  \begin{itemize}
+  \item \textbf{Rike-Benjamin Schuppner}
+  \item Zbigniew J\k{e}drzejewski-Szmek
+  \item Tiziano Zito
+  \item Bastian Venthur
+  \item \url{http://progit.com}
+  \item \url{apcmag.com}
+  \item \url{lwn.net}
+  \item \url{http://www.markus-gattol.name/ws/scm.html}
+  \item \url{http://matthew-brett.github.io/pydagogue/gitwash/git_development.html}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-{\centerline{Visualizzazione del mercato -- Valore}}
-\begin{itemize}
-    \item Come analizzare il valore del prodotto
-\end{itemize} 
-\begin{center}
-    \includegraphics[width=\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/ValoreDelProdotto.pdf}
-\end{center}
-
+\begin{frame}{I want to know more about \git!}
+  Understanding how \git works:
+  \begin{itemize}
+  \item \git foundations, by Matthew Brett:
+    \small
+    \url{http://matthew-brett.github.com/pydagogue/foundation.html}
+  \item  The \git parable, by Tom Preston-Werner:
+    \small
+  \url{http://tom.preston-werner.com/2009/05/19/the-git-parable.html}
+  \end{itemize}
+  Excellent guides:
+  \begin{itemize}
+  \item ``Pro Git'' book: \url{http://git-scm.com/book} (FREE)
+  \item \git magic: \url{http://www-cs-students.stanford.edu/~blynn/gitmagic/}
+  \end{itemize}
+  Contributing to a project hosted on GitHub:
+  \begin{itemize}
+  \item ``Gitwash'', by Matthew Brett:
+    \small
+    \url{http://matthew-brett.github.io/pydagogue/gitwash/git_development.html}
+  \end{itemize}
 \end{frame}
 
-\begin{frame}
-{\centerline{Visualizzazione del mercato -- Compatibilit\`{a}}}
-\begin{itemize}
-    \item Come analizzare la compatibilit\`{a} tra prodotti via formati dei dati
-\end{itemize} 
-\begin{center}
-    \includegraphics[width=0.9\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/CompatibilitaProdotti.pdf}
-\end{center}
-
-\end{frame}
-\begin{frame}
-{\centerline{Esempi di compatibilit\`{a} (1/2)}}
-\begin{itemize}
-    \item Esempio di come presentare le compatibilit\`{a} per Word
-\end{itemize} 
-\begin{center}
-    \includegraphics[width=0.9\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/EsempiCompatibilita.1.pdf}
-\end{center}
-
+\begin{frame}{Cool Stuff}
+Gource:
+  \begin{center}
+    \url{http://code.google.com/p/gource/}
+  \end{center}
 \end{frame}
 
-\begin{frame}
-{\centerline{Esempi di compatibilit\`{a} (2/2)}}
-\begin{itemize}
-    \item Esempio di come presentare le compatibilit\`{a} per Word
-\end{itemize} 
-\begin{center}
-    \includegraphics[width=0.9\textwidth]{A2022.IDSEPC.ConcettoDiSoftware/EsempiCompatibilita.2.pdf}
-\end{center}
-
+\begin{frame}{License}
+  \begin{center}
+    Copyright Emanuele Olivetti, 2014
+  \end{center}
+  \vspace{1em}
+  \begin{center}
+    This presentation is distributed under the license\\
+    \textbf{Creative Commons \emph{Attribution} 3.0}\\
+    \url{https://creativecommons.org/licenses/by/3.0/}
+  \end{center}
+  \vspace{1em}
+  \begin{center}\small
+    The diagrams of the branching example are taken from \emph{Pro
+      Git}, (copyright S.Chacon, 2009) and are distributed under the
+    license Creative Commons 3.0 Attribution-Non Commercial-Share
+    Alike.
+  \end{center}
 \end{frame}
-
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Tracciare il diagramma di compatibilit\`{a} per un prodotto soggetto a esternalit\`{a} a vostra scelta.}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-{\centerline{Strategie comunemente utilizzate}}
-
-\begin{itemize}
-    \item Upgrade di prodotti
-    \item Upgrade competitivi
-    \item Suite di prodotti
-\end{itemize}
-
-\vspace{1cm}
-\begin{center}
-    
-\resizebox{0.9\textwidth}{!}{%
-  \begin{tabular}{|c|c|c|c|}
-  \hline
-  \textbf{Strategia} & \textbf{Esternalit\`{a}} & \textbf{Bundling} & \textbf{Segmentazione} \\
-  \hline
-    Upgrade di prodotti & $\times$ &  -- & $\times$ \\ \hline
-    Upgrade competitivi & $\times$ & -- & $\times$ \\ \hline
-    Suite di prodotti & $\times$ & $\times$ & -- \\
-  \hline
-  \end{tabular}
-
-} % end of scope of "\resizebox"  directive
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-{\centerline{Esercizio proposto}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Identificare strategie presenti nel prodotto soggetto a esternalit\`{a} da voi precedentemente prescelto.}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-{\centerline{Domande?}}
-\vspace{1cm}
-\begin{center}
-    \LARGE{Fine della seconda lezione.}
-\end{center}
-
-\end{frame}
-
-
 \end{document}
+
+\begin{frame}{\centerline{Licenza per la parte su Git}}
+  \begin{center}
+    Copyright Emanuele Olivetti, 2014
+  \end{center}
+  \vspace{1em}
+  \begin{center}
+    This presentation is distributed under the license\\
+    \textbf{Creative Commons \emph{Attribution} 3.0}\\
+    \url{https://creativecommons.org/licenses/by/3.0/}
+  \end{center}
+  \vspace{1em}
+  \begin{center}\small
+    The diagrams of the branching example are taken from \emph{Pro
+      Git}, (copyright S.Chacon, 2009) and are distributed under the
+    license Creative Commons 3.0 Attribution-Non Commercial-Share
+    Alike.
+  \end{center}
+\end{frame}
+
