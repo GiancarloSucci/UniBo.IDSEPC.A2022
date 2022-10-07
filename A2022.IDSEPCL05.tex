@@ -1,0 +1,545 @@
+ \documentclass{beamer}
+%
+% Choose how your presentation looks.
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{seahorse} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \usepackage{amsmath}
+  \usepackage{tcolorbox}
+  \usepackage[export]{adjustbox}
+  \tcbuselibrary{most}
+  \usepackage{arydshln}
+  \usepackage{tikz}
+  \usetikzlibrary{plotmarks}
+  \usepackage{pgfplots}
+  \newcommand{\Ivec}[1]{\mbox{\boldmath $#1$}}
+    \usepackage[normalem]{ulem}
+    % \usepackage{tipa}
+    \newcommand{\git}{\texttt{\textbf{git}}\xspace}
+    \usepackage{listings}
+} 
+
+
+\definecolor{myblue}{RGB}{65,105,225} 
+\definecolor{myorange}{RGB}{250,190,0}
+
+\setbeamercolor{structure}{fg=white,bg=myorange}
+\setbeamercolor*{palette primary}{fg=myblue,bg=myorange}
+\setbeamercolor*{palette secondary}{fg=white,bg=myblue}
+\setbeamercolor*{palette tertiary}{bg=myblue,fg=white}
+\setbeamercolor*{palette quaternary}{fg=white,bg=myorange!50}
+
+\setbeamercolor{frametitle}{fg=black!90!myblue}
+
+\setbeamercolor{section in head/foot}{fg=white,bg=myblue}
+\setbeamercolor{author in head/foot}{fg=black,bg=myorange}
+\setbeamercolor{title in head/foot}{fg=white,bg=myblue}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\large}
+
+
+\defbeamertemplate*{headline}{mytheme}
+{%
+  \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+}%
+
+\defbeamertemplate*{footline}{mytheme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\hspace*{2em}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\hspace*{2em}\insertshortsubtitle\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{pgf}  
+\usepackage{textpos}
+\usepackage{tabulary}
+\usepackage{scrextend}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{rotating}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    %commentstyle=\color{green}
+    keywordstyle=\color{blue},
+    %stringstyle=\color{black}
+    identifierstyle=\color{magenta},
+}
+\newcommand{\bftt}[1]{\textbf{\texttt{#1}}}
+%\newcommand{\comment}[1]{{\color[HTML]{008080}\textit{\textbf{\texttt{#1}}}}}
+\newcommand{\cmd}[1]{{\color[HTML]{008000}\bftt{#1}}}
+\newcommand{\bs}{\char`\\}
+\newcommand{\cmdbs}[1]{\cmd{\bs#1}}
+\newcommand{\lcb}{\char '173}
+\newcommand{\rcb}{\char '175}
+\newcommand{\cmdbegin}[1]{\cmdbs{begin\lcb}\bftt{#1}\cmd{\rcb}}
+\newcommand{\cmdend}[1]{\cmdbs{end\lcb}\bftt{#1}\cmd{\rcb}}
+
+\newcommand{\wllogo}{\textbf{Overleaf}}
+
+% this is where the example source files are loaded from
+% do not include a trailing slash
+\newcommand{\fileuri}{https://raw.githubusercontent.com/GiancarloSucci/UniBo.IDSEPC.A2022/main/A2022.IDSEPCLaTeX/}
+
+
+\usepackage{stackengine}
+\def\Ruble{\stackengine{.67ex}{%
+  \stackengine{.48ex}{\textsf{P}}{\rule{.8ex}{.12ex}\kern.6ex}{O}{r}{F}{F}{L}%
+  }{\rule{.8ex}{.12ex}\kern.6ex}{O}{r}{F}{F}{L}\kern-.1ex}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\title[L02]{Introduzione alla data science e al pensiero computazionale\\
+Lezione 5: Il processo di produzione del software} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[{\tiny Giancarlo Succi }]{Giancarlo Succi\\\\ Dipartimento di Informatica -- Scienza e Ingegneria\\Universit\`{a} di Bologna\\
+\bftt{g.succi@unibo.it}
+} % Your name
+\institute[unibo] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+
+\date{} % Date, can be changed to a custom date
+
+\setbeamertemplate{navigation symbols}{}
+\AtBeginSection[]
+{
+        \begin{frame}<beamer>{Outline}
+                \tableofcontents[currentsection]
+        \end{frame}
+}
+
+\begin{document}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+%=============================================
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{10mm}(-0.01mm,-0.95cm)
+\includegraphics[width=0.9cm]{unibo-logo.png}
+\end{textblock*}}
+
+%=============================================
+
+\begin{frame}
+{\centerline{Plan of the lecture}}
+\begin{itemize}
+    \item Motivation
+    \item 
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{\centerline{Motivations}}
+% Nr:1
+\begin{center}
+{\Large
+Ariane 5 (1996)\\
+}
+\end{center}
+\begin{center}
+\includegraphics[width=60mm]{figures/Ariane5.jpeg}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{\centerline{Software Engineering 1/2}}
+% Nr:1
+\begin{center}
+{\Large
+Engineering the production of software systems\\
+}
+\vspace{2cm}
+We often make analogies between producing code and cooking...
+\end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Software Engineering 2/2}}
+% Nr:1
+\begin{center}
+\Large
+Let's start the show!\\
+\vspace*{0.5cm}
+Ladies and Gentlemen: \textcolor{red}{Charlie Chaplin}
+\end{center}
+\begin{center}
+\includegraphics[width=60mm]{figures/Chaplin_ModernTimes.png}
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{\centerline{A Poll}}
+\begin{center}
+Based on the experience in the video, what is the purpose of software engineering?
+\end{center}
+\end{frame}
+
+\begin{frame}{\centerline{Ideas}}
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\vspace{0.5cm}
+
+\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+
+\end{frame}
+
+\begin{frame}{\centerline{My Idea of the Software Engineer}}
+
+\begin{center}
+\includegraphics[width=80mm]{figures/DrHouse_SoftwareEngineer.jpg}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{\centerline{We continue the show!}}
+\vspace*{1.5cm}
+\begin{center}
+\Huge Video on Dr. House
+
+\end{center}
+
+\end{frame}
+
+
+
+% PART 1 
+% + catastrophic from software
+
+\begin{frame}{\centerline{Lean Software Development}}
+% Nr:1
+\begin{center}
+\LARGE
+Background on Lean Management
+\end{center}
+\end{frame}
+
+\begin{frame}{\centerline{The ``Software Crisis''}}
+% Nr:2
+The major cause of the software crisis is that the machines have become several orders of magnitude more powerful! To put it quite bluntly: as long as there were no machines, programming was no problem at all; when we had a few weak computers, programming became a mild problem, and now we have gigantic computers, programming has become an equally gigantic problem.
+Edsger Dijkstra, 1972
+
+\begin{center}
+\includegraphics[width=60mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-01.png}
+\end{center}
+
+
+
+\begin{center}
+\tiny
+\url{http://qualityandprogramming.blogspot.ru/2012/03/crisis-del-software.html}
+\end{center}
+
+\end{frame}
+
+\begin{frame}{\centerline{The ``Software Crisis''}}
+% Nr:3
+
+Consecutive revolutions are being achieved in many domains thanks to computer software
+
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-02.png}
+\end{center}
+However, software engineering is not seeing the same evolution rate as in the domains it addresses.
+
+\begin{center}
+\tiny
+\url{http://www.slideshare.net/rui\_curado/abse-and-atomweaver-a-quantum-leap-in-software-development}
+\end{center}
+
+
+
+\end{frame}
+\begin{frame}{\centerline{The ``Software Crisis''}}
+% Nr:4
+
+The causes of the software crisis were linked to the overall complexity of hardware and the software development process. The crisis manifested itself in several ways:
+\begin{itemize}
+\item Projects running over-budget
+\item Projects running over-time
+\item Software was very inefficient
+\item Software was of low quality
+\item Software often did not meet requirements
+\item Projects were unmanageable and code difficult to maintain
+\item Software was never delivered
+\end{itemize}
+
+\begin{small}
+https://en.wikipedia.org/wiki/Software\_crisis
+\end{small}
+\end{frame}
+
+\begin{frame}{\centerline{Software errors in history - 1}}
+
+
+\textbf{NASA’s Mars Climate Orbiter} -- On its mission to Mars in 1998 the Climate Orbiter spacecraft was ultimately lost in space. Although the failure bemused engineers for some time, it was revealed that a subcontractor on the engineering team failed to make a simple conversion from English units to metric. 
+
+An embarrassing lapse that sent the \textbf{\$125 million} craft fatally close to Mars' surface after attempting to stabilize its orbit too low. Flight controllers believe the spacecraft ploughed into Mars' atmosphere where the associated stresses crippled its communications, leaving it hurtling on through space in an orbit around the sun.
+\newline 
+
+Take with modifications from:
+https://raygun.com/blog/2014/05/10-costly-software-errors-history/
+\end{frame}
+
+\begin{frame}{\centerline{Software errors in history - 2}}
+\small
+\textbf{Ariane 5 Flight 501} -- Europe’s newest unmanned satellite-launching rocket reused working software from its predecessor, the Ariane 4. Unfortunately, the Ariane 5`s faster engines exploited a bug that was not found in previous models. Thirty-six seconds into its maiden launch the rocket’s engineers hit the self-destruct button following multiple computer failures. In essence, the software had tried to cram a 64-bit number into a 16-bit space. The resulting overflow conditions crashed both the primary and backup computers (which were both running the exact same software). 
+
+The Ariane 5 had cost nearly \textbf{\$8 billion} to develop, and was carrying a \textbf{\$500 million} satellite payload when it exploded. 
+\newline 
+
+Take with modifications from: https://raygun.com/blog/2014/05/10-costly-software-errors-history/
+
+Video:  https://youtu.be/qnHn8W1Em6E
+\end{frame}
+
+\begin{frame}{\centerline{The ``Software Crisis''}}
+% Nr:5
+The challenges of building software stem from our intrinsic lack of understanding it and the essential difficulties of building software can be divided into the following four categories:
+\begin{itemize}
+\item \textbf{Complexity:} software systems consist if a multiple of unlike parts that can assume a large number of different states. This makes it difficult to conceive, describe, and test software;
+
+\item \textbf{Conformity:} software has to be integrated with previously developed software systems and laws and conform to the way people are used to work. These dependencies increase the likelihood that the software has to be changed in the future;
+%Succi.B7 c1.1. p.7 
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{\centerline{The ``Software Crisis''}}
+% Nr:6
+\begin{itemize}
+\item \textbf{Changeability:} all successful software gets changed - as new uses of a software product are found, stakeholders push for modifications. Moreover, successful software survives the life cycle of the environment (e.g., operating system, hardware, etc.) it was written for. This means software has to be updated to the new needs or environments it has to run it;
+
+\item \textbf{Invisibility:} the invisibility of software and the difficulties in visualizing it make it difficult to reason and to communicate about it.
+%Succi.B7 c1.1. p.7
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\centerline{Understanding better the nature of software}}
+% Nr:7
+\begin{itemize}
+\item If software is not tangible concretely, perhaps it can be viewed as a creative art
+\item Software is about writing, so, let's turn our attention to writing
+\item Assignment: 
+\begin{itemize}
+\item preparation of a 5 minutes and 5 slides presentation for next class based on the book: ``Six Memos for the Next Millennium'' by Italo Calvino
+\item the groups are as for the report
+\item the specific chapter assigned to each group is defined in the workbook
+\item there is a LaTeX template already ready in overleaf
+\item you should focus on two aspects:
+\begin{enumerate}
+\item what you find in the chapter already present in software,
+\item what you find in the chapter that should be present in software but right now it is not.
+\end{enumerate}
+\item deadline for the slides: January 28th 2020 at midnight.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+%====================================================================================
+
+\begin{frame}{\centerline{Tame and Wicked Problems}}
+% Nr:7
+\begin{small}
+\textbf{Tame problems} are those problems that can be easy engineered; they can be formulated exhaustively and stated containing all the information needed for understanding and solving the problem.
+
+Not all problems are tame. There are also \textbf{wicked problems}. The information needed to describe the wicked problem depends on the idea to solve it.
+
+\begin{center}
+\includegraphics[width=70mm]{figures/pic-03.png}
+\end{center}
+
+\end{small}
+
+\begin{center}
+\tiny
+\url{https://vivifychangecatalyst.wordpress.com/2015/06/28/wicked-problems-innovation-and-project-masiluleke}
+
+\end{center}
+
+
+\end{frame}
+
+%====================================================================================
+
+\begin{frame}{\centerline{Tame Problems}}
+% Nr:8
+\begin{itemize}
+\item Has a well-defined and stable problem statement.
+\item Has a definite stopping point, i.e., when the solution is reached.
+\item Has a solution which can be objectively evaluated as right or wrong.
+\item Belongs to a class of similar problems which are all solved in the same similar way.
+\item Has solutions which can be easily tried and abandoned.
+\item Comes with a limited set of alternative solutions
+\end{itemize}
+%Succi.B7 c1.2. p.9
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-04.png}
+\end{center}
+
+\begin{center}
+\tiny
+\url{http://www.slideshare.net/curtistim/wicked-issues-taming-problems-and-systems}
+\end{center}
+
+\end{frame}
+
+%====================================================================================
+
+\begin{frame}{\centerline{Wicked Problems}}
+% Nr:9
+\small
+\begin{itemize}
+\item Wicked projects cannot provide a definitive, analytical formulation of the problem they target. Formulating the project and the solution is essentially the same task. Each time you attempt to create a solution, you get a new, hopefully better, understanding of the project.
+
+\item Wicked projects have no a stopping rule telling when the problem they target has been solved. The problem-solving process proceeds iteratively and ends when resources are depleted and/or stakeholders lose interest in a further refinement of the currently proposed solution.
+
+\item Solutions to problems in wicked projects are not true or false, but good or bad. Since there are no unambiguous criteria for deciding if the project is resolved, getting all stakeholders to agree that a resolution is ``good enough'' can be a challenge.
+\end{itemize}
+%Succi.B7 c1.2. p.9
+
+\end{frame}
+
+%====================================================================================
+
+\begin{frame}{\centerline{Wicked Problems}}
+% Nr:10
+\small
+\begin{itemize}
+\item There is no immediate or ultimate test of a solution to the targeted problem in a wicked project. Solutions to such projects generate waves of consequences, and it is impossible to know how these waves will eventually play out.
+
+\item Each solution to the problem targeted by a wicked project has irreversible consequences. Care must be placed in managing assumed solutions. Once the website is published or the new customer service package goes live, you cannot take back what was online or revert to the former customer database.
+
+\item Wicked projects do not have a well-described, widely accepted set of potential solutions. The various stakeholders may have differing views of what are acceptable solutions. It is a matter of judgment as to when enough potential solutions have emerged and which should be pursued.
+
+\end{itemize}
+%Succi.B7 c1.2. p.9
+
+\end{frame}
+\begin{frame}{\centerline{Wicked Problems}}
+% Nr:11
+\small
+\begin{itemize}
+\item Each wicked project is essentially unique. There are no well-defined ``classes'' of solutions that can be applied to a specific case. It is not easy to find analogous projects, previously solved and well documented, so that their solution could be duplicated.
+
+\item The problem targeted by a wicked project can be considered a symptom of another problem. A wicked project deals with a set of interlocking issues and constraints that change over time, embedded in a dynamic and evolving context.
+
+\item The causes of a problem targeted by a wicked project can be explained in several ways. There are several stakeholders who have various and changing ideas about what is the project, its nature, its causes, and the associated solution.
+
+\item The project must not go wrong. Mistake is not an option here. Despite the inability to express the project solution analytically, it is not allowed to fail the project.
+\end{itemize}
+%Succi.B7 c1.2. p.9
+
+\end{frame}
+\begin{frame}{\centerline{Software Development Is a Wicked Problem}}
+% Nr:12
+\small
+\begin{itemize}
+\item It is very hard to plan a software development project upfront considering all eventualities.
+
+\item A software product is hardly perfect or finished; as soon as users use it, new requirements will arise.
+
+\item There does not exist the one single solution to a software engineering problem.
+
+\item We cannot determine how well an implementation solves the requirements until we implement it.
+
+\item Choices are sometimes very costly to reverse. The last option is to throw away the existing product and start from scratch.
+
+\end{itemize}
+%Succi.B7 c1.3. p.10
+
+\end{frame}
+\begin{frame}{\centerline{Software Development Is a Wicked Problem}}
+% Nr:13
+\small 
+\begin{itemize}
+\item There are infinite ways to solve a software development problem.
+
+\item Every software development project is essentially unique.
+
+\item Software engineering is a wicked problem on multiple levels: choosing the ``best'' database system, user interface, operating system, hardware, etc. is also a wicked problem.
+
+\item The problem a software system aims to solve is seen differently by the stakeholders of the system: users, developers, maintainers, database operators, etc.
+
+\item Software development (i.e., to try to solve the problem) means to spend resources. To be wrong, i.e., to deliver a solution that the users retain not useful, is not considered an option.
+
+\end{itemize}
+%Succi.B7 c1.3. p.10
+
+\end{frame}
+
+\begin{frame}{\small \centerline{How a Lean approach can address the wickedness of software}}
+% Nr:14
+\small
+\begin{itemize}
+\item The iterative, customer-oriented approach reduces the need of detailed planning, which reduces complexity. Moreover, it is also harder to fail the project since the client, the one that defines what ``failure'' means, keeps the control over the output of the project during the development.
+\item An approach based on measurement and collaboration helps to understand if the team is going towards the right direction and to balance the needs of different stakeholders.
+A flexible, Agile approach helps to keep the costs of change low which lowers the need to find the ``best'' solution immediately and allows to find a solution that fits the specific context.
+\item Just-in-time production maximizes the chances to know how well an implementation solves the requirements.
+\item An approach that systematically collects experience and reuses it in future projects helps to collect ``best practices'' for a specific context.
+\end{itemize}
+%Succi.B7 c1.3. p.11
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Questions?}}
+\vspace{1cm}
+\begin{center}
+    \LARGE{End of the fifth lecture.}
+\end{center}
+
+\end{frame}
+
+\end{document}
+
+
