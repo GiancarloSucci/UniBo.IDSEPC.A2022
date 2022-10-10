@@ -182,6 +182,8 @@ Ariane 5 (1996)\\
 \begin{frame}{\centerline{Software Engineering (1/2)}}
 % Nr:1
 \begin{center}
+Software Engineering o Ingegneria del Software\\
+\vspace{1cm}
 {\Large
 Ingegnerizzare la produzione del software\\
 }
@@ -252,26 +254,23 @@ Sulla base del video, qual \`{e} lo scopo dell'ingegneria dle software?
 
 \end{frame}
 
-
-
-% PART 1 
-% + catastrophic from software
-
 \begin{frame}{\centerline{Lean Software Development}}
-% Nr:1
+Lean software development o approccio lean alla produzione del software\\
+\vspace{1cm}
 \begin{center}
+Lean software development o approccio lean alla produzione del software\\
+\vspace{1cm}
 \LARGE
 Premesse sul Lean Management
 \end{center}
 \end{frame}
 
-\begin{frame}{\centerline{The ``Software Crisis''}}
+\begin{frame}{\centerline{La ``Software Crisis'' (1/3)}}
 % Nr:2
-The major cause of the software crisis is that the machines have become several orders of magnitude more powerful! To put it quite bluntly: as long as there were no machines, programming was no problem at all; when we had a few weak computers, programming became a mild problem, and now we have gigantic computers, programming has become an equally gigantic problem.
-Edsger Dijkstra, 1972
-
+La ``Software Crisis'' o ``crisi del software'' \`{e} il fenomeno dovuto all'aumento della potenza dei calcolatori: in termini \textit{terra terra}, finch\'{e} i calcolatori erano molto piccoli, la programmazione non presentava problemi, quando le macchine hanno iniziate a crescere, i problemi hanno iniziato a comparire, e ora che abbiamo computer giganteschi, la programmazione è pure diventata un problema gigantesco.\\
+Edsger Dijkstra, \textcolor{red}{\bf 1972}
 \begin{center}
-\includegraphics[width=60mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-01.png}
+\includegraphics[width=55mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-01.png}
 \end{center}
 
 
@@ -283,15 +282,14 @@ Edsger Dijkstra, 1972
 
 \end{frame}
 
-\begin{frame}{\centerline{The ``Software Crisis''}}
+\begin{frame}{\centerline{La ``Software Crisis'' (2/3)}}
 % Nr:3
-
-Consecutive revolutions are being achieved in many domains thanks to computer software
+Sequenze di rivoluzioni tecnologiche si sono viste in molte aree dello scibile umano grazie al software.
 
 \begin{center}
 \includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-02.png}
 \end{center}
-However, software engineering is not seeing the same evolution rate as in the domains it addresses.
+Purtroppo, l'ingegneria del software non ha avuto una analoga rivoluzione!
 
 \begin{center}
 \tiny
@@ -301,18 +299,18 @@ However, software engineering is not seeing the same evolution rate as in the do
 
 
 \end{frame}
-\begin{frame}{\centerline{The ``Software Crisis''}}
+\begin{frame}{\centerline{La ``Software Crisis'' (3/3)}}
 % Nr:4
-
-The causes of the software crisis were linked to the overall complexity of hardware and the software development process. The crisis manifested itself in several ways:
+Le cause della crisi del software sono collegate  alla complessit\`{a} crescente di hardware e software associato, e tale crisi si \`{e} manifestata in una moltitudine di modi:
 \begin{itemize}
-\item Projects running over-budget
-\item Projects running over-time
-\item Software was very inefficient
-\item Software was of low quality
-\item Software often did not meet requirements
-\item Projects were unmanageable and code difficult to maintain
-\item Software was never delivered
+\item Progetti che sforano il budget
+\item Progetti che non rispettano i tempi
+\item Sistemi software inefficienti
+\item Sistemi software di bassa qualit\`{a}
+\item Sistemi software che non rispndono a requisiti
+\item Progetti diventati ingestibili
+\item Codice software illeggibile e impossibile da mantenere
+\item Software mai consegnato al cliente
 \end{itemize}
 
 \begin{small}
@@ -320,48 +318,56 @@ https://en.wikipedia.org/wiki/Software\_crisis
 \end{small}
 \end{frame}
 
-\begin{frame}{\centerline{Software errors in history - 1}}
+\begin{frame}{\centerline{Esempi di errori dei sistemi software (1/2)}}
 
 
-\textbf{NASA’s Mars Climate Orbiter} -- On its mission to Mars in 1998 the Climate Orbiter spacecraft was ultimately lost in space. Although the failure bemused engineers for some time, it was revealed that a subcontractor on the engineering team failed to make a simple conversion from English units to metric. 
+\textbf{NASA’s Mars Climate Orbiter} -- Nella rotta verso Marte nel 1998 il Climate Orbiter spacecraft si `\`{e} perso nello spazio. Anche se inizialmente non si cap\`{i} la ragione dell'errore, alla fine si trov\`{o} che un subcontraente commise un banale errore di trasformazioni delle misure dal sistema inglese a quello metrico.
+\vspace{0.5cm}
 
-An embarrassing lapse that sent the \textbf{\$125 million} craft fatally close to Mars' surface after attempting to stabilize its orbit too low. Flight controllers believe the spacecraft ploughed into Mars' atmosphere where the associated stresses crippled its communications, leaving it hurtling on through space in an orbit around the sun.
+Questa svista imbarazzante sped\`{i} la navetta spaziale da 
+ \textcolor{red}{\bf 125 milioni di dollari} fatalmente vicina alla superficie di Marte dopo aver tentato di stabilizzare la sua orbita troppo in basso.
 \newline 
-
-Take with modifications from:
-https://raygun.com/blog/2014/05/10-costly-software-errors-history/
+\vspace{1cm}
+\begin{center}
+    \tiny
+    Estratto con modifiche da:
+\url{https://raygun.com/blog/2014/05/10-costly-software-errors-history/}
+\end{center}
 \end{frame}
 
-\begin{frame}{\centerline{Software errors in history - 2}}
+\begin{frame}{\centerline{Esempi di errori dei sistemi software (2/2)}}
 \small
-\textbf{Ariane 5 Flight 501} -- Europe’s newest unmanned satellite-launching rocket reused working software from its predecessor, the Ariane 4. Unfortunately, the Ariane 5`s faster engines exploited a bug that was not found in previous models. Thirty-six seconds into its maiden launch the rocket’s engineers hit the self-destruct button following multiple computer failures. In essence, the software had tried to cram a 64-bit number into a 16-bit space. The resulting overflow conditions crashed both the primary and backup computers (which were both running the exact same software). 
+\textbf{Ariane 5 Flight 501} -- L'allora nuovissimo satellite europeo riutilizz\`{o} un software dal suo predecessore, l'Ariane 4. Sfortunatamente, l'Ariane 5 aveva un motore pi\`{u} veloce e questo rivel\`{o} un baco precedentemente passato inosservato. Dopo 36 secondi dal lancio, i progettisti inziarono l'operazione di autodistruzione a seguito di una serie di errori dei computer. In sintesi, il software stava provando a inserire un numero a 64 bit in uno spazio di 16 bit, con il risultato di mandare in tilt sia i computer primari che quelli ausiliari, visto che entrambi usavano lo stesso software.
+\vspace{0.5cm}
 
-The Ariane 5 had cost nearly \textbf{\$8 billion} to develop, and was carrying a \textbf{\$500 million} satellite payload when it exploded. 
+La costruzione dell'Ariane 5 era costata \textcolor{red}{\bf 8 billioni di dollari}  e stava trasportando un satellite da \textcolor{red}{\bf 500 millioni di dollari}. 
 \newline 
+\vspace{1cm}
+\begin{center}
+    \tiny
+    Estratto con modifiche da: \url{https://raygun.com/blog/2014/05/10-costly-software-errors-history/} Video:  \url{https://youtu.be/qnHn8W1Em6E}
+\end{center}
 
-Take with modifications from: https://raygun.com/blog/2014/05/10-costly-software-errors-history/
-
-Video:  https://youtu.be/qnHn8W1Em6E
 \end{frame}
 
-\begin{frame}{\centerline{The ``Software Crisis''}}
+\begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (1/2)}}
 % Nr:5
-The challenges of building software stem from our intrinsic lack of understanding it and the essential difficulties of building software can be divided into the following four categories:
+Le problematicit\`{a} nello sviluppo software proviene dalla nostra intrinsica limitazione nel comprenderlo, e dalle difficolt\`{a} strutturali, che possono essere divise in quattro categorie:
 \begin{itemize}
-\item \textbf{Complexity:} software systems consist if a multiple of unlike parts that can assume a large number of different states. This makes it difficult to conceive, describe, and test software;
+\item \textcolor{red}{\bf Complessit\`{a}:} i sistemi software consistono di parti multiple e diverse che possono essere in molti stati diversi. Questo li rende difficile ad essere concepiti, descritti e controllati.
 
-\item \textbf{Conformity:} software has to be integrated with previously developed software systems and laws and conform to the way people are used to work. These dependencies increase the likelihood that the software has to be changed in the future;
+\item \textcolor{red}{\bf Conformit\`{a}:} molto spesso il software deve essere integrato con altro software sviluppato precedentemente in contesti e con regolamentazioni che possono essere diverse. Tutti queste condizioni e vincoli crescono ed evolvono nel tempo e rendono anche molto probabile che il software debba essere cambiato in futuro.
 %Succi.B7 c1.1. p.7 
 \end{itemize}
 
 \end{frame}
 
-\begin{frame}{\centerline{The ``Software Crisis''}}
+\begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (2/2)}}
 % Nr:6
 \begin{itemize}
-\item \textbf{Changeability:} all successful software gets changed - as new uses of a software product are found, stakeholders push for modifications. Moreover, successful software survives the life cycle of the environment (e.g., operating system, hardware, etc.) it was written for. This means software has to be updated to the new needs or environments it has to run it;
+\item \textcolor{red}{\bf Changeability:} all successful software gets changed - as new uses of a software product are found, stakeholders push for modifications. Moreover, successful software survives the life cycle of the environment (e.g., operating system, hardware, etc.) it was written for. This means software has to be updated to the new needs or environments it has to run it;
 
-\item \textbf{Invisibility:} the invisibility of software and the difficulties in visualizing it make it difficult to reason and to communicate about it.
+\item \textcolor{red}{\bf Invisibility:} the invisibility of software and the difficulties in visualizing it make it difficult to reason and to communicate about it.
 %Succi.B7 c1.1. p.7
 \end{itemize}
 \end{frame}
