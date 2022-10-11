@@ -118,6 +118,7 @@
 % do not include a trailing slash
 \newcommand{\fileuri}{https://raw.githubusercontent.com/GiancarloSucci/UniBo.IDSEPC.A2022/main/A2022.IDSEPCLaTeX/}
 
+\include{definizioniGiancarlo.tex}
 
 \usepackage{stackengine}
 \def\Ruble{\stackengine{.67ex}{%
@@ -163,12 +164,12 @@ Lezione 5: Il processo di produzione del software} % The short title appears at 
 %=============================================
 
 \begin{frame}
-{\centerline{Plan of the lecture}}
+{\centerline{Indice}}
 \begin{itemize}
     \item Motivazione
     \item La crisi del software
     \item Problemi \textit{Tame} e \textit{Wicked}
-    \item Controllare il process
+    \item Controllare il processo
     \item Meccanismi di coordinamento
     \item Modello di sviluppo a cascata
     \item Modello di sviluppo a spirale
@@ -177,7 +178,7 @@ Lezione 5: Il processo di produzione del software} % The short title appears at 
 \end{frame}
 
 \begin{frame}{\centerline{Motivazioni}}
-% Nr:1
+
 \begin{center}
 {\Large
 Ariane 5 (1996)\\
@@ -192,7 +193,7 @@ Ariane 5 (1996)\\
 
 
 \begin{frame}{\centerline{Software Engineering (1/2)}}
-% Nr:1
+
 \begin{center}
 Software Engineering o Ingegneria del Software\\
 \vspace{1cm}
@@ -205,7 +206,7 @@ Spesso si fanno analogie tra la produzione del software e cucinare...
 \end{frame}
 
 \begin{frame}{\centerline{Software Engineering (2/2)}}
-% Nr:1
+
 \begin{center}
 \Large
 Che lo show abbia inizio!\\
@@ -278,7 +279,7 @@ Premesse sul Lean Management
 \end{frame}
 
 \begin{frame}{\centerline{La ``Software Crisis'' (1/3)}}
-% Nr:2
+
 La ``Software Crisis'' o ``crisi del software'' \`{e} il fenomeno dovuto all'aumento della potenza dei calcolatori: in termini \textit{terra terra}, finch\'{e} i calcolatori erano molto piccoli, la programmazione non presentava problemi, quando le macchine hanno iniziate a crescere, i problemi hanno iniziato a comparire, e ora che abbiamo computer giganteschi, la programmazione è pure diventata un problema gigantesco.\\
 Edsger Dijkstra, \textcolor{red}{\bf 1972}
 \begin{center}
@@ -295,7 +296,7 @@ Edsger Dijkstra, \textcolor{red}{\bf 1972}
 \end{frame}
 
 \begin{frame}{\centerline{La ``Software Crisis'' (2/3)}}
-% Nr:3
+
 Sequenze di rivoluzioni tecnologiche si sono viste in molte aree dello scibile umano grazie al software.
 
 \begin{center}
@@ -312,7 +313,7 @@ Purtroppo, l'ingegneria del software non ha avuto una analoga rivoluzione!
 
 \end{frame}
 \begin{frame}{\centerline{La ``Software Crisis'' (3/3)}}
-% Nr:4
+
 Le cause della crisi del software sono collegate  alla complessit\`{a} crescente di hardware e software associato, e tale crisi si \`{e} manifestata in una moltitudine di modi:
 \begin{itemize}
 \item Progetti che sforano il budget
@@ -363,7 +364,7 @@ La costruzione dell'Ariane 5 era costata \textcolor{red}{\bf 8 billioni di dolla
 \end{frame}
 
 \begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (1/2)}}
-% Nr:5
+
 Le problematicit\`{a} nello sviluppo software proviene dalla nostra intrinsica limitazione nel comprenderlo, e dalle difficolt\`{a} strutturali, che possono essere divise in quattro categorie:
 \begin{itemize}
 \item \textcolor{red}{\bf Complessit\`{a}:} i sistemi software consistono di parti multiple e diverse che possono essere in molti stati diversi. Questo li rende difficile ad essere concepiti, descritti e controllati.
@@ -375,7 +376,7 @@ Le problematicit\`{a} nello sviluppo software proviene dalla nostra intrinsica l
 \end{frame}
 
 \begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (2/2)}}
-% Nr:6
+
 \begin{itemize}
 \item \textcolor{red}{\bf Modificabilit\`{a}:} tutto il software di successo \`{e} soggetto a modifiche -- i clienti e gli utenti di tale software scoprono nuovi possibili usi e quindi chiedono tali modifiche. Inoltre, il software di successo sopravvive ai cicli di vita dell'ambiente circostante come quelli dei sistemi operativi, dell'hardware ecc. Questo implica che il software debba essere aggiornato ai nuovi ambienti dove deve funzionare. 
 
@@ -385,37 +386,44 @@ Le problematicit\`{a} nello sviluppo software proviene dalla nostra intrinsica l
 \end{frame}
 
 \begin{frame}{\centerline{Per una migliore comprensione del software}}
-% Nr:7
+
 \begin{itemize}
 \item Se il software non \`{e} tangibile, allora potrebbe essere considerato come un'arte, ovvero un atto creativo dell'ingenio
 \item Il software riguarda la scrittura, quindi potremmo focalizzarci sulla scrittura vera e propria 
 \item Esercizio proposto: 
 \begin{itemize}
 \item leggete e preparate una presentazione di al pi\`{u} 5 minuti con al pi\`{u} 5 lucidi sulle riflessioni che avete elaborato leggendo ``Lezioni Americane, Sei proposte per il prossimo millennio'' di Italo Calvino \href{https://github.com/GiancarloSucci/UniBo.IDSEPC.A2022/blob/main/A2022.IDSEPC.ProcessoDiProduzione/ItaloCalvino.LezioniAmericane.pdf}{qui}
-\item the groups are as for the report
-\item the specific chapter assigned to each group is defined in the workbook
-\item there is a LaTeX template already ready in overleaf
-\item you should focus on two aspects:
-\begin{enumerate}
-\item what you find in the chapter already present in software,
-\item what you find in the chapter that should be present in software but right now it is not.
-\end{enumerate}
-\item deadline for the slides: January 28th 2020 at midnight.
+\item i gruppi sono liberi
+\item utilizzate anche le informazioni che trovate nel resto della lezione
+\item la presentazione va fatta usando lo stesso modello del corso utilizzando \LaTeX
 \end{itemize}
 \end{itemize}
 
 \end{frame}
 
 
+\begin{frame}{\centerline{La comprensione dello sviluppo software}}
+
+\begin{itemize}
+\item Per comprendere appieno le problematiche dello sviluppo dei sistemi software, ci concentriamo ora su
+\begin{itemize}
+\item la natura dei problemi software e la loro non riducibilit\`{a} a semplici questioni decomponibili
+\item i meccanismi di controllo dello sviluppo e del lavoro dei team
+\item le modalit\`{a} con cui diverse persone e diversi team possono lavorare insieme e comporre \textcolor{red}{insieme} il prodotto finale
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 
 %====================================================================================
 
-\begin{frame}{\centerline{Tame and Wicked Problems}}
-% Nr:7
-\begin{small}
-\textbf{Tame problems} are those problems that can be easy engineered; they can be formulated exhaustively and stated containing all the information needed for understanding and solving the problem.
+\begin{frame}{\centerline{I problemi ``tame'' e ``wicked''}}
 
-Not all problems are tame. There are also \textbf{wicked problems}. The information needed to describe the wicked problem depends on the idea to solve it.
+\begin{small}
+\textcolor{red}{\bf I problemi ``tame''} sono quei problemi che possono essere ingegnerizzati facilmente; possono essere formulati in modo esaustivo e descritti contentendo tutte le informaizoni necessarie per la loro soluzione.
+
+Non tutti i problemi sono ``tame.'' ci sono anche i cosiddetti 
+\textcolor{red}{\bf problemi ``wicked''}. Le informaizoni necessarie a descrivere un problema ``wicked'' dipendono dall'idea che si ha per risolverli.
 
 \begin{center}
 \includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-03.png}
@@ -434,15 +442,15 @@ Not all problems are tame. There are also \textbf{wicked problems}. The informat
 
 %====================================================================================
 
-\begin{frame}{\centerline{Tame Problems}}
-% Nr:8
+\begin{frame}{\centerline{I problemi tame}}
+
 \begin{itemize}
-\item Has a well-defined and stable problem statement.
-\item Has a definite stopping point, i.e., when the solution is reached.
-\item Has a solution which can be objectively evaluated as right or wrong.
-\item Belongs to a class of similar problems which are all solved in the same similar way.
-\item Has solutions which can be easily tried and abandoned.
-\item Comes with a limited set of alternative solutions
+\item Hanno una descrizione ben definita e stabile
+\item Hanno un punto di fermata, ovvero una chiara definizione di quando la soluzione \`{e} stata trovata
+\item Hanno una soluzione che pu\`{o} essere definita come giusta o sbagliata
+\item Appartengono a una classe di problemi simili che possono essere tutti risolti in un modo simile
+\item Hanno soluzioni che possono essere provate e abbandonate con facilit\`{a}
+\item Hanno un insieme limitato di possibili soluzione
 \end{itemize}
 %Succi.B7 c1.2. p.9
 \begin{center}
@@ -458,15 +466,17 @@ Not all problems are tame. There are also \textbf{wicked problems}. The informat
 
 %====================================================================================
 
-\begin{frame}{\centerline{Wicked Problems}}
-% Nr:9
+\begin{frame}{\centerline{I problemi wicked (1/4)}}
+
 \small
 \begin{itemize}
-\item Wicked projects cannot provide a definitive, analytical formulation of the problem they target. Formulating the project and the solution is essentially the same task. Each time you attempt to create a solution, you get a new, hopefully better, understanding of the project.
+\item I problemi wicked non hanno una formulazione chiara, univoca ed analitica e definire il problema \`{e} gi\`{a} un passo verso la soluzione.
 
-\item Wicked projects have no a stopping rule telling when the problem they target has been solved. The problem-solving process proceeds iteratively and ends when resources are depleted and/or stakeholders lose interest in a further refinement of the currently proposed solution.
+\item Un problema wicked riguarda spesso una serie di questioni con interdipendenze e vincoli che cambiano nel tempo inseriti in un contesto dinamico e in evoluzione.
 
-\item Solutions to problems in wicked projects are not true or false, but good or bad. Since there are no unambiguous criteria for deciding if the project is resolved, getting all stakeholders to agree that a resolution is ``good enough'' can be a challenge.
+\item Analogamente, ogni volta si cerca di creare una soluzione si ha una nuova e, si spera, migliore comprensione del problema, e quindi formulare il problema e risolvere il problema sono praticamente la stessa cosa.
+
+
 \end{itemize}
 %Succi.B7 c1.2. p.9
 
@@ -474,66 +484,92 @@ Not all problems are tame. There are also \textbf{wicked problems}. The informat
 
 %====================================================================================
 
-\begin{frame}{\centerline{Wicked Problems}}
-% Nr:10
+\begin{frame}{\centerline{I problemi wicked (2/4)}}
+
 \small
 \begin{itemize}
-\item There is no immediate or ultimate test of a solution to the targeted problem in a wicked project. Solutions to such projects generate waves of consequences, and it is impossible to know how these waves will eventually play out.
+\item Il processo di soluzione procede di solito per tentativi successivi finch\'{e} le risorse per la soluzione sono concluse, gli stakeholder hanno perso interesse in ulteriori raffinamento della soluzione proposta.
 
-\item Each solution to the problem targeted by a wicked project has irreversible consequences. Care must be placed in managing assumed solutions. Once the website is published or the new customer service package goes live, you cannot take back what was online or revert to the former customer database.
+\item Le soluzioni ai problemi wicked non sono vere o false ma pi\`{u} o meno accettabili. Visto che, come detto, non c'\`{e} un criterio non ambiguo per definire il problema come \textcolor{cyan}{risolto}, pu\`{o} essere problematico convincere tutti gli stakeholder che si \`{e} raggiunta una soluzione sufficientemente buona.
 
-\item Wicked projects do not have a well-described, widely accepted set of potential solutions. The various stakeholders may have differing views of what are acceptable solutions. It is a matter of judgment as to when enough potential solutions have emerged and which should be pursued.
+\item Non c'\`{e} un test diretto o definitivo per una soluzione a un problema wicked. Soluzioni a questi problemi generano flussi di conseguenze i cui effetti finali sono imprevedibili.
+
 
 \end{itemize}
 %Succi.B7 c1.2. p.9
 
 \end{frame}
-\begin{frame}{\centerline{Wicked Problems}}
-% Nr:11
+
+\begin{frame}{\centerline{I problemi wicked (3/4)}}
+
 \small
 \begin{itemize}
-\item Each wicked project is essentially unique. There are no well-defined ``classes'' of solutions that can be applied to a specific case. It is not easy to find analogous projects, previously solved and well documented, so that their solution could be duplicated.
+\item Ogni soluzione ad un problema wicked ha conseguenze irreversibili. 
+\begin{itemize}
+\item Bisogna porre attenzione nel gestire presunte soluzioni: ad esempio una volta che una pubblicit\`{a} di un'offerta \`{e} rilasciata \`{e} impossibile o, quanto meno, difficoltoso, cambiare tale offerta.
+\end{itemize}
 
-\item The problem targeted by a wicked project can be considered a symptom of another problem. A wicked project deals with a set of interlocking issues and constraints that change over time, embedded in a dynamic and evolving context.
+\item I problemi wicked non hanno un insieme chiaro e universalmente accettato di possibili soluzioni. I vari stakeholder possono avere opinioni diverse di quelle che sono accettabili.
 
-\item The causes of a problem targeted by a wicked project can be explained in several ways. There are several stakeholders who have various and changing ideas about what is the project, its nature, its causes, and the associated solution.
+\item Ogni problema wicked \`{e} sostanzialmente unico e non \`{e} facile trovare problemi analogi precedentemente risolti e ben documentati in modo che le loro soluzioni possano essere replicate.
 
-\item The project must not go wrong. Mistake is not an option here. Despite the inability to express the project solution analytically, it is not allowed to fail the project.
 \end{itemize}
 %Succi.B7 c1.2. p.9
 
 \end{frame}
-\begin{frame}{\centerline{Software Development Is a Wicked Problem}}
-% Nr:12
+
+\begin{frame}{\centerline{I problemi wicked (4/4)}}
+
 \small
 \begin{itemize}
-\item It is very hard to plan a software development project upfront considering all eventualities.
 
-\item A software product is hardly perfect or finished; as soon as users use it, new requirements will arise.
+\item Il problema wicked pu\`{o} essere considerato un sintomo di un altro problema.
 
-\item There does not exist the one single solution to a software engineering problem.
+\item Le cause di un problema wicked possono essere spiegate in modi molto diversi.
 
-\item We cannot determine how well an implementation solves the requirements until we implement it.
+\item Gli stakeholder hanno spesso idee diverse e pure che cambiano su che cosa sia il problema, la sua natura, le sue cause, e le soluzioni da provare.
 
-\item Choices are sometimes very costly to reverse. The last option is to throw away the existing product and start from scratch.
+\item Il problema wicked non pu\`{o} rimanere irrisolto ed il progetto associato non pu\`{o} fallire.
+\begin{itemize}
+\item Nonostante l'impossibilit\`{a} di esprimere il problema e la soluzione in modo analitico, il fallimento non \`{e} un'opzione accettabile.
+\end{itemize}
+
+\end{itemize}
+%Succi.B7 c1.2. p.9
+
+\end{frame}
+
+\begin{frame}{\centerline{Lo sviluppo software \`{e} un problema wicked (1/2)}}
+
+\small
+\begin{itemize}
+\item \`{E} molto difficile pianificare all'inizio del progetto tutto lo sviluppo futuro considerando ogni possibile eventualit\`{a}
+
+\item Un prodotto software non \`{e} praticamente mai perfetto o finito: quando viene messo in uso subito appaiono nuovo requisiti
+
+\item Non esiste una soluzione unica a un problema di ingegneria del software
+
+\item Non possiamo sapere a priori il livello a cui una implementazione di un sistema soddisfa i requisiti iniziale finch´\`{e} non la implementiamo.
+
+\item Le scelte sono alle volte molto costose da essere ribaltate. L'ultima spiaggia è buttare via il prodotto fino a quel punto sviluppato e ricominciare da capo.
 
 \end{itemize}
 %Succi.B7 c1.3. p.10
 
 \end{frame}
-\begin{frame}{\centerline{Software Development Is a Wicked Problem}}
-% Nr:13
+\begin{frame}{\centerline{Lo sviluppo software \`{e} un problema wicked (2/2)}}
+
 \small 
 \begin{itemize}
-\item There are infinite ways to solve a software development problem.
+\item Ci sono infiniti modi per risolvere un problema di sviluppo software.
 
-\item Every software development project is essentially unique.
+\item Ogni progetto di sviluppo software \`{e} un unicum.
 
-\item Software engineering is a wicked problem on multiple levels: choosing the ``best'' database system, user interface, operating system, hardware, etc. is also a wicked problem.
+\item La presenza di problemi wicked si struttura a livelli multipli: le scelte dei \textcolor{red}{\textit{migliori}} database, interfacce utente, sistemi operativi, hardware sono tutti problemi wicked.
 
-\item The problem a software system aims to solve is seen differently by the stakeholders of the system: users, developers, maintainers, database operators, etc.
+\item Il problema che lo sviluppo software deve risolvere \`{e} visto in modo diverso dai diversi stakeholder del sistema: clienti, utenti, sviluppatori, manutentori, operatori di database, ecc.
 
-\item Software development (i.e., to try to solve the problem) means to spend resources. To be wrong, i.e., to deliver a solution that the users retain not useful, is not considered an option.
+\item Lo sviluppo software in s\'{e} consuma risorse, quindi fare un errore, ovvero sviluppare qualche cosa che il cliente non vuole, non \`{e} una opzione accettabile.
 
 \end{itemize}
 %Succi.B7 c1.3. p.10
@@ -541,42 +577,42 @@ Not all problems are tame. There are also \textbf{wicked problems}. The informat
 \end{frame}
 
 %---------------------------------------------
-\begin{frame}{\centerline{Keeping the Process Under Control}}
-% Nr:14
+\begin{frame}{\centerline{Come controllare il processo (1/3)}}
 
-Michael L. Harris proposed an effective way to classify different types of control and in which circumstances these types work best.
+
+Michael L. Harris ha proposto un meccanismo efficace per classificare i diversi tipi di controllo e le circostanze in cui funzionano meglio.
 \newline 
 
-The selection of the most effective control mechanism depends on two factors:
+La selezione del meccanismo pi\`{u} efficace dipende da due fattori:
 \begin{itemize}
-\item  the ability to measure the output, the ``measurability,'' and
+\item  l'abilit\`{a} di misurare il risultato (output), ovvero la ``misurabilit\`{a}'' e
 
-\item  the ability to specify in details the steps required to accomplish a given task, the ``specifiability.''
+\item  l'abilit\`{a} di specificare in dettaglio i passi necessari per svolgere un dato compito, la ``specificabilit\`{a}''.
 \end{itemize}
 \end{frame}
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Keeping the Process Under Control}}
-% Nr:15
-So if we put these two factors in a two-dimensional diagram, we obtain four areas:
+\begin{frame}{\centerline{Come controllare il processo (2/3)}}
+
+Mettendo questi due fattori in un diagramma bidimensionale otteniamo quattro aree::
 \begin{itemize}
 
+\item  l'area con il pi\`{u} alto livello di misurabilit\`{a} e specificabilit\`{a};
 
-\item  an area with high level of measurability and of specifiability;
+\item  l'area in cui si ha un alto livello di misurabilit\`{a} ma poca specificabilit\`{a};
 
-\item  an area where we have a high level of measurability of the output but little specifiability;
+\item  l'area con poca misurabilit\`{a} e con il pi\`{u} alto livello di specificabilit\`{a};
 
-\item  an area where we have a high level of specifiability but little measurability; and
+\item  l'area in cui non possiamo n\'{e} misurare con precisione il risultato n\'{e} definire con precisione i risultati del problema 
 
-\item  an area where we can neither measure directly the output nor specify the steps of the work.
 \end{itemize}
 \end{frame}
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Keeping the Process Under Control}}
-% Nr:16
+\begin{frame}{\centerline{Come controllare il processo (3/3)}}
+
 
 \begin{center}
 \includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img03.png}
@@ -584,55 +620,55 @@ So if we put these two factors in a two-dimensional diagram, we obtain four area
 \end{frame}
 %=============================================
 
-\begin{frame}{\centerline{Coordination mechanisms}}
-% Nr:57
+\begin{frame}{\centerline{Meccanismi di coordinamento}}
+7
 \begin{center}
 \includegraphics[width=20mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img10.png}
 \end{center}
 
-According to Malone and Crowston (1994) there are three ways people coordinate:
+Secondo Malone e Crowston (1994) ci sono tre modi con cui le persone si coordinano:
 \begin{itemize}
-\item  Sequentially or individual
-\item  Via shared resource
-\item  Via common output
+\item  sequenziale o individuale (sequential)
+\item  tramite risorse condivise (shared resources)
+\item  tramite risultato comune (common output)
 \end{itemize}
 
 \end{frame}
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Sequential}}
-% Nr:58
+\begin{frame}{\centerline{Coordinamento sequenziale}}
+8
 
 \begin{center}
 \includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img11.png}
 \end{center}
 
 \begin{itemize}
-\item  First write the analysis document
+\item  Prima si scrive il documento di analisi
 
 
-\item  On the basis of the analysis document write the design document
+\item  Sulla base del documento di analisi si progetta il sistema
 
 
  
 \end{itemize}
 
-(Is this endogenous control?)
 \end{frame}
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Shared resource}}
-% Nr:59
+\begin{frame}{\centerline{Coordinamento a risorse condivise}}
+9
 \begin{center}
 \includegraphics[width=50mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img12.png}
 \end{center}
 
 \begin{itemize}
-\item  The development may start only after the customer has committed to the project
+\item  Lo sviluppo pu\`{o} iniziare quanto il cliente ha dato il via al progetto
 
-\item  The classes to develop are assigned to developers on a \\ First Come – First Served basis
+\item Le parti da sviluppare possono essere assegnate agli sviluppatori con un meccanismo a coda (first come, first served)
+
 
 \end{itemize}
 
@@ -641,16 +677,17 @@ According to Malone and Crowston (1994) there are three ways people coordinate:
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Common output}}
-% Nr:60
+\begin{frame}{\centerline{Coordinamento a risultato comune}}
+0
 \begin{center}
 \includegraphics[width=50mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img13.png}
 \end{center}
 
 \begin{itemize}
-\item  The team leader proposes a schedule for the week to come; the team has to agree unanimously on it
+\item  Il responsabile del team propone un piano di lavoro per la settimane e tale piano viene approvato se il team unanimamente lo accetta
 
-\item  The team sits together to produce the final release that requires everyone approval
+\item Il team si siede insieme e produce la versione finale che richiede l'approvazione di tutti
+
   
 \end{itemize}
 
@@ -659,19 +696,19 @@ According to Malone and Crowston (1994) there are three ways people coordinate:
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{What is most difficult?}}
-% Nr:61
+\begin{frame}{\centerline{Qual \`{e} il pi\`{u} difficile?}}
+1
 \begin{itemize}
 
-\item  Easiest: Sequential
-\item  Then: Shared resource -- there is the need to respect priorities
-\item  Most difficult: Common output
+\item  Il pi\`{u} facile: quello sequenziale!
+\item  Poi: risorse condivise -- occorre saper rispettare le priorit\`{a} di sviluppo
+\item  Il pi\`{u} difficile: risultato condiviso
 \begin{itemize}
 
-\item  people need to work together, hand in hand, producing the same good
+\item  le persone devono lavorare insieme, mano nella mano, producendo lo stesso bene
 \end{itemize}
 
-\item Most of traditional software development is based on exogenous control and sequential coordination 
+\item La gran parte dei modelli tradizionali di sviluppo software si basano su coordinamento sequenziale
 
 \end{itemize}
 
@@ -679,183 +716,271 @@ According to Malone and Crowston (1994) there are three ways people coordinate:
 %=============================================
 
 
-%---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto}}
-% Nr:3
+\begin{frame}{\centerline{I modelli di sviluppo software}}
+
+\begin{itemize}
+\item Ora analizziamo brevemente i modelli di sviluppo software che sono stati proposti negli anni
+\item Cerchiamo di comprendere i meccanismi di controllo e coordinamento in essere per determinare:
+\begin{itemize}
+\item la loro efficacia
+\item la loro difficolt\`{a} di realizzazione 
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{\centerline{Il modello di sviluppo a cascata}}
+
+
+\begin{itemize}
+    \item Il modello di sviluppo \textcolor{red}{a cascata} \`{e} stato il primo modo con cui si \`{e} tentato di riuscire a creare un \textcolor{red}{prodotto software che risponda ai requisiti}.
+    \item Per ottenere tale risultato, si sono definiti passi precisi che rispecchiano il mondo manufatturiero in cui, ad esempio, la progettazione avviene dopo l'analisi, lo sviluppo dopo la pregettazione, e la verifica di correttezza dopo lo sviluppo.
+\item Il tutto sembra molto logico ...
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}{\centerline{Il modello di sviluppo a cascata -- schema}}
+
+
 \begin{center}
-\includegraphics[width=90mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img00.png}
+\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-02.png}
+\end{center}
+\vspace{0.5cm}
+
+\begin{center}
+\tiny
+Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+
 \end{center}
 \end{frame}
-%=============================================
 
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:8
-
-The waterfall model was the first to address risks, namely it focused on the \textcolor{red}{to develop a product that does not correspond to the requirements}.\\
-
-To handle such risk properly, the design was done only after the requirements were clear, the implementation was done after the design was completed, the system was then verified and tested at the end to again ensure that it did what it should do.
+\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (1/3)}}
 
 
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
-\end{frame}
+\textcolor{red}{\bf Pianificazione e Requisiti:} Tutti i possibili requisiti del sistema da sviluppare sono raccolti e viene sviluppato un piano per lo sviluppo affinch\'{e} tutto sia fatto nei tempi e nei costi prestabiliti.
+\newline
 
-\begin{frame}{\centerline{Waterfall development model -- Schema}}
-% Nr:8
+\textcolor{red}{\bf Analisi e Progettazione del sistema:} I requisiti precedentemente elicitati sono messi in forma scritta, analizzati con cura e quindi viene sviluppato un progetto (design) del sistema. Questo progetto rappresenta il riferimento del software da sviluppare. Il progetto di sistema serve a definire i bisogni di hardware e di software e specifica anche l'architettura di massima.
+\newline
 
 \begin{center}
-\includegraphics[width=90mm]{A2022.IDSEPC.ProcessoDiProduzione/img-02.png}
+\tiny
+Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
 \end{center}
-\small
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
+
 \end{frame}
 
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:9
-The phases in Waterfall model are discussed in detail as follow:
+\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (2/3)}}
+
+\textcolor{red}{\bf Costruizione:} Con le informazioni raccolte nei documenti di progetto incomincia la codifica. Gli sviluppatori sono responsabili per il codice prodotto. Di solti si parte focalizzandosi su piccole unit\`{a} e poi il sistema cresce componendo tali piccole unit\`{a} in entit\`{a} pi\`{u} ``grandi'' per la successiva integrazione. Si noti che il concetto di grande \`{e} molto soggettivo.
 \newline
 
-\textbf{Planning and Requirements:} All possible requirements of the system to be developed are gathered in this phase and planning for further development is done in advance to produce a Quality product within the given time and cost.
+\textcolor{red}{\bf Test di unit\`{a}, integrazione e test finale di sistema:} Tutte le unit\`{a} sviluppate singolarmente nella fase di costruzione sono verificate (testate) singolarmente, e quindi integrate nel prodotto finale. Il prodotto finale completo \`{e} quindi testato complessivamente per rilevare ulteriori errori, difetti, non conformit\`{a} con i desideri dei clienti.
 \newline
 
-\textbf{Analysis and System Design:} The requirements captured in first phase are deeply analyzed and then a system design is prepared. This system design is the blue print of the system to be developed. System Design helps in defining hardware and software needs of the system and also specifies the overall system architecture.
-\newline
+\begin{center}
+\tiny
+Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+\end{center}
 
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
+
 \end{frame}
 
-\begin{frame}
+\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (3/3)}}
 
-\textbf{Construction and Modeling:} With the inputs of previous phase the actual coding is done in this phase to develop the system. The developer is responsible for the coding part. The system is first developed in small programs called units, which are integrated in the next phase.
+
+
+\textcolor{red}{\bf Consegna del sistema:} Dopo che ci si \`{e} assicurati della qualit\`{a} del prodotto con il test, il prodotto viene consegnato al cliente.
 \newline
 
-\textbf{Integration and Testing:} All the individual units developed in the Construction phase are integrated into a system as a whole after each unit is tested thoroughly called as Unit testing. Then the whole system all together is tested for any faults or defects.
+\textcolor{red}{\bf Manutenzione:} Per gestire tutte le problematiche che avvengono dopo la consegna del prodotto, una specifica fase di manutenzione viene prevista. Inoltre, data la costante evoluzione dei sistemi hardware e software la fase di manutenzione si occupa dell'aggiornamento del sistema in modo che il cliente abbia sempre un sistema aggiornato ed efficace.
+
 \newline
 
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
+\begin{center}
+\tiny
+Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+\end{center}
+
 \end{frame}
 
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:10
+\begin{frame}{\centerline{Il modello di sviluppo a cascata -- commento}}
+
+\textcolor{blue}{\bf Ovviamente tutto quanto detto sopra \`{e} lo sviluppo a cascata nei desideri di chi lo ha ideato ... una sorta di lettera a babbo natale!}
+
+\begin{center}
+\includegraphics[width=30mm]{A2022.IDSEPC.ProcessoDiProduzione/san_nicolo-201x300.jpg}
+\end{center}
+\vspace{0.5cm}
+
+\begin{center}
+\tiny
+Fonte: \url{https://www.triesteallnews.it/wp-content/images/2019/12/san_nicolo-201x300.jpg}
+\end{center}
 
 
-\textbf{Deployment of system:} After the Unit and System testing is done and all the bugs are resolved, the product is deployed to the customer.
-\newline
-
-\textbf{Maintenance:} There are some issues which are encountered by the client or the customer after deployment, fixing of those issues comes under Maintenance phase. Also to enhance the product some better versions are released. Maintenance is done to deliver these changes in the customer environment.
-\newline
-
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
 \end{frame}
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:11
 
-\textbf{Advantages of Waterfall Model:}
+
+\begin{frame}{\centerline{Vantaggi del modello di sviluppo a cascata}}
+
+
 \begin{itemize}
-\item  Simple and easy to use and understand.
+\item  Semplice da usare e capire.
 
-\item  Each phase is processed one at a time, so full dedication is on one process only.
+\item  Ogni fase viene sviluppata individualmente in modo che ci si dedica a fondo e con concentrazione ad una azione alla volta.
 
-\item  Works well for smaller projects where requirements are well understood.
+\item  Funziona bene per piccoli progetti dove i requisiti sono ben compresi.
 
-\item  Each stage has its own task to do deliberately.
+\item  Ogni fase ha le attivit\`{a} che deve svolgere in modo preciso.
 
-\item  Each process is fully documented to avoid further difficulties.
+\item  Ogni fase \`{e} documentata nel dettaglio per evitare qualunque possibile ambiguit\`{a}.
+
+\item \textcolor{red}{Notate di nuovo che questi sono i desiderata \ldots{} che poi la realt\`{a} corrisponda ad essi, \`{e} un altro discorso.}
 
 \end{itemize}
 
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
 \end{frame}
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:12
+\begin{frame}{\centerline{Svantaggi del modello di sviluppo a cascata}}
 
-\textbf{Disadvantages of Waterfall Model:}
+
 \begin{itemize}
-\item  The biggest problem arises that no another process can come under work simultaneously.
+\item Il primo svantaggio che appare \`{e} che il tutto \`{e} molto sequenziale e si pu\`{o} fare solo una cosa alla volta; \textcolor{red}{questo confligge con la natura combinatoria e iterativa dei problemi wicked.} 
 
-\item  The requirements are to be predefined at the initial stage; if requirements are identified at later stage of time then they cannot be easily appended at the existing Waterfall Cycle.
+\item  I requisiti devono essere definiti all'inizio; se un requisito viene identificato dopo, esso non pu\`{o} essere inserito con facilit\`{a} nel processo di sviluppo.
 
-\item  Waterfall Model does not allow iterations of phases. The whole project can be integrated at the end only.
 
-\item  The customers can preview project at end only. No earlier prototype is released and shown to user.
+\item Il modello a cascata non permette facilmente iterazioni e il progetto nella sua interezza va integrato alla fine.
+
+\item I clienti possono avere accesso al progetto solo alla fine. Non sono rilasciati prototipi o sistemi parziali in anticipo.
 \end{itemize}
 
-
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
 \end{frame}
-\begin{frame}{\centerline{Waterfall development model}}
-% Nr:13
 
-\textbf{Applications of Waterfall Model:}
+\begin{frame}{\centerline{Applicabilit\`{a} del modello di sviluppo a cascata}}
+
+
 \begin{itemize}
 
-\item  There are no ambiguous requirements.
+\item  Non ci devono essere requisiti ambigui.
 
-\item  Requirements are very well documented and fixed beforehand.
+\item  I requisiti devono essere ben documentati e fissati in anticipo.
 
-\item  Technology is not dynamic.
+\item  La tecnologia in uso (hardware, sistema operativo, API, ...) non deve cambiare durante il progetto.
 
-\item  Product definition is stable.
+\item  La definizione del prodotto deve essere stabile.
 
-\item  Sufficient resources and expertise are available to support the product.
+\item  Risorse con esperienza devono essere presenti per aiutare lo sviluppo del prodotto.
 \end{itemize}
 
-\footnotetext[1]{\url{http://www.railshorde.com/blog/waterfall-development-model}}
 \end{frame}
-\begin{frame}{\centerline{Spiral development model}}
-% Nr:14
+
+\begin{frame}{\centerline{Evoluzioni e raffinamenti}}
+
+
+\begin{itemize}
+
+\item  Il modello di sviluppo a V, con gli associati
+\begin{itemize}
+\item modello a dente di sega e 
+\item modello a dente di squalo
+\end{itemize}
+
+\item  Lo sviluppo incrementale.
+
+\item  Il modello prototipale.
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{\centerline{Modello di sviluppo a spirale}}
+
 \begin{center}
 \includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-03.png}
 \end{center}
 
+\begin{center}
+\tiny
+Fonte: \url{https://en.wikipedia.org/wiki/Spiral\_model}
+\end{center}
 
-\footnotetext[1]{\url{https://en.wikipedia.org/wiki/Spiral\_model}}
 \end{frame}
-\begin{frame}{\centerline{Spiral development model}}
-% Nr:15
 
-The spiral software development model is an iterative software development approach in which each cycle shows the following characteristics:
-
-\begin{itemize}
+\begin{frame}{\centerline{Principi del modello di sviluppo a spirale}}
 
 
-\item  Concurrent rather than sequential determination of artifacts.
-
-\item  Consideration in each spiral cycle of the main spiral elements:
+Il modello di sviluppo a spirale \est{} un approccio iterativo allo sviluppo software in cui ogni ciclo della spirale ha le seguenti caratteristiche:
 
 \begin{itemize}
-\item  critical stakeholder objectives and constraints,
 
-\item  product and process alternatives,
+\item  Determinazione degli artifatti da sviluppare concorrente e non sequenziale
 
-\item  risk identification and resolution,
+\item  Inclusione in ogni ciclo della spirale dei sequenti elementi:
 
-\item  stakeholder review,
-
-\item  commitment to proceed.
+\begin{itemize}
+\item  revisione degli obiettivi e dei vincoli degli stakeholder critici del sistema,
+\item  analisi di processi e prodotti alternativi,
+\item  identificazione e risoluzione dei rischi,
+\item  revisione con gli stakeholder,
+\item  esplicita decisione di continuare o terminazione del progetto.
 \end{itemize}
 \end{itemize}
 \end{frame}
-\begin{frame}{\centerline{Spiral development model}}
-% Nr:16
+\begin{frame}{\centerline{Ingredienti del modello di sviluppo a spirale}}
+
 
 \begin{itemize}
-\item  Using risk considerations to determine the level of effort to be devoted to each activity within each spiral cycle.
+\item  Uso dell'analisi del rischio per determinare il livello di sforzo necessario ad ogni attivit\`{a} all'interno di ogni ciclo della spirale
 
-\item  Managing stakeholder life cycle commitments.
+\item  Gestione all'interno di ogni ciclo della spirale degli accordi con gli stakeholder sulla struttura e sul contenuto del processo di sviluppo.
 
-\item  Emphasis on activities and artifacts for system and life cycle rather than for software and initial development.
+\item  Enfasi su attivit\`{a} e artefatti del sistema e del processo di produzione nel loro insieme e non soltanto sul software risultante alla fine.
 
 \end{itemize}
 
 
+\end{frame}
+
+%---------------------------------------------
+\begin{frame}{\centerline{L'\textcolor{red}{Agile Manifesto} (1/2)}}
+\begin{itemize}
+    \item Nel Febbraio 2001 un gruppo di softwaristi molto esperti formalizz\`{o} un nuovo modo di sviluppare software in un \textcolor{red}{Manifesto}
+    \item Questo manifesto sintetizzava pratiche che si erano sviluppate nel tempo, alcune che risalivano agli albori dello svilupo software
+    \item Di fatto il manifesto era una istanziazione del modello di sviluppo a spirale
+    \item Al manifesto faceva poi seguito una lista di principi
+\end{itemize}
 \end{frame}
 
 
 %---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto}}
-% Nr:4
+\begin{frame}{\centerline{L'\textcolor{red}{Agile Manifesto}(2/2)}}
 
-The ``Agile Manifesto'' identifies two sets of values: the values lying on the left of the document and the values lying on the right of the document.
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img00.png}
+\end{center}
+\begin{center}
+\tiny
+Fonte: \url{https://agilemanifesto.org}
+\end{center}
+
+\end{frame}
+%=============================================
+
+
+%---------------------------------------------
+\begin{frame}{\centerline{Agile Manifesto}}
+
+
+L'``Agile Manifesto'' identifica due insiemi di valori:
+\begin{itemize}
+    \item quelli a destra del documento
+    \item quelli a sinistra del documento
+\end{itemize}
+
 \begin{center}
 \includegraphics[width=120mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img01.png}
 \end{center}
@@ -863,8 +988,8 @@ The ``Agile Manifesto'' identifies two sets of values: the values lying on the l
 %=============================================
 
 %---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto I}}
-% Nr:5
+\begin{frame}{\centerline{Principi nell'Agile Manifesto I}}
+
 \begin{itemize}
 \item  Our highest priority is to satisfy the customer through early and continuous delivery of valuable software
 
@@ -872,69 +997,83 @@ The ``Agile Manifesto'' identifies two sets of values: the values lying on the l
 
 \item  Business people and developers must work together daily throughout the project
 
+\item  Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale
+
+\item  Build projects around motivated individuals
+
+
 \end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+\tiny
+Fonte: \url{https://http://agilemanifesto.org/principles.html}
+\end{center}
+
 \end{frame}
 %=============================================
 
 %---------------------------------------------
 \begin{frame}{\centerline{Agile Manifesto II}}
-% Nr:6
-\begin{itemize}
-\item  Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale
 
-\item  Build projects around motivated individuals
+\begin{itemize}
 
 \item  Give them the environment and support they need, and trust them to get the job done
 
+\item  The most efficient and effective method of conveying information to and within a development team is face-to-face conversation
+
+\item  Working software is the primary measure of progress
+
+
 \end{itemize}
+
+\vspace{2cm}
+
+
+\begin{center}
+\tiny
+Fonte: \url{https://http://agilemanifesto.org/principles.html}
+\end{center}
+
 \end{frame}
 %=============================================
 
 %---------------------------------------------
 \begin{frame}{\centerline{Agile Manifesto III}}
-% Nr:7
+
 \begin{itemize}
-\item  The most efficient and effective method of conveying information to and within a development team is face-to-face conversation
 
-\item  Working software is the primary measure of progress
-
-\end{itemize}
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto IV}}
-% Nr:8
-\begin{itemize}
 \item  Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely
 
 \item  Continuous attention to technical excellence and good design enhances agility
-(continued)
-\end{itemize}
-\end{frame}
-%=============================================
 
-%---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto V}}
-% Nr:9
-\begin{itemize}
 \item  Simplicity -- the art of maximizing the amount of work not done -- is essential
 
 \item  The best architectures, requirements, and designs emerge from self-organizing teams
 
 \item  At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly
+
 \end{itemize}
+
+\vspace{1cm}
+
+\begin{center}
+\tiny
+Fonte: \url{https://http://agilemanifesto.org/principles.html}
+\end{center}
+
 \end{frame}
 %=============================================
 
-
+%=============================================
 
 
 \begin{frame}
-{\centerline{Questions?}}
+{\centerline{Domande?}}
 \vspace{1cm}
 \begin{center}
-    \LARGE{End of the fifth lecture.}
+    \LARGE{Fine della lezione cinque.}
 \end{center}
 
 \end{frame}
