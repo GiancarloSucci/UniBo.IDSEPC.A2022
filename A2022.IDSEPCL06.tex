@@ -131,7 +131,7 @@
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
 \title[L02]{Introduzione alla data science e al pensiero computazionale\\
-Lezione 5: Il processo di produzione del software} % The short title appears at the bottom of every slide, the full title is only on the title page
+Lezione 6: Il modello GQM, Misurazione e Deduzione} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author[{\tiny Giancarlo Succi }]{Giancarlo Succi\\\\ Dipartimento di Informatica -- Scienza e Ingegneria\\Universit\`{a} di Bologna\\
 \bftt{g.succi@unibo.it}
@@ -190,846 +190,1520 @@ Ariane 5 (1996)\\
 
 \end{frame}
 
+%---------------------------------------------
+\begin{frame}{\centerline{}}
+% Nr:3
+\begin{center}
+{\Large
+Introduction to Measurement \\
+}
+\end{center}
+\end{frame}
+%=============================================
 
 
-\begin{frame}{\centerline{Software Engineering (1/2)}}
+%---------------------------------------------
+\begin{frame}{\centerline{Measurement \& Metrics
+}}
+% Nr:4
+
+\begin{small}
+\begin{center}
+from Pressman Companion \\Slides(chp 4)
+\end{center}
+\end{small}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Definition}}
+% Nr:5
+
+\textbf{Measurement} is the process by which numbers or symbols are assigned to attributes of entities in the real world in such a way as to describe them according to clearly defined rules
+\begin{flushright}
+N. Fenton and S. L. Pfleeger, 1997
+\end{flushright}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Entities and Attributes}}
+% Nr:6
+
+\begin{table}[H]
+\begin{tabulary}{\textwidth}{m{5.5cm} m{5.5cm}}
+\begin{itemize}    
+    \item Human being
+    \item Apple
+    \item Computer
+    \item Computer
+    \item Human being
+    \item ...
+\end{itemize} &
+\begin{itemize}    
+    \item Name
+    \item Weight
+    \item Memory
+    \item Hard Disk space
+    \item Weight
+    \item ...
+\end{itemize}
+\end{tabulary}
+\end{table}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Rules}}
+% Nr:7
+\begin{itemize}    
+    \item The LOC measure is obtained by counting all the lines that contain at least one character, and that do not contain comments.
+    \item Interpretation: C Code?
+    \item Visual BASIC 4 Code?
+\end{itemize}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Why Measuring?}}
+% Nr:9
+
+\begin{itemize}
+\item Lack of measurable targets (Gilb's principle)
+\item Identification failure
+\item Lack of quality assurance
+\item Lack of consistent tool evaluation
+\end{itemize}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{The Measurement Advantage}}
+% Nr:10
+\begin{table}[H]
+
+\begin{tabulary}{\textwidth}{m{5.5cm} m{5.5cm}}
+Management &
+Engineering \\
+
+\begin{itemize}    
+    \item Cost
+    \item Productivity
+    \item Quality
+    \item User satisfaction
+    \item Optimisation
+\end{itemize} &
+\begin{itemize}    
+    \item Requirements testing
+    \item Fault detection
+    \item Meeting goals
+    \item Forecasting
+\end{itemize}
+\end{tabulary}
+\end{table}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Scope of Measurement (partial list)}}
+% Nr:11
+\begin{itemize}
+    \item Cost and effort estimation
+    \item Productivity measures and models
+    \item Data collection
+    \item Quality models and measures
+    \item Reliability models
+    \item Performance evaluation and models
+    \item Structural and complexity metrics
+    \item Capability-maturity assessment
+    \item Management by metrics
+    \item Evaluation of methods and tools
+\end{itemize}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{}}
+% Nr:22
 
 \begin{center}
-Software Engineering o Ingegneria del Software\\
-\vspace{1cm}
 {\Large
-Ingegnerizzare la produzione del software\\
+Theory of Measurement
 }
-\vspace{2cm}
-Spesso si fanno analogie tra la produzione del software e cucinare...
+\end{center}
+
+\end{frame}
+%=============================================
+
+
+
+%---------------------------------------------
+\begin{frame}{\centerline{The Representational Theory of Measurement}}
+% Nr:23
+Set of rules to define measurement
+
+\begin{center}
+\includegraphics[width=120mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img07.png}
+\end{center}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Empirical Relations}}
+% Nr:24
+
+\begin{itemize}
+\item  Links two entities by means of an attribute - e.g., Person (entity class) and height (attribute)
+\item  Can be ambiguous - e.g., colour as perceived by human eye varies depending on subject measuring it
+\item  Improves with the understanding of the attribute, and measures can foster improvement
+
+\end{itemize}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Empirical Relations for the Attribute Height
+}}
+% Nr:25
+
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img08.png}
+\end{center}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Measurement}}
+% Nr:26
+
+To overcome these differences it is important to agree on:
+
+\begin{itemize}
+\item  A \textbf{measurement} is a mapping from the empirical world to the formal, relational world
+\item  A \textbf{measure} is the number or symbol assignment to an entity by this mapping in order to characterise an attribute
+\end{itemize}
+
+\begin{flushright}
+Fenton and Pfleeger, 1997
+\end{flushright}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Measurement}}
+% Nr:27
+\begin{center}
+\includegraphics[width=100mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img09.png}
+\newline
+\end{center}
+
+\begin{small}
+\begin{center}
+from Fenton pg 31
+\end{center}
+\end{small}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Representation Condition}}
+% Nr:28
+
+\begin{itemize}
+\item  A measurement mapping must map entities into numbers and empirical relation into numerical relations that preserve them and vice-versa
+\end{itemize}
+\begin{flushright}
+Fenton and Pfleeger, 1997
+\end{flushright}
+\begin{itemize}
+\item  \textbf{Valid} measure: satisfying the representation condition
+\end{itemize}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Representation Condition}}
+% Nr:29
+
+\begin{center}
+\includegraphics[width=120mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img10.png}
+\newline
+\end{center}
+
+\begin{small}
+\begin{center}
+from Fenton pg 31
+\end{center}
+\end{small}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Measurement Mapping}}
+% Nr:30
+
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img11.png}
+\begin{small}
+from Fenton pg 32
+\end{small}
+\end{center}
+\begin{table}[H]
+\begin{tabulary}{\textwidth}{m{2.5cm} m{8.5cm}}
+&\begin{tcolorbox}
+A tall iff \(M(A) > 70\)\\
+A taller than B iff \(M(A) > M(B)\)\\
+A much taller than B iff \(M(A) > M(B) + 20\)
+\end{tcolorbox}
+\end{tabulary}
+\end{table}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Role of the Representation Condition}}
+% Nr:31
+
+
+\includegraphics[width=80mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img12.png}
+
+\begin{table}[H]
+\begin{tabulary}{\textwidth}{m{7cm} m{4cm}}
+\begin{small}
+\begin{center}
+from Fenton pg 34
+\end{center}
+\end{small}&
+\begin{tcolorbox}
+\textbf{Alternative ...}\\
+\(M(R1) = 3\)\\
+\(M(R2) = 4\)\\
+\(M(R3) = 5\)
+\end{tcolorbox}
+
+\end{tabulary}
+\end{table}
+
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{}}
+% Nr:32
+
+\begin{center}
+{\Large
+Your Example :)
+}
+\end{center}
+
+
+\end{frame}
+%=============================================
+
+
+%---------------------------------------------
+\begin{frame}{\centerline{Role of the Representation Condition}}
+% Nr:31
+
+\begin{itemize}
+\item Beware that properly defining the representational condition in true generality is far from easy
+\item Remember G\"{o}del's Disjunction$^\dag$: ``Either the human mind (even within the realm of pure mathematics) can surpass the power of any finite computing machine, or there are absolutely undecidable mathematical problems''
+\end{itemize}
+
+$^\dag$ \textit{\small
+Panu Raatikainen (2018) G\"{o}del's Disjunction: The Scope and Limits of Mathematical Knowledge, History and Philosophy of Logic, DOI: 10.1080/01445340.2018.1495851}
+%=============================================
+
+\end{frame}
+
+%---------------------------------------------
+\begin{frame}{\centerline{On the Representation Condition (1/2)}}
+% Nr:31
+
+\begin{itemize}
+\item The program started as a philosophical problem more than a century ago:
+\begin{itemize}
+\item H. von Helmholtz, Zur Geschichte des Princips der kleinsten Action. Sitzungsberichte der K\"{o}niglich Preussischen Akademie der Wissenschaften zu Berlin 14, 1887
+\item O. H\"{o}lder, Die Axiome der Quantit\"{a}t und die Lehre vom Mass, Berichte \"{u}ber die Verhandlungen der K\"{o}nigliche Sachsischen Gesellschaft der Wissenschaften zu Leipzig, Matematisch-Physische Klasse 53, 1 -- 64, 1901
+\end{itemize}
+\item It has then evolved in a economical and mathematical problem:
+\begin{itemize}
+\item R.D. Luce, Semiorders and a Theory of Utility Discrimination, Econometrica 24, 178 -- 191, 1956
+\item L. Fuchs, Partially Ordered Algebraic Systems, Addison Wesley, Reading, Massachusetts, 1963
+\item D. Krantz, Extensive Measurement in Semiorders, Philosophy of Science 34, 348 -- 62, 1967
+\end{itemize}
+\end{itemize}
+
+%=============================================
+
+\end{frame}
+
+%---------------------------------------------
+\begin{frame}{\centerline{ On the Representation Condition (2/2)}}
+% Nr:31
+
+\begin{itemize}
+\item After, it has been considered in social sciences: 
+\begin{itemize}
+\item E.W. Holman, Strong and Weak Extensive Measurement, Journal of Mathematical Psychology 6, 286 -- 293, 1969
+\item A. Rutland, Measuring the zone of proximal development : studies of map-use in children with learning difficulties, PhD Dissertation, University of Stirling, 1993
+\item F. Sani, J. Todman, Experimental Design and Statistics for Psychology: A First Course, John Wiley \& Sons, Apr 15, 2008 
+\end{itemize}
+\item Fenton adopted it in Software Engineering more as a reference than as a full theory only much later
+\end{itemize}
+
+%=============================================
+
+\end{frame}
+
+
+
+%---------------------------------------------
+\begin{frame}{\centerline{Key Stages of Formal Measurement}}
+% Nr:33
+\begin{center}
+\includegraphics[width=120mm]{A2022.IDSEPC.SperimentazioneDeduzione/img-img13.png}
+\newline
+\end{center}
+
+\begin{small}
+\begin{center}
+from Fenton pg 33
+\end{center}
+\end{small}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{}}
+% Nr:32
+
+\begin{center}
+{\Large
+Questions ?
+}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}{\centerline{Measuring progress in the work}}
+% Nr:0
+\begin{center}
+{\Large
+Connecting measures in GQM
+}
 \end{center}
 \end{frame}
 
-\begin{frame}{\centerline{Software Engineering (2/2)}}
+%---------------------------------------------
+\begin{frame}{\centerline{GQM approach}}
+% Nr:6
+
+\textbf{What Should We Measure?}
+\newline 
+
+To answer this question we should answer the next questions:
+
+\begin{itemize}
+\item  What we want to study?   \textbf{Goal}
+\item  How we want to study it? \textbf{Question}
+\item   What should we measure? \textbf{Metrics}
+\end{itemize}
+
+
+
+
+
+
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{GQM approach}}
+% Nr:7
+
+The GQM is is defined on three levels:
+\begin{itemize}
+
+\item  Conceptual level (goal)
+\item  Operational level (question)
+\item  Quantitative level (metric)
+
+\end{itemize}
+
+\begin{center}
+\includegraphics[width=100mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-02.png}
+\end{center}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Example}}
+% Nr:8
+
+\begin{center}
+\includegraphics[width=80mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-03.png}
+\end{center}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Example Cont.}}
+% Nr:9
+
+The definition of measurement goals is critical to the successful application of the GQM approach. To ease the definition of measurement goals, the GQM supplies goal templates
+\begin{center}
+\includegraphics[width=90mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-04.png}
+\end{center}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{Example Cont.}}
+% Nr:10
+
+\begin{center}
+\includegraphics[width=90mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-05.png}
+\end{center}
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{GQM+Strategies}}
+% Nr:11
+
+\begin{itemize}
+
+\item  Object: the object of study;
+\item  Focus: the aspect of study;
+\item  Magnitude: the desired magnitude of improvement;
+\item  Time frame: the time frame for achieving the goal;
+\item  Organizational scope: the scope of responsibility for achieving the goal;
+\item  Constraints: constraints or conflicting goals;
+\item  Relationships: relationships to other goals.
+
+\end{itemize}
+
+
+
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{GQM+Strategies}}
+% Nr:12
+
+\begin{center}
+business goal example
+
+\includegraphics[width=110mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-06.png}
+\end{center}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{GQM approach}}
+% Nr:5
+
+\begin{center}
+\includegraphics[width=70mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-01.png}
+\end{center}
+\end{frame}
+%=============================================
+%---------------------------------------------
+\begin{frame}{\centerline{SWOT analysis}}
+% Nr:13
+
+\begin{itemize}
+
+\item  Strengths: organizational aspects that support the achievement of the objective;
+\item  Weaknesses: organizational aspects that inhibit the achievement of the objective;
+\item  Opportunities: external conditions that support the achievement of the objective;
+\item  Threats: external conditions that inhibit the achievement of the objective.
+
+
+\end{itemize}
+
+\end{frame}
+%=============================================
+
+%---------------------------------------------
+\begin{frame}{\centerline{SWOT analysis}}
+% Nr:14
+
+\begin{center}
+\includegraphics[width=70mm]{A2022.IDSEPC.SperimentazioneDeduzione/image-07.png}
+\end{center}
+\end{frame}
+
+
+
+\begin{frame}
+{\centerline{Question}}
+
+\begin{itemize}
+\item Empirical Methods are about identifying empirically laws that govern the (mutual) behaviour of entities
+\item How can we perform such empirical evaluation?
+\item People typically say $\ldots$ ``Experiment!!''
+\item Indeed, experiments need to be properly organized in terms of GQM
+\item But, as a starting point, let's see the result of experimentations...
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Galileo}}
+
+\begin{center}
+\includegraphics[width=7cm]{A2022.IDSEPC.SperimentazioneDeduzione/Galileo.png}
+\end{center} 
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{What about this?}}
+
+\begin{center}
+\includegraphics[width=4cm]{A2022.IDSEPC.SperimentazioneDeduzione/Mongolfiera.jpg}
+\end{center} 
+
+\begin{center}
+\tiny
+Source with modifications:\\
+\url{https://it.wikipedia.org/wiki/Aerostato\#/media/File:2006_Ojiya_balloon_festival_011.jpg}
+\end{center} 
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Interesting experimentations (for us)...}}
+
+\begin{itemize}
+\item Are agile methods more effective than traditional methods?
+\item Are open source system more secure than closed source systems?
+\item Is Python easier to learn than C++?
+\item Are formal methods effective in reducing uncertainty?
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Answers}}
 
 \begin{center}
 \Large
-Che lo show abbia inizio!\\
+\textcolor{cyan}{\bf We have no answer!}
+\end{center}
+\vspace*{1cm}
+\begin{itemize}
+\item We need to shape better the empirical question that we want to address:
+\begin{itemize}
+\item With the GQM, to define with some degree of precision what we want to determine
+\item Inside the GQM with Hypothesis Testing, to formulate properly the \textcolor{red}{object} of study, the \textcolor{red}{focus}  of our experiment
+\item With Experimental Design, to properly consider all factors that emerged initally (and partially) while defining the GQM
+\item With Statistics, to compute the result of testing the hypotheses within the defined design of the experiment.
+\end{itemize}
+
+\item We start with a \textcolor{orange}{sweet and soft} introduction to statistics
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}
+{\centerline{Descriptive and Inferential Statistics (1/2)}}
+
+\begin{itemize}
+\item  \textbf{Descriptive statistics} enables us to present the data in a more meaningful way, which allows simpler interpretation of the data.
+\item \textbf{Inferential statistics} are techniques that allow us to use samples to make generalizations about the populations from which the samples were drawn. It is, therefore, important that the sample accurately represents the population.
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Descriptive and Inferential Statistics (2/2)}}
+
+Examples of tools that we use in descriptive statistics are:
+\begin{itemize}
+\item Measures of central tendency:
+\begin{itemize}
+\item the mean,
+\item the median, 
+\item the mode,
+\item $\ldots{}$
+\end{itemize}
+\item Measures of spread:
+\begin{itemize}
+\item the variance,
+\item the range,
+\item the 95-percentile,
+\item $\ldots{}$
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Statistical concepts -- Population}}
+\textbf{Population} -- set of objects that are studied in a task.
+
+
+
+\begin{center}
+\includegraphics[width=8cm]{A2022.IDSEPC.SperimentazioneDeduzione/pop-1.png}
+\end{center} 
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Statistical concepts -- Sample}}
+
+
+\textbf{Sample} -- finite set of objects from the population.
+
+\begin{center}
+\includegraphics[width=8cm]{A2022.IDSEPC.SperimentazioneDeduzione/sam-1.png}
+\end{center} 
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Statistical concepts }}
+
+Samples maybe different...
+
+\begin{center}
+\includegraphics[width=3cm]{A2022.IDSEPC.SperimentazioneDeduzione/fish-pop.png}
+\end{center} 
+
+But sample should represent main properties of population (that are investigated in the research / analysis )
+
+Reliable statistical analysis requires  \textcolor{red}{\bf representative samples}.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+
+
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Statistical concepts -- Sample Size}}
+
+$$X^n = (X_1, \ldots, X_n).$$
+\centering
+n -- sample size
+
+
+\begin{center}
+\includegraphics[width=8cm]{A2022.IDSEPC.SperimentazioneDeduzione/figure2_mrc.jpg}
+\end{center} 
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Statistical concepts -- Simple sample}}
+
+$X^n - $ \textbf{simple sample}, if $X_1,\ldots, X_n$ - independently identically distributed (i.i.d.) random variables. Each has the same density function $f(x)$.
+
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+
+
+
+\begin{frame}
+{\centerline{Statistical concepts (1/4)}}
+
+A statistic $T(X^n)$ -- is a function of a sample. 
+\newline
+
+
+\textbf{For the central tendency,} 
+
+\begin{itemize}
+\item Let $X$ be our sample:
+$$X = \{ X_1 \ldots{} X_n \}$$
+\begin{itemize}
+\item E.g.,  $X = \{ 1, 2, 4, 4, 4, 2, 0, 9, 0, 1 \}$
+\end{itemize}
+
+\item \textcolor{red}{Notice that we write it as a set, but it is a bag and not a set, since there can be duplicates. }
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Statistical concepts (2/4)}}
+
+\begin{itemize}
+\item Sample mean:
+$$ \bar{X} = \frac{1}{n}\sum_{i=1}^{n}X_i$$ 
+\begin{itemize}
+\item In our case it is 2.7
+\end{itemize}
 \vspace*{0.5cm}
-Signore e signori: \textcolor{red}{Charlie Chaplin}
-\end{center}
+\item Sample median:
+$$  median(X) = X_j : X_j \text{~ is central} $$ 
+\begin{itemize}
+\item In our case it is 2
+\end{itemize}
+
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Statistical concepts (3/4)}}
+
+\begin{itemize}
+\item Sample median more formally \textcolor{red}{\em (Is it useful? -- we need to experiment it $\ldots{}$)}:\\
+
+\begin{equation*}
+\begin{split}
+median(X) = X_j   :  abs( & card(\{X_k : X_k \in X, X_k \le X_j\}) -  \\
+                                       &  card(\{X_h : X_h \in X, X_h \ge X_j\})) \le 1
+\end{split}
+\end{equation*}
+
+\item Sample mode:
+$$  mode(X) = X_j : X_j \text{ is the most frequent value in } X$$ 
+\begin{itemize}
+\item In our case it is 4
+\end{itemize}
+
+
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Statistical concepts (4/4)}}
+
+\begin{itemize}
+
+\item Sample mode more formally:
+
+$$  mode(X) = \argmax_{x \in X} (occurrences(x,X))$$ 
+
+where:
+$$ occurrences(a,S) = \text{ number of elements of a } \in S $$
+
+
+
+\end{itemize}
+
+
+\end{frame}
+
+
+
+
+\begin{frame}
+{\centerline{Definition of statistic}}
+
+A statistic $T(X^n)$ -- is a function of a sample. 
+\newline
+
+
+\begin{itemize}
+
+\item We have seen the sample mean:
+$$ \bar{X} = \frac{1}{n}\sum_{i=1}^{n}X_i$$ 
+\newline
+
+\item We can have the sample variance:
+$$ S^2_n = \frac{1}{n}\sum_{i=1}^{n}(X-\bar{X})^2$$
+\begin{itemize}
+\item In our case it is 66.1
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Back on kinds of statistics (1/2)}}
+
+
 \begin{center}
-\includegraphics[width=60mm]{A2022.IDSEPC.ProcessoDiProduzione/Chaplin_ModernTimes.png}
+
+ \textcolor{cyan}{{\it To remember \#1:} \textbf{Descriptive statistics computes} properties of the sample, the sample statistics.}
+ 
+ \vspace*{1cm}
+
+ \textcolor{orange}{{\it To remember \#2:} \textbf{Inferential statistics estimates}  the population parameters from the sample statistics.}
+
+ \vspace*{1cm}
+
+\textcolor{red}{{\it To remember \#3:}  \textcolor{cyan}{Statistics are computed,}  \textcolor{orange}{parameters are estimated}.}
 \end{center}
+
 
 \end{frame}
 
+\begin{frame}
+{\centerline{Back on kinds of statistics (2/2)}}
+
+\begin{itemize}
+\item Any time we move from sample to population we perform estimations,
+\begin{itemize}
+\item i.e., we use statistics to estimate parameters of the population, and different statistics have different properties
+\end{itemize}
+\item Estimations have properties and need to be as \textit{precise} as possible.
+\end{itemize}
+
+\end{frame}
+
+%------------------------------------------------
+\begin{frame}
+{\centerline{Estimations}}
+
+A good estimator must satisfy three conditions:
+\begin{itemize}
+\item \textcolor{blue}{Unbiased}: The expected value of the estimator must be equal to the mean of the parameter.
+\item \textcolor{blue}{Consistent}: The value of the estimator approaches the value of the parameter as the sample size increases.
+\item \textcolor{blue}{Relatively Efficient}: The estimator has the smallest variance of all estimators which could be used.
+\end{itemize}
+\end{frame}
 
 
-\begin{frame}{\centerline{Sondaggio}}
+\begin{frame}
+{\centerline{Estimates and point estimates}}
+
+
+\begin{itemize}
+\item We have two kinds of estimates:
+\begin{itemize}
+\item Point estimates
+\item Interval estimates
+\end{itemize}
+\item A point estimate is the single best guess about the value of parameter.
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+
+\begin{frame}
+{\centerline{Interval estimates}}
+
+\begin{itemize}
+\item An \textcolor{red}{interval estimate} is an interval that contain the true value of the corresponding parameter with the specified probability.
+\item It is also called the \textcolor{blue}{confidence interval}.
+\item \textit{We will see later that if the distribution of a random variable Z is Normal (N(0,1)), then:}
+\end{itemize}
+
+$$\mathbb{P} (-z_r\leq Z \leq z_r) = r$$
+
 \begin{center}
-Sulla base del video, qual \`{e} lo scopo dell'ingegneria dle software?
-\end{center}
+\includegraphics[width=2.5cm]{A2022.IDSEPC.SperimentazioneDeduzione/conf-int-ex-1.png}
+\end{center} 
+Where:
+
+\begin{itemize}
+\item $z_r$ - z-score
+\item $r$ - level of confidence (usually, denoted as $1-\alpha$)
+\end{itemize}
 \end{frame}
 
-\begin{frame}{\centerline{Idee}}
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
+\begin{frame}
+{\centerline{Unbiased estimator}}
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
+Any statistic whose mathematical expectation is equal to a parameter $\theta$ is called an \textbf{unbiased estimator} of the parameter $\theta$. Otherwise, the statistic is said to be \textbf{biased}.
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
+\end{frame}
+%------------------------------------------------
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
-\vspace{0.5cm}
 
-\noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}\\
+\begin{frame}
+{\centerline{Bias of an estimator}}
+
+
+The \textbf{bias} of an estimator $\hat{\theta_n}$ is 
+
+$$\mathbb{E}(\hat{\theta}) - \theta $$ 
+
+
+\end{frame}
+%------------------------------------------------
+
+
+
+\begin{frame}
+{\centerline{Bias-variance decomposition}}
+
+
+\begin{itemize}
+\item  The mean squared error MSE is:
+ $$MSE = \mathbb{E}(\hat{\theta} - \theta)^2$$. 
+
+\item The \textbf{bias-variance decomposition} for the MSE of an estimator $\hat{\theta_n}$
+$$MSE = bias^2(\hat{\theta_n}) + \text{Var}(\hat{\theta_n})$$.
+
+\item We will prove this formula later in the course.
+\end{itemize}
+
+\end{frame}
+%------------------------------------------------
+
+
+\begin{frame}
+{\centerline{Hypothesis testing}}
+
+\begin{itemize}
+\item Now we introduce the following concepts:
+
+\begin{itemize}
+\item (a) A statistical hypothesis.
+\item (b) A test of a hypothesis against an alternative hypothesis and the associated concept of the critical region of the test.
+\item (c) The power of a test.
+\end{itemize}
+\end{itemize}
 
 \end{frame}
 
-\begin{frame}{\centerline{La mia idea dell'ingegnere del software}}
+
+\begin{frame}
+% Cluttered !!!
+{\centerline{Example}}
+
+\begin{itemize}
+\item Let $X$ be an outcome of a random experiment, for example, some test score, $X \sim N(\theta, 100)$.
+\item Some past experience says that $\theta=75$.
+\item After some changes we suspect that no longer $\theta=75$, but $\theta>75$
+\begin{itemize}
+\item  $\theta>75$ is our \textbf{statistical hypothesis}
+\end{itemize}
+\item However, our hypothesis might be false, hence $\theta \leq 75$ (this also may be considered as a hypothesis). 
+\begin{itemize}
+\item $\theta \leq 75$  may be considered as a hypothesis
+\end{itemize}
+
+\end{itemize}
+
+
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+
+
+\begin{frame}
+% Cluttered !!!
+{\centerline{Example}}
+
+
+
+\begin{itemize}
+\item Thus, we have two hypotheses:
+\begin{itemize}
+\item An first hypothesis of no effect, which we represent as $H_0$, and which we call \textcolor{red}{null hypothesis}
+\item Another hypothesis of a specific effect, which we represent as $H_1$, and which we call \textcolor{red}{alternate hypothesis}
+\end{itemize}
+\item In our case we can say:
+\begin{itemize}
+\item Null hypothesis:
+$$H_0: \theta \leq 75$$
+\item Alternate hypothesis:
+$$H_1: \theta > 75$$
+\end{itemize}
+\end{itemize}
+
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+% Cluttered !!!
+{\centerline{Example}}
+
+\begin{itemize}
+\item To check $H_0$ against $H_1$ we run the experiment 
+\item We consider a random sample $X_1,\ldots, X_n$ from $N(\theta, 100)$ 
+\item We devise a \textcolor{red}{test}, i.e., a rule, that will tell us what decision to make once we get observations $x_1,\ldots, x_n$.
+\item For the sake of the example, we assume $n=25$.
+\newline
+\end{itemize}
 
 \begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/DrHouse_SoftwareEngineer.jpg}
+How do we construct the test -- the rule?
+\end{center}
+
+\begin{itemize}
+\item This will be the subject of the last lectures of the course
+\begin{itemize}
+\item and the beginning of the twin course on advanced statistics
+\end{itemize}
+\item Now we just provide an intuitive explanation
+\end{itemize}
+
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+{\centerline{Procedure (1/2)}}
+
+\begin{itemize}
+\item We want to determine if the  alternate hypothesis $H_1$ with a \textit{negative} approach
+\item We check if we can reject the null hypothesis $H_1$ with a high level of probability, say, 95\%
+\item We divide the sample in two parts, one of which can also be empty. Formally speaking we say that:
+\item We  partition the sample space into a subset $C$ and its complement $C^*$.
+\item Let us assume that the experiments lead to outcomes  $X_1,\ldots, X_n$, which are reflected to the values $x_1,\ldots, x_n$
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Procedure (2/2)}}
+
+\begin{itemize}
+\item If the point $(x_1,\ldots, x_n) \in C$, we reject the hypothesis $H_0$, otherwise we cannot reject $H_0$. 
+\item If we reject the null hypothesis, we claim that the alternate hypothesis hold.
+\item If we cannot reject the null hypothesis, right now we cannot draw any conclusion.
+\end{itemize}
+
+\vspace*{1cm}
+\begin{center}
+$C$ is the \textcolor{red}{critical region} of the test.
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{Continuiamo lo show!}}
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+
+
+\begin{frame}
+{\centerline{Example. Test 1 (1/2)}}
+There are a lot of rules (tests). We start with \textbf{Test 1}
+$$C = \{ (x_1,\ldots, x_n); (x_1 + x_2 + \ldots + x_n > 25*75) \}$$
+We shall reject $H_0$ if and only if $(x_1,\ldots, x_n) \in C$.
+
+$$\bar{x} = \frac{1}{25} \sum_{1}^{25} x_i$$
+
+We accept $H_0: \theta \leq 75$ if $\bar{x} \leq 75$. 
+
+\vspace*{1cm}
+\begin{center}
+Note: This will be all proved formally during the last lectures of of the course.
+\end{center}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+
+
+\begin{frame}
+{\centerline{Example. Test 1 (1/2)}}
+
+The rule: We shall \textbf{reject} the $H_0: \theta \leq 75$ if the mean of the sample \textbf{exceeds the maximum value of the mean of the distribution} when the hypothesis $H_0$ is true.
+\newline 
+
+$$\bar{X} \sim N(\theta, 100/n) = N(\theta, 100/25) = N(\theta, 4)$$
+
+\vspace*{1cm}
+\begin{center}
+Note: This will be all proved formally during the last lectures of of the course.
+\end{center}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+
+
+
+
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+
+
+\begin{frame}
+{\centerline{Hypothesis testing. Definitions}}
+\textbf{Definition 1.} A \textbf{ statistical hypothesis} is an assertion about the distribution of one or more random variables. If the statistical hypothesis completely specifies the distribution, it is called a simple statistical hypothesis; if it does not, it is called a composite statistical hypothesis.
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+{\centerline{Hypothesis testing. Definitions}}
+
+\textbf{Definition 2.} A test of a statistical hypothesis is a rule which, when the experimental sample values have been obtained, leads to a decision to accept or to reject the hypothesis under consideration.
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+
+\begin{frame}
+{\centerline{Hypothesis testing. Definitions}}
+\textbf{Definition 3.} Let $C$ be that subset of the sample space which, in accordance with a prescribed test, leads to the rejection of the hypothesis under consideration. Then $C$ is called \textbf{the critical region} of the test.
+
+\begin{center}
+\includegraphics[width=4cm]{A2022.IDSEPC.SperimentazioneDeduzione/norm-hypo.png}
+\end{center}
+
+\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+{\centerline{Hypothesis testing. Definitions}}
+
+
+
+\textbf{Definition 4.} \textbf{The p-value} associated with a test (again) is the probability that we obtain a value of the test statistic that is at least as extreme as the observed value of our test statistic assuming the $H_0$ hypothesis is true.
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+
+\begin{frame}
+{\centerline{Hypothesis testing. Summary}}
+
+The following 5 steps are followed when testing hypotheses:
+\begin{itemize}
+\item Specify $H_0$ and $H_1$ -- the null and alternative hypotheses
+\item Determine the appropriate test statistic
+\item Determine the critical region
+\item Compute the value of the test statistic
+\item Make decision
+\end{itemize}
+
+\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+{\centerline{Errors of a test (1/2)}}
+
+%table
+\begin{center}
+\includegraphics[width=8cm]{A2022.IDSEPC.SperimentazioneDeduzione/type-1-and-2-errors.jpg}
+\end{center}
+
+\vspace*{0.5cm}
+\begin{center}
+\tiny
+Taken with modifications from: \url{https://www.simplypsychology.org/type_I_and_type_II_errors.html}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Errors of a test (2/2)}}
+There could be errors of two kind:
+\begin{itemize}
+\item A \textcolor{red}{type 1} error is when we reject the null hypothesis when the null hypothesis is true, that is we think that something is going on, but nothing is really there. 
+\begin{itemize}
+\item The probability of committing a type 1 error is typically referred to as \textcolor{orange}{$\alpha$}.
+\end{itemize}
+
+\item A \textcolor{red}{type 2} error is when we fail to reject the null hypothesis when actually we should reject it, that is, we fail to perceive a phenomena.
+\begin{itemize}
+\item The probability of committing a type 2 error is typically referred to as  \textcolor{orange}{$\beta$}. 
+\end{itemize}
+\end{itemize}
+
+
+The power function of a test informally is the probability of not committing a type 2 error, that is, $(1-\beta)$
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Back to the example (1/9)}}
+
+\begin{center}
+\Large
+\textcolor{cyan}{Is the Test 1 good?}
+\end{center}
+
+\vspace*{1cm}
+
+\begin{center}
+\Large
+We are now going to see only a trailer.
+\end{center}
+
+\begin{itemize}
+\item The full movie will be played throughout the course
+\item But perceive the big picture now before progressing...
+
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Back to the example (2/9)}}
+
+
+Let us construct \textbf{the power function} of the Test 1: $K_{1}(\theta) = \mathbb{P}(\bar{X}>75);$   $K_1(75) = 0.5.$ 
+See the standard normal distribution table.
+\begin{center}
+  
+\includegraphics[width=11cm]{A2022.IDSEPC.SperimentazioneDeduzione/k1.png}
+\end{center}
+
+Is it good to reject $H_0$, when $H_0$ is true (in 50\% of cases)?
+
+\vspace*{1cm}
+\begin{center}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
+\end{center}
+
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\begin{frame}
+{\centerline{Back to the example (3/9)}}
+Let us try another one, Test 2:
+$$C = \{ (x_1,\ldots, x_n): (x_1 + x_2 + \ldots + x_n > 25*78) \}$$
+We shall reject $H_0$ if and only if $(x_1,\ldots, x_n) \in C$.
+
 \vspace*{1.5cm}
 \begin{center}
-\Huge Video on Dr. House
-
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{Lean Software Development}}
-Lean software development o approccio lean alla produzione del software\\
-\vspace{1cm}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+
+\begin{frame}
+{\centerline{Back to the example (4/9)}}
+
+The power function of the Test 2: 
+
+$$K_{2}(\theta) = \mathbb{P}(\bar{X}>78) = 1 - N\left(\frac{78-\theta}{2}\right)$$
+
+\vspace*{1.5cm}
 \begin{center}
-Lean software development o approccio lean alla produzione del software\\
-\vspace{1cm}
-\LARGE
-Premesse sul Lean Management
-\end{center}
-\end{frame}
-
-\begin{frame}{\centerline{La ``Software Crisis'' (1/3)}}
-
-La ``Software Crisis'' o ``crisi del software'' \`{e} il fenomeno dovuto all'aumento della potenza dei calcolatori: in termini \textit{terra terra}, finch\'{e} i calcolatori erano molto piccoli, la programmazione non presentava problemi, quando le macchine hanno iniziate a crescere, i problemi hanno iniziato a comparire, e ora che abbiamo computer giganteschi, la programmazione è pure diventata un problema gigantesco.\\
-Edsger Dijkstra, \textcolor{red}{\bf 1972}
-\begin{center}
-\includegraphics[width=55mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-01.png}
-\end{center}
-
-
-
-\begin{center}
-\tiny
-\url{http://qualityandprogramming.blogspot.ru/2012/03/crisis-del-software.html}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{La ``Software Crisis'' (2/3)}}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
 
-Sequenze di rivoluzioni tecnologiche si sono viste in molte aree dello scibile umano grazie al software.
 
-\begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-02.png}
-\end{center}
-Purtroppo, l'ingegneria del software non ha avuto una analoga rivoluzione!
-
-\begin{center}
-\tiny
-\url{http://www.slideshare.net/rui\_curado/abse-and-atomweaver-a-quantum-leap-in-software-development}
-\end{center}
-
-
-
-\end{frame}
-\begin{frame}{\centerline{La ``Software Crisis'' (3/3)}}
-
-Le cause della crisi del software sono collegate  alla complessit\`{a} crescente di hardware e software associato, e tale crisi si \`{e} manifestata in una moltitudine di modi:
-\begin{itemize}
-\item Progetti che sforano il budget
-\item Progetti che non rispettano i tempi
-\item Sistemi software inefficienti
-\item Sistemi software di bassa qualit\`{a}
-\item Sistemi software che non rispndono a requisiti
-\item Progetti diventati ingestibili
-\item Codice software illeggibile e impossibile da mantenere
-\item Software mai consegnato al cliente
-\end{itemize}
-
-\begin{small}
-https://en.wikipedia.org/wiki/Software\_crisis
-\end{small}
-\end{frame}
-
-\begin{frame}{\centerline{Esempi di errori dei sistemi software (1/2)}}
-
-
-\textbf{NASA’s Mars Climate Orbiter} -- Nella rotta verso Marte nel 1998 il Climate Orbiter spacecraft si `\`{e} perso nello spazio. Anche se inizialmente non si cap\`{i} la ragione dell'errore, alla fine si trov\`{o} che un subcontraente commise un banale errore di trasformazioni delle misure dal sistema inglese a quello metrico.
-\vspace{0.5cm}
-
-Questa svista imbarazzante sped\`{i} la navetta spaziale da 
- \textcolor{red}{\bf 125 milioni di dollari} fatalmente vicina alla superficie di Marte dopo aver tentato di stabilizzare la sua orbita troppo in basso.
-\newline 
-\vspace{1cm}
-\begin{center}
-    \tiny
-    Estratto con modifiche da:
-\url{https://raygun.com/blog/2014/05/10-costly-software-errors-history/}
-\end{center}
-\end{frame}
-
-\begin{frame}{\centerline{Esempi di errori dei sistemi software (2/2)}}
-\small
-\textbf{Ariane 5 Flight 501} -- L'allora nuovissimo satellite europeo riutilizz\`{o} un software dal suo predecessore, l'Ariane 4. Sfortunatamente, l'Ariane 5 aveva un motore pi\`{u} veloce e questo rivel\`{o} un baco precedentemente passato inosservato. Dopo 36 secondi dal lancio, i progettisti inziarono l'operazione di autodistruzione a seguito di una serie di errori dei computer. In sintesi, il software stava provando a inserire un numero a 64 bit in uno spazio di 16 bit, con il risultato di mandare in tilt sia i computer primari che quelli ausiliari, visto che entrambi usavano lo stesso software.
-\vspace{0.5cm}
-
-La costruzione dell'Ariane 5 era costata \textcolor{red}{\bf 8 billioni di dollari}  e stava trasportando un satellite da \textcolor{red}{\bf 500 millioni di dollari}. 
-\newline 
-\vspace{1cm}
-\begin{center}
-    \tiny
-    Estratto con modifiche da: \url{https://raygun.com/blog/2014/05/10-costly-software-errors-history/} Video:  \url{https://youtu.be/qnHn8W1Em6E}
-\end{center}
-
-\end{frame}
-
-\begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (1/2)}}
-
-Le problematicit\`{a} nello sviluppo software proviene dalla nostra intrinsica limitazione nel comprenderlo, e dalle difficolt\`{a} strutturali, che possono essere divise in quattro categorie:
-\begin{itemize}
-\item \textcolor{red}{\bf Complessit\`{a}:} i sistemi software consistono di parti multiple e diverse che possono essere in molti stati diversi. Questo li rende difficile ad essere concepiti, descritti e controllati.
-
-\item \textcolor{red}{\bf Conformit\`{a}:} molto spesso il software deve essere integrato con altro software sviluppato precedentemente in contesti e con regolamentazioni che possono essere diverse. Tutti queste condizioni e vincoli crescono ed evolvono nel tempo e rendono anche molto probabile che il software debba essere cambiato in futuro.
-%Succi.B7 c1.1. p.7 
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{\centerline{Ancora sulla ``Software Crisis'' (2/2)}}
-
-\begin{itemize}
-\item \textcolor{red}{\bf Modificabilit\`{a}:} tutto il software di successo \`{e} soggetto a modifiche -- i clienti e gli utenti di tale software scoprono nuovi possibili usi e quindi chiedono tali modifiche. Inoltre, il software di successo sopravvive ai cicli di vita dell'ambiente circostante come quelli dei sistemi operativi, dell'hardware ecc. Questo implica che il software debba essere aggiornato ai nuovi ambienti dove deve funzionare. 
-
-\item \textcolor{red}{\bf Invisibilit\`{a}:} l'invisibilit\`{a} del software e le difficolt\`{a} nel visualizzarlo rendono difficile ragionarci e discuterne.
-
-\end{itemize}
-\end{frame}
-
-\begin{frame}{\centerline{Per una migliore comprensione del software}}
-
-\begin{itemize}
-\item Se il software non \`{e} tangibile, allora potrebbe essere considerato come un'arte, ovvero un atto creativo dell'ingenio
-\item Il software riguarda la scrittura, quindi potremmo focalizzarci sulla scrittura vera e propria 
-\item Esercizio proposto: 
-\begin{itemize}
-\item leggete e preparate una presentazione di al pi\`{u} 5 minuti con al pi\`{u} 5 lucidi sulle riflessioni che avete elaborato leggendo ``Lezioni Americane, Sei proposte per il prossimo millennio'' di Italo Calvino \href{https://github.com/GiancarloSucci/UniBo.IDSEPC.A2022/blob/main/A2022.IDSEPC.ProcessoDiProduzione/ItaloCalvino.LezioniAmericane.pdf}{qui}
-\item i gruppi sono liberi
-\item utilizzate anche le informazioni che trovate nel resto della lezione
-\item la presentazione va fatta usando lo stesso modello del corso utilizzando \LaTeX
-\end{itemize}
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{\centerline{La comprensione dello sviluppo software}}
-
-\begin{itemize}
-\item Per comprendere appieno le problematiche dello sviluppo dei sistemi software, ci concentriamo ora su
-\begin{itemize}
-\item la natura dei problemi software e la loro non riducibilit\`{a} a semplici questioni decomponibili
-\item i meccanismi di controllo dello sviluppo e del lavoro dei team
-\item le modalit\`{a} con cui diverse persone e diversi team possono lavorare insieme e comporre \textcolor{red}{insieme} il prodotto finale
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-
-%====================================================================================
-
-\begin{frame}{\centerline{I problemi ``tame'' e ``wicked''}}
-
-\begin{small}
-\textcolor{red}{\bf I problemi ``tame''} sono quei problemi che possono essere ingegnerizzati facilmente; possono essere formulati in modo esaustivo e descritti contentendo tutte le informaizoni necessarie per la loro soluzione.
-
-Non tutti i problemi sono ``tame.'' ci sono anche i cosiddetti 
-\textcolor{red}{\bf problemi ``wicked''}. Le informaizoni necessarie a descrivere un problema ``wicked'' dipendono dall'idea che si ha per risolverli.
-
-\begin{center}
-\includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-03.png}
-\end{center}
-
-\end{small}
-
-\begin{center}
-\tiny
-\url{https://vivifychangecatalyst.wordpress.com/2015/06/28/wicked-problems-innovation-and-project-masiluleke}
-
-\end{center}
-
-
-\end{frame}
-
-%====================================================================================
-
-\begin{frame}{\centerline{I problemi tame}}
-
-\begin{itemize}
-\item Hanno una descrizione ben definita e stabile
-\item Hanno un punto di fermata, ovvero una chiara definizione di quando la soluzione \`{e} stata trovata
-\item Hanno una soluzione che pu\`{o} essere definita come giusta o sbagliata
-\item Appartengono a una classe di problemi simili che possono essere tutti risolti in un modo simile
-\item Hanno soluzioni che possono essere provate e abbandonate con facilit\`{a}
-\item Hanno un insieme limitato di possibili soluzione
-\end{itemize}
-%Succi.B7 c1.2. p.9
-\begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/pic-04.png}
-\end{center}
-
-\begin{center}
-\tiny
-\url{http://www.slideshare.net/curtistim/wicked-issues-taming-problems-and-systems}
-\end{center}
-
-\end{frame}
-
-%====================================================================================
-
-\begin{frame}{\centerline{I problemi wicked (1/4)}}
-
-\small
-\begin{itemize}
-\item I problemi wicked non hanno una formulazione chiara, univoca ed analitica e definire il problema \`{e} gi\`{a} un passo verso la soluzione.
-
-\item Un problema wicked riguarda spesso una serie di questioni con interdipendenze e vincoli che cambiano nel tempo inseriti in un contesto dinamico e in evoluzione.
-
-\item Analogamente, ogni volta si cerca di creare una soluzione si ha una nuova e, si spera, migliore comprensione del problema, e quindi formulare il problema e risolvere il problema sono praticamente la stessa cosa.
-
-
-\end{itemize}
-%Succi.B7 c1.2. p.9
-
-\end{frame}
-
-%====================================================================================
-
-\begin{frame}{\centerline{I problemi wicked (2/4)}}
-
-\small
-\begin{itemize}
-\item Il processo di soluzione procede di solito per tentativi successivi finch\'{e} le risorse per la soluzione sono concluse, gli stakeholder hanno perso interesse in ulteriori raffinamento della soluzione proposta.
-
-\item Le soluzioni ai problemi wicked non sono vere o false ma pi\`{u} o meno accettabili. Visto che, come detto, non c'\`{e} un criterio non ambiguo per definire il problema come \textcolor{cyan}{risolto}, pu\`{o} essere problematico convincere tutti gli stakeholder che si \`{e} raggiunta una soluzione sufficientemente buona.
-
-\item Non c'\`{e} un test diretto o definitivo per una soluzione a un problema wicked. Soluzioni a questi problemi generano flussi di conseguenze i cui effetti finali sono imprevedibili.
-
-
-\end{itemize}
-%Succi.B7 c1.2. p.9
-
-\end{frame}
-
-\begin{frame}{\centerline{I problemi wicked (3/4)}}
-
-\small
-\begin{itemize}
-\item Ogni soluzione ad un problema wicked ha conseguenze irreversibili. 
-\begin{itemize}
-\item Bisogna porre attenzione nel gestire presunte soluzioni: ad esempio una volta che una pubblicit\`{a} di un'offerta \`{e} rilasciata \`{e} impossibile o, quanto meno, difficoltoso, cambiare tale offerta.
-\end{itemize}
-
-\item I problemi wicked non hanno un insieme chiaro e universalmente accettato di possibili soluzioni. I vari stakeholder possono avere opinioni diverse di quelle che sono accettabili.
-
-\item Ogni problema wicked \`{e} sostanzialmente unico e non \`{e} facile trovare problemi analogi precedentemente risolti e ben documentati in modo che le loro soluzioni possano essere replicate.
-
-\end{itemize}
-%Succi.B7 c1.2. p.9
-
-\end{frame}
-
-\begin{frame}{\centerline{I problemi wicked (4/4)}}
-
-\small
-\begin{itemize}
-
-\item Il problema wicked pu\`{o} essere considerato un sintomo di un altro problema.
-
-\item Le cause di un problema wicked possono essere spiegate in modi molto diversi.
-
-\item Gli stakeholder hanno spesso idee diverse e pure che cambiano su che cosa sia il problema, la sua natura, le sue cause, e le soluzioni da provare.
-
-\item Il problema wicked non pu\`{o} rimanere irrisolto ed il progetto associato non pu\`{o} fallire.
-\begin{itemize}
-\item Nonostante l'impossibilit\`{a} di esprimere il problema e la soluzione in modo analitico, il fallimento non \`{e} un'opzione accettabile.
-\end{itemize}
-
-\end{itemize}
-%Succi.B7 c1.2. p.9
-
-\end{frame}
-
-\begin{frame}{\centerline{Lo sviluppo software \`{e} un problema wicked (1/2)}}
-
-\small
-\begin{itemize}
-\item \`{E} molto difficile pianificare all'inizio del progetto tutto lo sviluppo futuro considerando ogni possibile eventualit\`{a}
-
-\item Un prodotto software non \`{e} praticamente mai perfetto o finito: quando viene messo in uso subito appaiono nuovo requisiti
-
-\item Non esiste una soluzione unica a un problema di ingegneria del software
-
-\item Non possiamo sapere a priori il livello a cui una implementazione di un sistema soddisfa i requisiti iniziale finch´\`{e} non la implementiamo.
-
-\item Le scelte sono alle volte molto costose da essere ribaltate. L'ultima spiaggia è buttare via il prodotto fino a quel punto sviluppato e ricominciare da capo.
-
-\end{itemize}
-%Succi.B7 c1.3. p.10
-
-\end{frame}
-\begin{frame}{\centerline{Lo sviluppo software \`{e} un problema wicked (2/2)}}
-
-\small 
-\begin{itemize}
-\item Ci sono infiniti modi per risolvere un problema di sviluppo software.
-
-\item Ogni progetto di sviluppo software \`{e} un unicum.
-
-\item La presenza di problemi wicked si struttura a livelli multipli: le scelte dei \textcolor{red}{\textit{migliori}} database, interfacce utente, sistemi operativi, hardware sono tutti problemi wicked.
-
-\item Il problema che lo sviluppo software deve risolvere \`{e} visto in modo diverso dai diversi stakeholder del sistema: clienti, utenti, sviluppatori, manutentori, operatori di database, ecc.
-
-\item Lo sviluppo software in s\'{e} consuma risorse, quindi fare un errore, ovvero sviluppare qualche cosa che il cliente non vuole, non \`{e} una opzione accettabile.
-
-\end{itemize}
-%Succi.B7 c1.3. p.10
-
-\end{frame}
-
-%---------------------------------------------
-\begin{frame}{\centerline{Come controllare il processo (1/3)}}
-
-
-Michael L. Harris ha proposto un meccanismo efficace per classificare i diversi tipi di controllo e le circostanze in cui funzionano meglio.
-\newline 
-
-La selezione del meccanismo pi\`{u} efficace dipende da due fattori:
-\begin{itemize}
-\item  l'abilit\`{a} di misurare il risultato (output), ovvero la ``misurabilit\`{a}'' e
-
-\item  l'abilit\`{a} di specificare in dettaglio i passi necessari per svolgere un dato compito, la ``specificabilit\`{a}''.
-\end{itemize}
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Come controllare il processo (2/3)}}
-
-Mettendo questi due fattori in un diagramma bidimensionale otteniamo quattro aree::
-\begin{itemize}
-
-\item  l'area con il pi\`{u} alto livello di misurabilit\`{a} e specificabilit\`{a};
-
-\item  l'area in cui si ha un alto livello di misurabilit\`{a} ma poca specificabilit\`{a};
-
-\item  l'area con poca misurabilit\`{a} e con il pi\`{u} alto livello di specificabilit\`{a};
-
-\item  l'area in cui non possiamo n\'{e} misurare con precisione il risultato n\'{e} definire con precisione i risultati del problema 
-
-\end{itemize}
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Come controllare il processo (3/3)}}
+\begin{frame}
+{\centerline{Back to the example (5/9)}}
 
 
 \begin{center}
-\includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img03.png}
-\end{center}
-\end{frame}
-%=============================================
-
-\begin{frame}{\centerline{Meccanismi di coordinamento}}
-7
-\begin{center}
-\includegraphics[width=20mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img10.png}
-\end{center}
-
-Secondo Malone e Crowston (1994) ci sono tre modi con cui le persone si coordinano:
-\begin{itemize}
-\item  sequenziale o individuale (sequential)
-\item  tramite risorse condivise (shared resources)
-\item  tramite risultato comune (common output)
-\end{itemize}
-
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Coordinamento sequenziale}}
-8
-
-\begin{center}
-\includegraphics[width=70mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img11.png}
-\end{center}
-
-\begin{itemize}
-\item  Prima si scrive il documento di analisi
-
-
-\item  Sulla base del documento di analisi si progetta il sistema
-
-
- 
-\end{itemize}
-
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Coordinamento a risorse condivise}}
-9
-\begin{center}
-\includegraphics[width=50mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img12.png}
-\end{center}
-
-\begin{itemize}
-\item  Lo sviluppo pu\`{o} iniziare quanto il cliente ha dato il via al progetto
-
-\item Le parti da sviluppare possono essere assegnate agli sviluppatori con un meccanismo a coda (first come, first served)
-
-
-\end{itemize}
-
-
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Coordinamento a risultato comune}}
-0
-\begin{center}
-\includegraphics[width=50mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img13.png}
-\end{center}
-
-\begin{itemize}
-\item  Il responsabile del team propone un piano di lavoro per la settimane e tale piano viene approvato se il team unanimamente lo accetta
-
-\item Il team si siede insieme e produce la versione finale che richiede l'approvazione di tutti
-
   
-\end{itemize}
-
-
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Qual \`{e} il pi\`{u} difficile?}}
-1
-\begin{itemize}
-
-\item  Il pi\`{u} facile: quello sequenziale!
-\item  Poi: risorse condivise -- occorre saper rispettare le priorit\`{a} di sviluppo
-\item  Il pi\`{u} difficile: risultato condiviso
-\begin{itemize}
-
-\item  le persone devono lavorare insieme, mano nella mano, producendo lo stesso bene
-\end{itemize}
-
-\item La gran parte dei modelli tradizionali di sviluppo software si basano su coordinamento sequenziale
-
-\end{itemize}
-
-\end{frame}
-%=============================================
-
-
-\begin{frame}{\centerline{I modelli di sviluppo software}}
-
-\begin{itemize}
-\item Ora analizziamo brevemente i modelli di sviluppo software che sono stati proposti negli anni
-\item Cerchiamo di comprendere i meccanismi di controllo e coordinamento in essere per determinare:
-\begin{itemize}
-\item la loro efficacia
-\item la loro difficolt\`{a} di realizzazione 
-\end{itemize}
-\end{itemize}
-\end{frame}
-
-
-\begin{frame}{\centerline{Il modello di sviluppo a cascata}}
-
-
-\begin{itemize}
-    \item Il modello di sviluppo \textcolor{red}{a cascata} \`{e} stato il primo modo con cui si \`{e} tentato di riuscire a creare un \textcolor{red}{prodotto software che risponda ai requisiti}.
-    \item Per ottenere tale risultato, si sono definiti passi precisi che rispecchiano il mondo manufatturiero in cui, ad esempio, la progettazione avviene dopo l'analisi, lo sviluppo dopo la pregettazione, e la verifica di correttezza dopo lo sviluppo.
-\item Il tutto sembra molto logico ...
-\end{itemize}
-
-
-\end{frame}
-
-\begin{frame}{\centerline{Il modello di sviluppo a cascata -- schema}}
-
-
-\begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-02.png}
+\includegraphics[width=11cm]{A2022.IDSEPC.SperimentazioneDeduzione/k2.png}
 \end{center}
-\vspace{0.5cm}
 
+$$K_2(75) = 0.067; but K_2(77) = 0.309$$
+If true $\theta = 77$ we accept $H_1: \theta = 75$ only with probability 0.309.
+
+\vspace*{1cm}
 \begin{center}
-\tiny
-Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
-
-\end{center}
-\end{frame}
-
-\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (1/3)}}
-
-
-\textcolor{red}{\bf Pianificazione e Requisiti:} Tutti i possibili requisiti del sistema da sviluppare sono raccolti e viene sviluppato un piano per lo sviluppo affinch\'{e} tutto sia fatto nei tempi e nei costi prestabiliti.
-\newline
-
-\textcolor{red}{\bf Analisi e Progettazione del sistema:} I requisiti precedentemente elicitati sono messi in forma scritta, analizzati con cura e quindi viene sviluppato un progetto (design) del sistema. Questo progetto rappresenta il riferimento del software da sviluppare. Il progetto di sistema serve a definire i bisogni di hardware e di software e specifica anche l'architettura di massima.
-\newline
-
-\begin{center}
-\tiny
-Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (2/3)}}
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
 
-\textcolor{red}{\bf Costruizione:} Con le informazioni raccolte nei documenti di progetto incomincia la codifica. Gli sviluppatori sono responsabili per il codice prodotto. Di solti si parte focalizzandosi su piccole unit\`{a} e poi il sistema cresce componendo tali piccole unit\`{a} in entit\`{a} pi\`{u} ``grandi'' per la successiva integrazione. Si noti che il concetto di grande \`{e} molto soggettivo.
-\newline
 
-\textcolor{red}{\bf Test di unit\`{a}, integrazione e test finale di sistema:} Tutte le unit\`{a} sviluppate singolarmente nella fase di costruzione sono verificate (testate) singolarmente, e quindi integrate nel prodotto finale. Il prodotto finale completo \`{e} quindi testato complessivamente per rilevare ulteriori errori, difetti, non conformit\`{a} con i desideri dei clienti.
-\newline
 
+\begin{frame}
+{\centerline{Back to the example (6/9)}}
+Finally, we try to generalize with Test 3:
+$$C = \{ (x_1,\ldots, x_n): (x_1 + x_2 + \ldots + x_n > n*c) \}$$
+where $c$ is some constant, $n$ sample size, again $\bar{X} \sim N(\theta, 100/n)$.
+
+\vspace*{1cm}
 \begin{center}
-\tiny
-Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
+\end{center}
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+
+
+\begin{frame}
+{\centerline{Back to the example (7/9)}}
+
+
+But now we want the power function of the Test 3 to meet conditions: 
+$$K_{3}(\theta) = \mathbb{P}(\bar{X}>c) = 1 - N\left(\frac{c-\theta}{10/\sqrt[]{n}}\right)$$
+$$K_{3}(75) = 0.159; K_{3}(77) = 0.841; $$
+
+\vspace*{1cm}
+\begin{center}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
 \end{center}
 
 
 \end{frame}
-
-\begin{frame}{\centerline{Il modello di sviluppo a cascata -- fasi (3/3)}}
-
+%----------------------------------------------------------------------------------------
 
 
-\textcolor{red}{\bf Consegna del sistema:} Dopo che ci si \`{e} assicurati della qualit\`{a} del prodotto con il test, il prodotto viene consegnato al cliente.
-\newline
 
-\textcolor{red}{\bf Manutenzione:} Per gestire tutte le problematiche che avvengono dopo la consegna del prodotto, una specifica fase di manutenzione viene prevista. Inoltre, data la costante evoluzione dei sistemi hardware e software la fase di manutenzione si occupa dell'aggiornamento del sistema in modo che il cliente abbia sempre un sistema aggiornato ed efficace.
+%------------------------------------------------
 
-\newline
+\begin{frame}
+{\centerline{Back to the example (8/9)}}
 
+$$N\left(\frac{c-75}{10/\sqrt[]{n}}\right) = 0.159; N\left(\frac{c-77}{10/\sqrt[]{n}}\right) = 0.841; $$
+Solution: $n=100; c=76.$ 
+
+Note, $K_3(73) = 0.001; and K_3(79) = 0.999$.
+
+\begin{center}  
+\includegraphics[width=11cm]{A2022.IDSEPC.SperimentazioneDeduzione/k3.png}
+\end{center}
+
+\vspace*{0.5cm}
 \begin{center}
-\tiny
-Fonte: \url{http://www.railshorde.com/blog/waterfall-development-model}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
+\end{center}
+
+\end{frame}
+%----------------------------------------------------------------------------------------
+
+
+
+%------------------------------------------------
+
+\begin{frame}
+{\centerline{Back to the example (9/9)}}
+
+Comparison of tests ($K_1, K_2,$ and $K_3$):
+  
+\begin{center}  
+\includegraphics[width=11cm]{A2022.IDSEPC.SperimentazioneDeduzione/kk.png}
+
+\end{center}
+
+\vspace*{0.5cm}
+\begin{center}
+\textcolor{green}{\textit{Remember, this is just a trailer, you are not required to fully learn it right now $\ldots{}$}}
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{Il modello di sviluppo a cascata -- commento}}
 
-\textcolor{blue}{\bf Ovviamente tutto quanto detto sopra \`{e} lo sviluppo a cascata nei desideri di chi lo ha ideato ... una sorta di lettera a babbo natale!}
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
 
+\begin{frame}
+{\centerline{Hypothesis testing. Type I and II errors}}
+
+%table
 \begin{center}
-\includegraphics[width=30mm]{A2022.IDSEPC.ProcessoDiProduzione/san_nicolo-201x300.jpg}
+\includegraphics[height=4.5cm]{A2022.IDSEPC.SperimentazioneDeduzione/t1-t2-examples.jpg}
 \end{center}
-\vspace{0.5cm}
 
+\vspace*{0.5cm}
 \begin{center}
 \tiny
-Fonte: \url{https://www.triesteallnews.it/wp-content/images/2019/12/san_nicolo-201x300.jpg}
-\end{center}
-
-
-\end{frame}
-
-
-\begin{frame}{\centerline{Vantaggi del modello di sviluppo a cascata}}
-
-
-\begin{itemize}
-\item  Semplice da usare e capire.
-
-\item  Ogni fase viene sviluppata individualmente in modo che ci si dedica a fondo e con concentrazione ad una azione alla volta.
-
-\item  Funziona bene per piccoli progetti dove i requisiti sono ben compresi.
-
-\item  Ogni fase ha le attivit\`{a} che deve svolgere in modo preciso.
-
-\item  Ogni fase \`{e} documentata nel dettaglio per evitare qualunque possibile ambiguit\`{a}.
-
-\item \textcolor{red}{Notate di nuovo che questi sono i desiderata \ldots{} che poi la realt\`{a} corrisponda ad essi, \`{e} un altro discorso.}
-
-\end{itemize}
-
-\end{frame}
-\begin{frame}{\centerline{Svantaggi del modello di sviluppo a cascata}}
-
-
-\begin{itemize}
-\item Il primo svantaggio che appare \`{e} che il tutto \`{e} molto sequenziale e si pu\`{o} fare solo una cosa alla volta; \textcolor{red}{questo confligge con la natura combinatoria e iterativa dei problemi wicked.} 
-
-\item  I requisiti devono essere definiti all'inizio; se un requisito viene identificato dopo, esso non pu\`{o} essere inserito con facilit\`{a} nel processo di sviluppo.
-
-
-\item Il modello a cascata non permette facilmente iterazioni e il progetto nella sua interezza va integrato alla fine.
-
-\item I clienti possono avere accesso al progetto solo alla fine. Non sono rilasciati prototipi o sistemi parziali in anticipo.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{\centerline{Applicabilit\`{a} del modello di sviluppo a cascata}}
-
-
-\begin{itemize}
-
-\item  Non ci devono essere requisiti ambigui.
-
-\item  I requisiti devono essere ben documentati e fissati in anticipo.
-
-\item  La tecnologia in uso (hardware, sistema operativo, API, ...) non deve cambiare durante il progetto.
-
-\item  La definizione del prodotto deve essere stabile.
-
-\item  Risorse con esperienza devono essere presenti per aiutare lo sviluppo del prodotto.
-\end{itemize}
-
-\end{frame}
-
-\begin{frame}{\centerline{Evoluzioni e raffinamenti}}
-
-
-\begin{itemize}
-
-\item  Il modello di sviluppo a V, con gli associati
-\begin{itemize}
-\item modello a dente di sega e 
-\item modello a dente di squalo
-\end{itemize}
-
-\item  Lo sviluppo incrementale.
-
-\item  Il modello prototipale.
-
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}{\centerline{Modello di sviluppo a spirale}}
-
-\begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-03.png}
-\end{center}
-
-\begin{center}
-\tiny
-Fonte: \url{https://en.wikipedia.org/wiki/Spiral\_model}
+Taken with modifications from: \url{https://www.statisticssolutions.com/wp-content/uploads/2017/12/rachnovblog.jpg}
 \end{center}
 
 \end{frame}
 
-\begin{frame}{\centerline{Principi del modello di sviluppo a spirale}}
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
 
+\begin{frame}
+{\small \centerline{Hypothesis testing. Hints for the terminology}}
 
-Il modello di sviluppo a spirale \est{} un approccio iterativo allo sviluppo software in cui ogni ciclo della spirale ha le seguenti caratteristiche:
-
+The following concepts are all equivalent:
 \begin{itemize}
-
-\item  Determinazione degli artifatti da sviluppare concorrente e non sequenziale
-
-\item  Inclusione in ogni ciclo della spirale dei sequenti elementi:
-
-\begin{itemize}
-\item  revisione degli obiettivi e dei vincoli degli stakeholder critici del sistema,
-\item  analisi di processi e prodotti alternativi,
-\item  identificazione e risoluzione dei rischi,
-\item  revisione con gli stakeholder,
-\item  esplicita decisione di continuare o terminazione del progetto.
-\end{itemize}
-\end{itemize}
-\end{frame}
-\begin{frame}{\centerline{Ingredienti del modello di sviluppo a spirale}}
-
-
-\begin{itemize}
-\item  Uso dell'analisi del rischio per determinare il livello di sforzo necessario ad ogni attivit\`{a} all'interno di ogni ciclo della spirale
-
-\item  Gestione all'interno di ogni ciclo della spirale degli accordi con gli stakeholder sulla struttura e sul contenuto del processo di sviluppo.
-
-\item  Enfasi su attivit\`{a} e artefatti del sistema e del processo di produzione nel loro insieme e non soltanto sul software risultante alla fine.
-
+\item ``significance level" 
+\item ``size of the critical region"
+\item ``power of the test when $H_0$  is true,"
+\item ``the probability of committing an error of type I"
 \end{itemize}
 
-
 \end{frame}
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
 
-%---------------------------------------------
-\begin{frame}{\centerline{L'\textcolor{red}{Agile Manifesto} (1/2)}}
-\begin{itemize}
-    \item Nel Febbraio 2001 un gruppo di softwaristi molto esperti formalizz\`{o} un nuovo modo di sviluppare software in un \textcolor{red}{Manifesto}
-    \item Questo manifesto sintetizzava pratiche che si erano sviluppate nel tempo, alcune che risalivano agli albori dello svilupo software
-    \item Di fatto il manifesto era una istanziazione del modello di sviluppo a spirale
-    \item Al manifesto faceva poi seguito una lista di principi
-\end{itemize}
-\end{frame}
-
-
-%---------------------------------------------
-\begin{frame}{\centerline{L'\textcolor{red}{Agile Manifesto}(2/2)}}
-
-\begin{center}
-\includegraphics[width=80mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img00.png}
-\end{center}
-\begin{center}
-\tiny
-Fonte: \url{https://agilemanifesto.org}
-\end{center}
-
-\end{frame}
-%=============================================
-
-
-%---------------------------------------------
-\begin{frame}{\centerline{Agile Manifesto}}
-
-
-L'``Agile Manifesto'' identifica due insiemi di valori:
-\begin{itemize}
-    \item quelli a destra del documento
-    \item quelli a sinistra del documento
-\end{itemize}
-
-\begin{center}
-\includegraphics[width=120mm]{A2022.IDSEPC.ProcessoDiProduzione/img-img01.png}
-\end{center}
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Principi dell'Agile Manifesto (1/2)}}
-
-\begin{itemize}
-\item  Our highest priority is to satisfy the customer through early and continuous delivery of valuable software
-\item  Welcome changing requirements, even late in development, Agile processes harness change for the customer's advantage
-\item  Business people and developers must work together daily throughout the project
-\item  Deliver working software frequently, from a couple of weeks to a couple of months, with a preference to the shorter timescale
-\item  Build projects around motivated individuals
-\item  Give them the environment and support they need, and trust them to get the job done
-\item  The most efficient and effective method of conveying information to and within a development team is face-to-face conversation
-\end{itemize}
-
-\begin{center}
-\tiny
-Fonte: \url{https://http://agilemanifesto.org/principles.html}
-\end{center}
-
-\end{frame}
-%=============================================
-
-%---------------------------------------------
-\begin{frame}{\centerline{Principi dell'Agile Manifesto (2/2)}}
-
-\begin{itemize}
-\item  Working software is the primary measure of progress
-\item  Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely
-\item  Continuous attention to technical excellence and good design enhances agility
-\item  Simplicity -- the art of maximizing the amount of work not done -- is essential
-\item  The best architectures, requirements, and designs emerge from self-organizing teams
-\item  At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly
-\end{itemize}
-
-\begin{center}
-\tiny
-Fonte: \url{https://http://agilemanifesto.org/principles.html}
-\end{center}
-
-\end{frame}
-%=============================================
-
-
-%=============================================
 
 
 \begin{frame}
