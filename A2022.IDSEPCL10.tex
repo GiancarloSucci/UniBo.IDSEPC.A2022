@@ -162,6 +162,7 @@ Lezione 10: Correlazione} % The short title appears at the bottom of every slide
 \item Covariance
 \item Correlation (aka Pearson product-moment correlation coefficient)
 \item Relationship between Pearson correlation and linear regression
+\item Non parametric correlations
 \end{itemize}
 \end{frame}
 
@@ -612,6 +613,216 @@ $$ r_{X,Y}   = \frac{Var(X)}{\sigma_X\sigma_Y} \theta_1  $$
 
 
 \end{frame}
+
+
+
+\begin{frame}
+{\centerline{Non parametric correlations}}
+
+\begin{itemize}
+    \item Spearman's rank correlation coefficient
+    \item Kendall's $\tau$
+    \item $\ldots{}$
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Spearman's Rank Correlation Coeff. (1/3)}}
+
+\begin{itemize}
+   \item What can we do when the data is not normally distributed?
+   \item Or even if the data is not on a ratio scale, just on an ordinal scale?\newline
+   \item \textit{If the data is on a nominal scale, the concept of correlation looses interest; at most we can consider clustering.}
+\end{itemize}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Spearman's Rank Correlation Coeff. (2/3)}}
+Idea:
+\begin{itemize}
+   \item Transform the data into ranks
+   \item Apply the Pearson correlation coefficient to ranks
+   \item Indeed, the values can be different, and also the significance and the mutual relationship
+   \item Remember that:
+   $$r_{X,Y} = \frac{Cov(X,Y)}{\sigma_X\sigma_Y}$$
+   \item And also that:
+   $$ \theta_1  = \frac{\sigma_X\sigma_Y}{Var(X)} r_{X,Y}   $$
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Spearman\%27s_rank_correlation_coefficient}}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Spearman's Rank Correlation Coeff. (3/3)}}
+Definition:
+\begin{itemize}
+   \item Let's have two sets $X = \{X_i\}$ and $Y= \{Y_i\}$ of the same size $n$ where $(\forall i) X_i,Y_i \in \text{ordinal scale}$
+   \item Let's consider a set of pairs $P_{X,Y} = \{(X_i,Y_i)\}$ 
+   \item Let's define 
+   \begin{itemize}
+   \item $(\forall X_i \in X) ~ rk{_X{_i}} = \text{rank}(X_i,X)$, $Rk_X = \{ rk_{X{_i}} \} $ 
+   \item $(\forall Y_i \in Y) ~ rk_{Y{_i}} = \text{rank}(Y_i,Y)$, $Rk_Y = \{ rk_{Y{_i}} \} $ 
+\end{itemize}
+    \item We define the Spearman's Rank Correlation Coefficient between $X$ and $Y$, $r_S(X,Y)$ as:
+    $$r_S(X,Y) = r(Rk_X, Rk_Y) = \frac{Cov(Rk_X,Rk_Y)}{\sigma_{Rk_X}\sigma_{Rk_Y}}$$
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Spearman\%27s_rank_correlation_coefficient}}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Visualization of $r_S$}}
+
+Spearman's Rank Correlation Coefficient is based on monotonicity:
+
+\begin{center}
+\includegraphics[width=0.45\textwidth]{A2022.IDSEPC.Correlazione/600px-Spearman_fig4.png}
+\includegraphics[width=0.45\textwidth]{A2022.IDSEPC.Correlazione/600px-Spearman_fig5.png}
+\end{center} 
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Spearman\%27s_rank_correlation_coefficient}}
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{$r$ and $r_S$ (1/2)}}
+
+Indeed, the values of $r$ and $r_S$ can be different:
+
+\begin{center}
+\includegraphics[width=0.475\textwidth]{A2022.IDSEPC.Correlazione/600px-Spearman_fig1.png}
+\includegraphics[width=0.475\textwidth]{A2022.IDSEPC.Correlazione/600px-Spearman_fig3.png}
+
+\end{center} 
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Spearman\%27s_rank_correlation_coefficient}}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{$r$ and $r_S$ (2/2)}}
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{A2022.IDSEPC.Correlazione/Examples-of-Pearson-and-Spearman-correlations-In-each-subplot-r-is-Pearson-correlation.jpeg}
+\end{center} 
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://www.researchgate.net/figure/Examples-of-Pearson-and-Spearman-correlations-In-each-subplot-r-is-Pearson-correlation_fig7_224915794}}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{About $r_S$}}
+Note that:
+\begin{itemize}
+   \item Two identical values are assigned their fractional rank
+   \begin{itemize}
+   \item So if we have as values 20, 20, 30, 35, 36, then their ranks should be 1.5 (the average between 1 and 2), 1.5, 3, 4, 5 respectively
+\end{itemize}
+   \item Taking into account that we are dealing with integer ranks, we can simplify the formula as follows if all values are different:
+   $$ r_{s}={1-{\frac {6\sum d_{i}^{2}}{n(n^{2}-1)}}}$$
+   \begin{itemize}
+   \item where each $d_i$ is equal to the difference in rank between $X_i$ and $Y_i$:
+   $$d_i = Rk_{X_i} - Rk_{Y_i}$$
+   \item and $n$ is the number of observations
+\end{itemize}
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Spearman\%27s_rank_correlation_coefficient}}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Significance of $r_S$ (1/2)}}
+
+\begin{itemize}
+    \item Being based on ordinals and non assuming anything on the distribution of the underlying populations, the computation of the significance of $r_S$ is based on permutations
+    \item This belong to the family of permutation tests
+    \begin{itemize}
+    \item A permutation test (or exact test) is a type of statistical significance test in which the distribution of the test statistic under the null hypothesis is obtained by calculating all possible values of the test statistic under rearrangements of the labels on the observed data points
+    \end{itemize}
+    \item In our case, since I have sequence of ordinals, we can consider all possible pairs of mutual relationships and, based on this, determine if the monotonic relationship that we have obtained is significantly different from a random order
+    
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Resampling_(statistics)\#Permutation_tests}}
+\end{frame}
+
+\begin{frame}
+{\centerline{Significance of $r_S$ (2/2)}}
+
+\begin{itemize}
+    \item Consider as an example the dataset $\{(X_i,Y_i)\} = \{(10,2), (15, 0), (20, 4), (21,50)\}$
+    \item Does it have a significant positive correlation?
+    \item We need to assign ranks the elements, leading to $\{(Rk_{X_i},Rk_{Y_i})\} = \{(1,2), (2, 1), (3, 3), (4,4)\}$
+    \item This leads to $r_S = 0.8$
+    \item To compute the significance, I determine the number of times the comparison $Rk_{Y_i} \leq Rk_{Y_j}$ are true when $i<j$
+    \item These are sequences of Bernoulli trials $\ldots$
+    
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Resampling_(statistics)\#Permutation_tests}}
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Kendall's $\tau$ (1/2)}}
+An alternative non parametric correlation coefficient is the Kendall's $\tau$
+\begin{itemize}
+   \item Let's have two sets $X = \{X_i\}$ and $Y= \{Y_i\}$ of the same size $n$ where $(\forall i) X_i,Y_i \in \text{ordinal scale}$
+   \item Let's consider a set of pairs $P_{X,Y} = \{(X_i,Y_i)\}$ 
+   \item Let's assume that the two sets $X$ and $Y$ do not contain duplicates
+   \item Let's define
+   \begin{itemize}
+    \item a concordant pair, a pair of pairs $(X_i,Y_i)$ and $(X_j,Y_j)$, with $i\neq j$ where either ($X_i > X_j$ and $Y_i > Y_j$) or ($X_i < X_j$ and $Y_i < Y_j$)
+    \item a discordant pair, a pair of pairs $(X_i,Y_i)$ and $(X_j,Y_j)$, with $i\neq j$ where either ($X_i > X_j$ and $Y_i < Y_j$) or ($X_i > X_j$ and $Y_i < Y_j$)
+\end{itemize}
+
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient}}
+\end{frame}
+
+\begin{frame}
+{\centerline{Kendall's $\tau$ (2/2)}}
+\begin{itemize}
+\item We can define the Kendall's $\tau$ as:
+$$\tau ={\frac {({\text{\# concordant pairs}})-({\text{\# discordant pairs}})}{n(n-1)/2}}$$
+
+\end{itemize}
+
+\textit{\tiny
+\vspace{-\baselineskip}
+Source with modifications: \url{https://en.wikipedia.org/wiki/Kendall_rank_correlation_coefficient}}
+\end{frame}
+
+
+
 
 
 

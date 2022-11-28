@@ -1,0 +1,797 @@
+\documentclass{beamer}
+%
+% Choose how your presentation looks.
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+  \usetheme{Madrid}      % or try Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{seahorse} % or try albatross, beaver, crane, ...
+  \usefonttheme{serif}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{}
+  \setbeamertemplate{caption}[numbered]
+  \usepackage{amsmath}
+  \usepackage{tcolorbox}
+  \usepackage[export]{adjustbox}
+  \tcbuselibrary{most}
+  \usepackage{amsmath}  % conflicts with \oiint
+  \usepackage{arydshln}
+  \usepackage{tikz}
+  \usetikzlibrary{plotmarks}
+  \usepackage{pgfplots}
+  \newcommand{\Ivec}[1]{\mbox{\boldmath $#1$}}
+    \usepackage[normalem]{ulem}
+    % \usepackage{tipa}
+    \newcommand{\git}{\texttt{\textbf{git}}\xspace}
+    \usepackage{listings}
+} 
+
+
+\definecolor{myblue}{RGB}{65,105,225} 
+\definecolor{myorange}{RGB}{250,190,0}
+
+\setbeamercolor{structure}{fg=white,bg=myorange}
+\setbeamercolor*{palette primary}{fg=myblue,bg=myorange}
+\setbeamercolor*{palette secondary}{fg=white,bg=myblue}
+\setbeamercolor*{palette tertiary}{bg=myblue,fg=white}
+\setbeamercolor*{palette quaternary}{fg=white,bg=myorange!50}
+
+\setbeamercolor{frametitle}{fg=black!90!myblue}
+
+\setbeamercolor{section in head/foot}{fg=white,bg=myblue}
+\setbeamercolor{author in head/foot}{fg=black,bg=myorange}
+\setbeamercolor{title in head/foot}{fg=white,bg=myblue}
+
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\large}
+
+
+\defbeamertemplate*{headline}{mytheme}
+{%
+  \begin{beamercolorbox}[ht=2.25ex,dp=3.75ex]{section in head/foot}
+    \insertnavigation{\paperwidth}
+  \end{beamercolorbox}%
+}%
+
+\defbeamertemplate*{footline}{mytheme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor\hspace*{2em}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\hspace*{2em}\insertshortsubtitle\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{pgf}  
+\usepackage{textpos}
+\usepackage{tabulary}
+\usepackage{scrextend}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{rotating}
+\lstset
+{
+    language=[LaTeX]TeX,
+    breaklines=true,
+    basicstyle=\tt\scriptsize,
+    %commentstyle=\color{green}
+    keywordstyle=\color{blue},
+    %stringstyle=\color{black}
+    identifierstyle=\color{magenta},
+}
+\newcommand{\bftt}[1]{\textbf{\texttt{#1}}}
+%\newcommand{\comment}[1]{{\color[HTML]{008080}\textit{\textbf{\texttt{#1}}}}}
+\newcommand{\cmd}[1]{{\color[HTML]{008000}\bftt{#1}}}
+\newcommand{\bs}{\char`\\}
+\newcommand{\cmdbs}[1]{\cmd{\bs#1}}
+\newcommand{\lcb}{\char '173}
+\newcommand{\rcb}{\char '175}
+\newcommand{\cmdbegin}[1]{\cmdbs{begin\lcb}\bftt{#1}\cmd{\rcb}}
+\newcommand{\cmdend}[1]{\cmdbs{end\lcb}\bftt{#1}\cmd{\rcb}}
+
+\newcommand{\wllogo}{\textbf{Overleaf}}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={Overleaf Example},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same}
+
+% this is where the example source files are loaded from
+% do not include a trailing slash
+\newcommand{\fileuri}{https://raw.githubusercontent.com/GiancarloSucci/UniBo.IDSEPC.A2022/main/A2022.IDSEPCLaTeX/}
+
+\include{definizioniGiancarlo.tex}
+
+\usepackage{stackengine}
+\def\Ruble{\stackengine{.67ex}{%
+  \stackengine{.48ex}{\textsf{P}}{\rule{.8ex}{.12ex}\kern.6ex}{O}{r}{F}{F}{L}%
+  }{\rule{.8ex}{.12ex}\kern.6ex}{O}{r}{F}{F}{L}\kern-.1ex}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+\title[L02]{Introduzione alla data science e al pensiero computazionale\\
+Lezione 11: Regressione Logistica} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author[{\tiny Giancarlo Succi }]{Giancarlo Succi\\\\ Dipartimento di Informatica -- Scienza e Ingegneria\\Universit\`{a} di Bologna\\
+\bftt{g.succi@unibo.it}
+} % Your name
+\institute[unibo] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+
+\date{} % Date, can be changed to a custom date
+
+\setbeamertemplate{navigation symbols}{}
+\AtBeginSection[]
+{
+        \begin{frame}<beamer>{Outline}
+                \tableofcontents[currentsection]
+        \end{frame}
+}
+
+\begin{document}
+\begin{frame}
+\titlepage % Print the title page as the first slide
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Content}}
+
+\begin{itemize}
+\item Covariance
+\item Correlation (aka Pearson product-moment correlation coefficient)
+\item Relationship between Pearson correlation and linear regression
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Outline}}
+\begin{itemize}
+\item Likelihood function, definition
+\item Maximum likelihood
+\item Log likelihood
+\item Logistic regression
+\end{itemize}
+
+\vspace*{2cm}
+Some slides are take from: \url{https://www.cs.ox.ac.uk/people/nando.defreitas/}
+\end{frame}
+
+
+%----------------------------------------------------------------------------------------
+%------------------------------------------------
+\begin{frame}
+{\centerline{Likelihood function }}
+Let $X_1,X_2,...,X_n$ denote a random sample from p.d.f.
+$$X_i \sim f_{\theta}(x),$$
+where $\theta$ represents one ore more unknown parameters of the distribution.
+
+The joint p.d.f. of $X_1, X_2, ..., X_n$ is $f_{\theta}(x_1),f_{\theta}(x_2),...,f_{\theta}(x_n)$.
+
+If we consider this joint p.d.f. as a function of $\theta$ it is called \textit{likelihood function} of a random sample:
+$$L_{x_1,x_2,...,x_n}(\theta)=f_{\theta}(x_1),f_{\theta}(x_2),...,f_{\theta}(x_n).$$
+\end{frame}
+
+\begin{frame}
+{\centerline{Maximum likelihood}}
+Let's consider an estimator of $\theta$:
+$$\hat{\theta} = u(X_1,X_2,...,X_n).$$
+
+If for every possible $\theta$ $L_{x_1,x_2,...,x_n}(\hat{\theta})$ is at least as great as $L_{x_1,x_2,...,x_n}(\theta)$ then $\hat{\theta}$ is called \textit{maximum likelihood estimator}.
+
+Finally:
+$$\hat{\theta} = \argmax\limits_{\theta}(L_{x_1,x_2,...,x_n}(\theta))$$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Maximum loglikelihood}}
+Note that, since the likelihood function $L_{x_1,x_2,...,x_n}(\theta)$ and its logarithm $ln(L_{x_1,x_2,...,x_n}(\theta))$, are maximized for the same value $\theta$, either likelihood or its logarithm can be used to find maximum likelihood estimator:
+$$\hat{\theta} = \argmax\limits_{\theta}(ln(L_{x_1,x_2,...,x_n}(\theta)))$$
+\end{frame}
+
+\begin{frame}
+{\centerline{The concept of regression}}
+
+Regressions can be of multiple types, so far we have analysed the so called OLS regression:
+\begin{itemize}
+\item quadratic cost function of the kind $\sum_i (\hat{y}_i - y_i)^2$
+\item linear model of the kind $\hat{y} =  \mathbf{A} \mathbf{x} + \mathbf{\eta}$
+\end{itemize}
+
+\vspace*{1cm}
+What if:
+\begin{itemize}
+\item we use a different objective function, or
+\item we use a different model
+\end{itemize}
+\centerline{\textcolor{red}{\Huge \bf ?}}
+\vspace*{1cm}
+\textit{Remember that model is called ``the \textcolor{red}{mean} function'' and its inverse ``the \textcolor{red}{link} function.''}
+\end{frame}
+
+\begin{frame}
+{\centerline{Posing a different problem}}
+Let's suppose to have:
+\begin{itemize}
+\item three iid random variables $y_i$ with $ i \in [1 \ldots 3]$
+\item with the same partially unknown pdf, that is
+\item ($\forall i$) $y_i \thicksim N(\theta,1)$
+\item $\theta$ to be determined.
+\end{itemize}
+
+We want to determine the value of $\theta$ that maximizes the probability of obtaining $y_1$ and $y_2$ and $y_3$.\\
+
+\vspace*{0.5cm}
+In other terms our objective function is the probability of occurrence of $y_1$ and $y_2$ and $y_3$.
+
+\vspace*{0.5cm}
+We are looking for a maximum likelihood estimator!
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the highest probability}}
+Our objective function is therefore:
+$$P(y_1, y_2, y_3 | \theta) = P(y_1 | \theta) \times P(y_2 | \theta) \times P(y_3 | \theta)$$
+
+We can rewrite this problem as:
+
+$$ \max_{\theta}(\prod_{i=1}^3 P(y_i | \theta)) $$
+%\textcolor{blue}{careful! since $\theta$ is not a random variable, $P(y_i | \theta))$ =?}
+\vspace*{0.2cm}
+
+Note that since $\theta$ is a \textit{crisp} value:
+\centerline{
+$ y_i \thicksim N(\theta,1) = $ a shift of $\theta$ of $N(0,1) $}
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Using concrete numbers - 1}}
+Let us assume that:
+\begin{itemize}
+\item $y_1 = 1$
+\item $y_2 = 0.5$
+\item $y_3 = 1.5$
+\end{itemize}
+Remember that $N(\theta,\sigma) = \dfrac 1 {\sigma \sqrt{2 \pi} } \, e^{-\dfrac { \left({y - \theta}\right)^2} {2 \sigma^2} }$\\
+\vspace{0.5cm}
+
+Therefore, we want to maximize:\\
+$ \prod_{i=1}^3 P(y_i | \theta) = \prod_{i=1}^3 \dfrac 1 {\sqrt{2 \pi} } \, e^{-\dfrac { \left({y_i - \theta}\right)^2} {2} } = $\\
+\vspace{0.5cm}
+
+$= \dfrac 1 {\sqrt{2 \pi} } \, e^{-\dfrac { \left({1 - \theta}\right)^2} {2} } \times  \dfrac 1 {\sqrt{2 \pi} } \, e^{-\dfrac { \left({0.5 - \theta}\right)^2} {2} } \times  \dfrac 1 {\sqrt{2 \pi} } \, e^{-\dfrac { \left({1.5 - \theta}\right)^2} {2} }$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Using concrete numbers - 2}}
+
+This is like maximizing:
+\textcolor{blue}{
+$$e^{-\dfrac { \left({1 - \theta}\right)^2} {2} } \times e^{-\dfrac { \left({0.5 - \theta}\right)^2} {2} } \times e^{-\dfrac { \left({1.5 - \theta}\right)^2} {2} } = $$
+}\textcolor{cyan}{
+$$ = e^{-\dfrac { \left({1 - \theta}\right)^2} {2} -\dfrac { \left({0.5 - \theta}\right)^2} {2} -\dfrac { \left({1.5 - \theta}\right)^2} {2}} = $$
+}\textcolor{red}{
+$$ = e^{-\dfrac { ({1 - \theta})^2 + ({0.5 - \theta})^2 + ({1.5 - \theta})^2 } {2} } = e^{-\dfrac { 3.5 - 6 \theta + 3 \theta ^2 } {2} } $$
+}
+This is like minimizing $ g(\theta) = 3.5 - 6 \theta + 3 \theta ^2 $.
+$$\frac{d g(\theta)}{d \theta} = \frac{d 3.5 - 6 \theta + 3 \theta ^2}{d \theta} = -6 + 6 \theta$$
+Which becomes 0 for $\theta = 1$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{What we have discovered }}
+Our solution is therefore $\theta = 1$ and the desired pdf is $N(1,1)$. But ... 
+$$mean(1, 0,5, 1.5) = 1$$
+
+\vspace*{3.5cm}
+We can try to generalize it...
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Generalizing ... }}
+
+Let's suppose to have:
+\begin{itemize}
+\item $n$ iid random variables $y_i$ with $ i \in [1 \ldots n]$
+\item with the same partially unknown pdf, that is
+\item ($\forall i$) $y_i \thicksim N(\theta,\sigma)$
+\item $\theta$ and $\sigma$ to be determined.
+\end{itemize}
+
+We want to determine the value of $\theta$ that maximizes the probability of obtaining ($\forall i$) $y_i$.\\
+
+\vspace*{0.5cm}
+In other terms our objective is to maximize the probability of occurrence of all $y_i$, that is a maximum likelihood estimation.
+
+\vspace*{0.5cm}
+Typically, we would perform a least square estimation, and we know that optimal least square estimator is the Gaussian centered in the average of the points, with their standard deviation.
+\end{frame}
+
+
+
+
+\begin{frame}
+{\centerline{Maximum likelihood estimator (again) }}
+Let' look for a maximum likelihood estimator!
+$$ \max_{\sigma, \theta}(\prod_{i=1}^n P(y_i | \sigma, \theta)) = \max_{\sigma, \theta}(\prod_{i=1}^n P(y_i | \sigma, \theta)) =  \max_{\sigma, \theta}(\prod_{i=1}^n \dfrac 1 {\sigma \sqrt{2 \pi} } \, e^{-\dfrac { ({y_i - \theta})^2} {2 \sigma^2} })=$$
+
+$$ = \max_{\sigma, \theta} \big((\dfrac 1 {\sigma \sqrt{2 \pi} } )^{n} \prod_{i=1}^n  e^{-\dfrac { ({y_i - \theta})^2} {2 \sigma^2} }\big))=
+\max_{\sigma, \theta} \big((\dfrac 1 {\sigma \sqrt{2 \pi} } )^{n} e^{- \sum_{i=1}^n  \dfrac { ({y_i - \theta})^2} {2 \sigma^2} }) = $$
+
+$$  =
+\max_{\sigma, \theta} \big((\dfrac 1 {\sigma \sqrt{2 \pi} } )^{n} e^{-   \dfrac { 1 } {2 \sigma^2} \sum_{i=1}^n  ({y_i - \theta})^2} ) $$
+
+At this point we can take the log of the expression, knowing that the log function is differentiable and monotonically increasing on all $\mathbb{R}$.
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Computing the ml estimator - 1}}
+
+$$log\big((\dfrac 1 {\sigma \sqrt{2 \pi} } )^{n} e^{-   \dfrac { 1 } {2 \sigma^2} \sum_{i=1}^n  ({y_i - \theta})^2} ) =$$
+
+$$= n \times log (\dfrac 1 {\sigma \sqrt{2 \pi} }) + log(e^{ - \dfrac { 1 } {2 \sigma^2} \sum_{i=1}^n  ({y_i - \theta})^2}) =$$
+
+$$= n \times log (\dfrac 1 {\sigma \sqrt{2 \pi} }) - \dfrac { 1 } {2 \sigma^2} \times \sum_{i=1}^n  ({y_i - \theta})^2 $$
+
+Taking the partial derivative over $\theta$ we obtain: 
+
+$$\frac{\partial \Big(n \times log (\dfrac 1 {\sigma \sqrt{2 \pi} }) - \dfrac { 1 } {2 \sigma^2} \times \sum_{i=1}^n  ({y_i - \theta})^2 \Big)}{\partial \theta} = $$
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the ml estimator - $\theta$}}
+
+$$ = - \frac{\partial \Big( \dfrac { 1 } {2 \sigma^2} \times \sum_{i=1}^n  ({y_i - \theta})^2 \Big)}{\partial \theta} = - \dfrac { 1 } {\sigma^2} \times \Big( \sum_{i=1}^n  ({y_i - \theta}) \Big) $$
+And equating it to 0:
+$$ - \dfrac { 1 } {\sigma^2} \times \Big( \sum_{i=1}^n  ({y_i - \theta}) \Big) = 0 ~\textcolor{red}{\Rightarrow}~
+ \sum_{i=1}^n y_i = n \times \theta 
+~\textcolor{red}{\Rightarrow}~
+ \theta = \frac {\sum_{i=1}^n y_i} n  $$
+ 
+\textcolor{red}{\bf Oh!} $\theta$ is the average of the observed $y_i$!
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the ml estimator - $\sigma$ - 1}}
+\textcolor{cyan}{
+$$\frac{\partial \Big(n \times log (\dfrac 1 {\sigma \sqrt{2 \pi} }) - \dfrac { 1 } {2 \sigma^2} \times \sum_{i=1}^n  ({y_i - \theta})^2 \Big)}{\partial \sigma} = $$
+}\textcolor{blue}{
+$$ = \frac{\partial\Big( n \times log (\dfrac 1 {\sigma \sqrt{2 \pi} })\Big) }{\partial \sigma} - \frac{\partial \Big( \dfrac { 1 } {2 \sigma^2} \times \sum_{i=1}^n  ({y_i - \theta})^2 \Big)}{\partial \sigma} = $$
+}\textcolor{red}{
+$$  = - \frac n {\sigma} + \frac 1 {\sigma^3} \times \sum_{i=1}^n  ({y_i - \theta})^2$$
+}
+And equating it to 0:
+
+$$ 
+- \frac n {\sigma} + \frac 1 {\sigma^3} \times \sum_{i=1}^n  ({y_i - \theta})^2 = 0 
+~\textcolor{red}{\Rightarrow}~
+ \Big(\sum_{i=1}^n  ({y_i - \theta})^2 \Big) \times  \frac 1 {\sigma^3} = \frac n {\sigma} 
+$$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the ml estimator - $\sigma$ - 2}}
+
+Assuming $\sigma \ne 0$: 
+$$ 
+~\textcolor{red}{\Rightarrow}~
+ \Big(\sum_{i=1}^n  ({y_i - \theta})^2 \Big) = n \times \sigma^2 
+ ~\textcolor{red}{\Rightarrow}~
+$$
+But we know $\theta = \overline{y_i}$, therefore:
+$$
+~\textcolor{red}{\Rightarrow}~
+ \sigma^2 = {\frac 1 n} \times \Big(\sum_{i=1}^n  ({y_i - \overline{y_i}})^2 \Big) 
+ $$
+ 
+\textcolor{red}{\bf Oh!} $\sigma$ is the standard deviation of the observed $y_i$!
+
+\end{frame}
+
+\begin{frame}
+{\centerline{What we have found}}
+
+We have determined that the maximum likelihood estimator for a sequence of points assumed to be distributed normally is formed by a normal distribution with:
+\begin{itemize}
+\item average equal to the average of the sample,
+\item standard deviation equal to the standard derivation of the sample.
+\end{itemize}
+
+This coincides with the best quadratic estimator!
+\vspace{1cm}
+
+We now move forward considering the maximum likelihood estimator for a regression line, meaning, what happens if now we want to model an interdependencies using as objective function the maximum likelihood.
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Ml linear regression - HPs}}
+
+Let's suppose to have:
+\begin{itemize}
+\item $n \times m$ values $x_{i,j}$ with $ i \in [1 \ldots n]$, $ j \in [1 \ldots m]$ represented in short by a matrix $\boldsymbol{X}$ or a vector $\mathbf{x_i}$, $n>m$ \textit{(why?)}
+\item $n$ iid random variables $y_i$ with $ i \in [1 \ldots n]$ represented in short by a vector $\boldsymbol{y}$
+\item a linear relationships $\boldsymbol{\theta}$ between $\boldsymbol{X}$  and $\boldsymbol{y}$, \textit{that is, we use the usual \textcolor{red}{link / mean} functions}
+\item each $y_i$ distributed normally with mean $\boldsymbol{x_i^T \theta}$ and standard deviation $\sigma$ (the same $\sigma$ for all $y_i$), that is 
+\item ($\forall i$) $y_i \thicksim N(\boldsymbol{x_i^T \theta},\sigma)$
+\item $\boldsymbol{\theta}$ and $\sigma$ to be determined.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+{\centerline{Ml linear regression - goals}}
+
+We want to determine the value of $\boldsymbol{\theta}$ and $\sigma$ that maximizes the probability of obtaining ($\forall i$) $y_i$, that is:
+
+$$ \max_{\theta, \sigma}( P(\mathbf{y} | \boldsymbol{X}, \boldsymbol{\theta}, \sigma)) = \max_{\boldsymbol{\theta}, \sigma}(\prod_{i=1}^n P(y_i | \boldsymbol{x_i}, \boldsymbol{\theta}, \sigma)) $$
+
+
+\vspace*{0.5cm}
+In other terms, our objective function is the conditional probability of occurrence of all $y_i$.
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the optimal $\theta$ - 1}}
+We can express for simplicity our equation in vectorial form:
+$$\max_{\sigma, \boldsymbol{\theta}}\left ( \left (\dfrac 1 {\sigma \sqrt{2 \pi} } \right)^n \, e^{-\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} }\right)$$
+
+As mentioned, this is equivalent to maximizing the log:
+
+$$\max_{\sigma, \boldsymbol{\theta}} \left( log \left (\left (\dfrac 1 {\sigma \sqrt{2 \pi} } \right )^n \, e^{-\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} }\right) \right )$$
+
+Which becomes:
+$$\max_{\sigma, \boldsymbol{\theta}} \left( n \times log \left (\dfrac 1 {\sigma \sqrt{2 \pi} } \right ) + log \left( \, e^{-\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} }\right) \right )$$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the optimal $\theta$ - 2}}
+
+$$\max_{\sigma, \boldsymbol{\theta}} \left( n \times log \left (\dfrac 1 {\sqrt{2 \pi} } \right ) + n \times log \left (\dfrac 1 {\sigma } \right ) -\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} \right )$$
+
+And now we take the partial derivative over $\boldsymbol{\theta}$:
+
+$$\frac{\partial \left( n \times log \left (\dfrac 1 {\sqrt{2 \pi} } \right ) + n \times log \left (\dfrac 1 {\sigma } \right ) -\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} \right )} {\partial \boldsymbol{\theta}} = $$
+
+$$= - \frac 1 {2 \sigma^2} \frac{\partial \left( { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} \right )} {\partial \boldsymbol{\theta}} =  - \frac 1 {\sigma^2}  { (\boldsymbol{y} - \boldsymbol{X\theta})}  $$
+And equating it to 0 we obtain:
+$$ - \frac 1 {\sigma^2}  { (\boldsymbol{y} - \boldsymbol{X\theta})} = 0
+~~~\textcolor{red}{\Rightarrow}~~~
+\boldsymbol{y} = \boldsymbol{X\theta}
+$$
+
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the optimal $\theta$ - 3}}
+
+If $\boldsymbol{X}$ were square, then the solution would be:
+$$ \boldsymbol{\theta} = \boldsymbol{X^{-1}y}$$
+
+But, as we said, $n > m$, therefore the solution is given by:
+
+$$ \boldsymbol{\theta} = \boldsymbol{{(X^{T}X})^{-1}X^{T}y}$$
+
+\vspace{2cm}
+
+What a surprise, isn't it?
+\end{frame}
+
+\begin{frame}
+{\centerline{Computing the optimal $\sigma$ }}
+Starting from: 
+$$\max_{\sigma, \boldsymbol{\theta}} \left( n \times log \left (\dfrac 1 {\sqrt{2 \pi} } \right ) + n \times log \left (\dfrac 1 {\sigma } \right ) -\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} \right )$$
+
+And now we take the partial derivative over $\sigma$:
+
+$$\frac{\partial \left( n \times log \left (\dfrac 1 {\sqrt{2 \pi} } \right ) + n \times log \left (\dfrac 1 {\sigma } \right ) -\dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} {2 \sigma^2} \right )} {\partial \sigma} = $$
+
+$$= - \dfrac n {\sigma } +  \dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} { \sigma^3 } $$
+And equating it to 0, assuming as usual $\sigma \ne 0$ we obtain:
+$$ \sigma^2 = \dfrac { (\boldsymbol{y} - \boldsymbol{X\theta})^T (\boldsymbol{y} - \boldsymbol{X\theta})} { n }
+$$
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Maximum likelihood estimator - properties}}
+\underline{Claim 1:} The maximum likelihood estimator of a Gaussian distribution over a set of points coincides with the OLS estimator.\\
+\underline{Proof:} See above.\\
+\underline{QED}
+
+\vspace{2cm}
+\underline{Claim 2:} The maximum likelihood linear regression coincides with the OLS linear regression.\\
+\underline{Proof:} See above.\\
+\underline{QED}
+
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{Bernoulli and maximum likelihood}}
+
+The pdf of a Bernulli distribution can be represented in terms of conditional probability as:
+$$ P(x | \theta) = \theta^x (1-\theta)^{(1-x)} $$
+where clearly $x$ can only be 0 or 1.
+\newline
+
+We can now introduce the concept of entropy, already hinted in class. Entropy represents the level of uncertainty of a variable.
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Entropy (and Bernulli and ml)}}
+
+\underline{Definition (Entropy):} Given a random vectorial variable $\boldmath{x}$ of $n$ components and a parameter $\theta$, we define entropy of $\boldmath{x}$, $H(\boldmath{x})$ as:
+$$H(\boldmath{x}) = \sum_{i=1}^{n} p(x_i|\theta) \times log (p(x_i|\theta)) $$
+
+We notice that for a Bernulli distribution:
+$$ H(\boldmath{x}) = (1-\theta) log (1-\theta) + \theta log(\theta)$$
+
+Indeed, as $\theta$ tends to 0 or to 1 the uncertainty tends to 0, since the likely value of $\boldmath{x}$ tend to be 0 or 1 respectively.
+
+\end{frame}
+
+\begin{frame}
+{\centerline{From B\&B plus ml to LR}}
+We are now ready to move to study a radically different form or regression, the so-called logistic regression.
+\newline
+
+Our goal is to have a regression that not only represents a relationship between two variables, but is also possible to capture a prediction of probability.
+\newline
+
+However, the value of a probability is from 0 to 1, so we need a ``good'' function that can translate any value in such range.
+\newline
+
+We use often as such function the so-called ``sigmoid function.'' To introduce the sigmoid we start with the definition of a ``logistic function.''
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Logistic}}
+\underline{Definition (Logistic function):} Given $L, x_0 \in \mathbb{R}$, $k \in \mathbb{R}^+$ a
+logistic function $f(x)$ is defined as: 
+$$ f(x) = \dfrac{L}{1+e^{-k(x-x_0)}}$$
+\underline{Properties (of the logistic function:)}
+\begin{itemize}
+\item the domain is all $\mathbb{R}$
+\item the range is $[0 \ldots L]$ if $L$ is positive and $[L \ldots 0]$ if $L$ is negative
+\item $f(x)$ is continuous, monotonically increasing, and differentiable  over all its domain
+\item $f(x)$ is symmetric over $x_0$
+\item $k$ is the rate of growth of $f(x)$ and for $k \to +\infty$ $f(x)$ tends to become the step function in $x_0$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Sigmoid}}
+\underline{Definition (Sigmoid):} Given $k \in \mathbb{R}^+$, a
+sigmoid function $sigm(x)$ is defined as a logistic function with $L = 1$ and $x_0 = 0$: 
+$$ sigm(x) = \dfrac{1}{1+e^{-kx}}$$
+\underline{Properties (of the sigmoid function):}
+\begin{itemize}
+\item the domain is all $\mathbb{R}$
+\item the range is $[0 \ldots 1]$ 
+\item $sigm(x)$ is continuous, monotonically increasing, and differentiable  over all its domain
+\item $sigm(x)$ is symmetric over $0$
+\item $k$ is the rate of growth of $sigm(x)$ and for $k \to +\infty$ $sigm(x)$ tends to become the step function
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Toward a logistic regression}}
+
+Suppose that we want to determine if a given event is going to happen based on a series of $n$ predictors $x_1 \ldots x_n$. We can model the probability of occurrence of the event with a random variable $y$.
+\newline
+
+It is as if we have a sequence of flipping of coins each with different values of the possible variables that affect the result, for instance the intensity of the flipping, the temperature, the wind, etc.
+\newline
+
+Based on such set we want to  predict what will be the result of the next flipping, given a set of values assigned to the covariates.
+\newline
+
+Our question is what is:
+\begin{center}
+P(Head $|$ strong toss, strong wind, 60 degrees)\\
+
+{\Huge \textcolor{red}{\bf ?}}
+\end{center}
+
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{Toward a logistic regression}}
+Let's try to build a regression line.
+\newline
+
+As we mentioned, any time we compute a regression we need to determine:
+\begin{itemize}
+\item the function to use as a model, and in this case a linear function would not be suitable, since probabilities range from 0 to 1, for this reason we select a \textcolor{red}{sigmoid function};
+\item the objective function, and in this case the least square would be inappropriate because it is not a proper metrics space, so we opt for maximizing the conditional probability, that is, we aim at a \textcolor{red}{maximum likelihood} estimation.
+\end{itemize}
+
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - HPs}}}}
+Let 
+\begin{itemize}
+\item $(y_i,\boldmath{x_i})$  be a collection of pairs with:
+\begin{itemize}
+\item $i \in [1 \ldots n]$
+\item $y_i \in \{0,1\}$
+\item $\boldmath{x_i} \in \mathbb{R}^{m}$
+\item $n > m$
+\end{itemize}
+\item assume that the $y_i$ are iid random variables
+\item consider as target \textcolor{red}{mean} function the sigmoid
+\item consider as optimality criteria the maximum likelihood
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - goals}}}}
+
+We want to determine the values of the parameters that maximize the probability of obtaining ($\forall i$) $y_i$, that is:
+
+$$ \max_{\text{\bf \it Parameters}}( P(\mathbf{y} | \boldsymbol{X}, \text{\bf \it Parameters}) = \max_{\boldsymbol{\theta}}(\prod_{i=1}^n P(y_i | \boldsymbol{x_i}, \text{\bf \it Parameters})) $$
+
+
+\vspace*{0.5cm}
+In other terms, our objective function is the conditional probability of occurrence of all $y_i$.
+\vspace*{0.5cm}
+
+Given our link/mean: 
+$$ \max_{\theta}( P(\mathbf{y} | \boldsymbol{X}, \boldsymbol{\theta})) = \max_{\boldsymbol{\theta}}(\prod_{i=1}^n P(y_i | sigm(\boldsymbol{x_i}^{T} \boldsymbol{\theta})) $$
+
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - structure}}}}
+
+Since the pdf of a Bernulli distribution is:
+$$ P(z | k) = k^z (1-k)^{(1-z)} $$
+For us the probability k of each event is ``approximated'' by the sigmoid function (our mean function):
+
+$$ \boldsymbol{k} = \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}}$$
+
+And this lead us to
+
+$$ P(y_i | \boldsymbol{x_i}, \boldsymbol{\theta}) = \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{y_i} \times \left (1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{1-y_i}  $$
+
+
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - the problem }}}}
+
+Our problem has therefore the form of:
+$$ \max_{\theta}( P(\mathbf{y} | \boldsymbol{X}, \boldsymbol{\theta})) =  \max_{\boldsymbol{\theta}} \prod_{i=1}^n \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{y_i} \times \left ( 1-\dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{1-y_i} $$
+
+\textit{It is like finding an n-dimensional hyperplane dividing the n-dimensional hyperspace in 2 parts, those leading to y being 0 and those leading to y being 1.}
+
+\vspace*{3cm}
+
+\end{frame}
+
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - solution - 1}}}}
+Since the log function is continuous, differentiable and monotonically increasing in all ${\mathbb{R}^+}$, our problem is equivalent to:
+$$ \max_{\boldsymbol{\theta}} \left ( log \left ( \prod_{i=1}^n \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{y_i} \times \left (1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{1-y_i} \right ) \right )$$
+
+And, given the property of logs, this is like maximizing:
+\textcolor{blue}{
+$$ log \left ( \prod_{i=1}^n \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{y_i}  \right ) + log \left (  \prod_{i=1}^n \left (1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{1-y_i} \right ) = $$
+}\textcolor{red}{
+$$ = \sum_{i=1}^n log \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{y_i}  + \sum_{i=1}^n log \left (1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right )^{1-y_i} = $$
+}
+\end{frame}
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - solution - 2}}}}
+\textcolor{gray}{
+$$  = \sum_{i=1}^n y_i \times log \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) + \sum_{i=1}^n (1-y_i) \times log \left (1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) = \cdots{} $$
+}
+A bit of logarithms...
+\textcolor{blue}{
+ $$log \left ( \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) = log (1) - log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) = -log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right )$$
+ }
+ 
+ \textcolor{cyan}{
+ $$log \left ( 1 - \dfrac{1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) = log \left ( \dfrac{1 + e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} - 1}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) = log \left ( \dfrac{e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}}{1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}}} \right ) =$$
+$$= log \left ( e^{-\boldsymbol{x_i}^{T}\boldsymbol{\theta}} \right ) - log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) =  \boldsymbol{x_i}^{T}\boldsymbol{\theta} - log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) = $$
+ }
+
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - solution - 3}}}}
+
+$$ = - \sum_{i=1}^n y_i \times log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) + \sum_{i=1}^n (1-y_i) \times  \left ( \boldsymbol{x_i}^{T}\boldsymbol{\theta} - log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) \right ) = $$
+For simplicity let $w_i$ be $log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right )$.
+\textcolor{red}{
+$$
+= - \sum_{i=1}^n y_i \times w_i + \sum_{i=1}^n \boldsymbol{x_i}^{T}\boldsymbol{\theta} - \sum_{i=1}^n w_i - \sum_{i=1}^n y_i \times \boldsymbol{x_i}^{T}\boldsymbol{\theta} + \sum_{i=1}^n y_i \times w_i =
+$$
+}\textcolor{orange}{
+$$
+= \sum_{i=1}^n \boldsymbol{x_i}^{T}\boldsymbol{\theta} - \sum_{i=1}^n w_i - \sum_{i=1}^n y_i \times \boldsymbol{x_i}^{T}\boldsymbol{\theta}  =
+$$
+}\textcolor{blue}{
+$$
+= \sum_{i=1}^n (1 + y_i) \boldsymbol{x_i}^{T}\boldsymbol{\theta} - \sum_{i=1}^n w_i 
+$$
+}
+\end{frame}
+
+\begin{frame}
+{\centerline{{\centerline{Logistic regression - comments }}}}
+
+Let $f(\boldmath{\theta})$ be:
+$$
+\textcolor{red}{ \sum_{i=1}^n (1 + y_i) \boldsymbol{x_i}^{T}\boldsymbol{\theta} } - 
+\textcolor{blue}{\sum_{i=1}^n log \left( 1+e^{-\boldsymbol{x_i}^{T} \boldsymbol{\theta}} \right ) }
+$$
+\underline{Claim:} $f(\boldmath{\theta})$ is convex.
+\newline
+
+\underline{Proof:} Omitted
+\newline
+
+\underline{Consequence:}
+Optimization algorithms can easily find the maximum.
+
+
+\end{frame}
+
+
+
+\end{document}
